@@ -1,0 +1,1 @@
+module s05.study { export var html =  '<div id="slide" class="large-text">	<div ng-show="vm.page == 0">	</div>	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>' } 
