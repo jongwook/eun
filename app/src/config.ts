@@ -25,7 +25,7 @@ module Eun {
 			.when("/study", {
 				title: "학습",
 				template: s05.study.html,
-				controller: "Eun.PrepController"
+				controller: "Eun.StudyController"
 			})
 			.otherwise({
 				redirectTo: "/"

@@ -15,7 +15,7 @@ var s02;
 var s03;
 (function (s03) {
     (function (poll) {
-        poll.html = '<div id="slide" class="large-text">	<div ng-show="vm.page == 0">		다음 문항들은 여러분의 생각에 대한 질문입니다.<br>		주의깊게 읽으시고, 자신의 생각과 <span class="green">얼마나 비슷한지 표시</span>해 주시면 됩니다.<br>		정답이 있거나 좋고 나쁜 답이 있는 것이 아니므로<br>		<span class="green">&quot;내 생각과 가장 비슷하다&quot;고 생각하는 쪽</span>으로 편안하게 표시하십시오.<br>		<br>		<div class="round-box">		    1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>	    전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="40px">1<br>전혀<br>다르다</th>				<th width="40px"></th>				<th width="40px"></th>				<th width="40px"></th>				<th width="40px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td style="text-align: left;">{{vm.questions[n]}}</td>				<td ng-repeat="a in [1,2,3,4,5]">					{{a}}<br>					<input type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div>	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        poll.html = '<div id="slide" class="large-text poll">	<div ng-show="vm.page == 0">		다음 문항들은 여러분의 생각에 대한 질문입니다.<br>		주의깊게 읽으시고, 자신의 생각과 <span class="green">얼마나 비슷한지 표시</span>해 주시면 됩니다.<br>		정답이 있거나 좋고 나쁜 답이 있는 것이 아니므로<br>		<span class="green">&quot;내 생각과 가장 비슷하다&quot;고 생각하는 쪽</span>으로 편안하게 표시하십시오.<br>		<br>		<div class="round-box">		    1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>	    전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="40px">1<br>전혀<br>다르다</th>				<th width="40px"></th>				<th width="40px"></th>				<th width="40px"></th>				<th width="40px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td style="text-align: left;">{{vm.questions[n]}}</td>				<td ng-repeat="a in [1,2,3,4,5]">					{{a}}<br>					<input type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div>	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
     })(s03.poll || (s03.poll = {}));
     var poll = s03.poll;
 })(s03 || (s03 = {}));
@@ -29,7 +29,7 @@ var s04;
 var s05;
 (function (s05) {
     (function (study) {
-        study.html = '<div id="slide" class="large-text">	<div ng-show="vm.page == 0">	</div>	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        study.html = '<div id="slide" class="study">	<div ng-show="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters">{{letter[0]}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters" ng-bind-html="letter[1]"></td>			</tr>		</table>	</div>	<div ng-show="vm.page == 1" class="small-text">		<p>&nbsp;</p>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-show="vm.page == 2" class="small-text">		<p>&nbsp;</p>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters">{{letter[0]}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters" ng-bind-html="letter[1]"></td>			</tr>		</table>		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-show="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div>	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
     })(s05.study || (s05.study = {}));
     var study = s05.study;
 })(s05 || (s05 = {}));
@@ -217,6 +217,208 @@ var Eun;
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
+    var StudyController = (function () {
+        function StudyController($scope, $location, $sce) {
+            this.$scope = $scope;
+            this.$location = $location;
+            this.$sce = $sce;
+            this.stage = 0;
+            this.page = 0;
+            this.hide = 0;
+            this.idioms = [
+                {
+                    title: "함흥차사",
+                    letters: [
+                        ["咸", "다 함"],
+                        ["興", "일 흥"],
+                        ["差", "심부름꾼 차"],
+                        ["使", "사신 사"]
+                    ],
+                    story: "엄마가 부엌에서 저녁을 준비하시고 은호와 명호는 거실에서 텔레비전을 보고 있었습니다. 한참 재미있게 텔레비전을 같이 보던 명호가 친구에게 문자메시지를 받더니 “엄마 저 친구가 집 앞에 잠시 물건을 전해주러 왔다고 해서 내려갔다 올게요. 10분이면 돼요.”라고 외치며 뛰어나갔습니다. 하지만, 20분쯤 후 저녁상이 모두 차려졌을 때도 명호는 다시 돌아오지 않았습니다. “얘는 10분안에 들어온다 해놓고 왜 아직까지 <em>함흥차사(咸興差使)</em>야?” 화가 난 엄마가 명호에게 전화를 계속 합니다.",
+                    description: [" 흔히 우리는 누군가 어딘가 가서 돌아오지 않을 때나 연락이 오지 않을 때 답답하고 걱정되는 마음으로 ‘함흥차사’다 라는 말을 많이 사용합니다. 함흥으로 간 벼슬아치가 돌아오지 않아서 생긴 말, ‘함흥차사(咸興差使)’의 사전적 의미는 <em>함흥으로 보낸 심부름꾼</em>이라는 뜻으로 <em>심부름을 가서 소식이 없거나 또는 회답이 더딜 때</em>를 말합니다. "]
+                },
+                {
+                    title: "백중지세",
+                    letters: [
+                        ["伯", "맏 백"],
+                        ["仲", "버금 중"],
+                        ["之", "어조사 지"],
+                        ["勢", "형세 세"]
+                    ],
+                    story: "한국과 일본은 오는 28일 오후 8시 서울 잠실종합운동장에서 열리는 2013동아시안컵 최종전에서 격돌한다. 한일전은 자존심을 건 한판 대결이다. 정치적인 이유를 떠나 나이와 성별을 불문하고 온 국민을 열광시키는 최고의 축구 이벤트다. 한국은 일본과의 역대전적에서 75전 40승22무13패를 기록, 압도적인 우위를 보이고 있다. 그러나 일본 축구가 급속도로 발전을 이루면서 2000년대 이후 <em>백중지세(伯仲之勢)</em>를 보이고 있다. 총 13번의 대결에서 한국이 4승6무3패로 근소하게 앞서며 라이벌전 양상을 띠고 있다.",
+                    description: ["중국 관습에 형제의 나이 순서대로 ‘백’은 맏이, ‘중’은 둘째를 일컫습니다. 대게 형제는 나이차이가 크지 안아서 경험이나 능력이 비슷하고 생김새도 크게 다르지 않아서 누가 더 낫다, 모자라다는 판단을 하기가 매우 힘이 듭니다. 이처럼 ‘백중지세(伯仲之勢)’란 <em>수준이 서로 엇비슷한 사이</em>를 나타내는 말로 첫째 아들과 둘째 아들의 차이처럼 기량, 지식, 인물 됨 등이 큰 차이가 없이 <em>엇비슷한 상태라 우열을 가리지 못한다</em>는 말입니다. "]
+                },
+                {
+                    title: "난형난제",
+                    letters: [
+                        ["難", "어려울 난"],
+                        ["兄", "형 형"],
+                        ["難", "어려울 난"],
+                        ["弟", "아우 제"]
+                    ],
+                    story: "예능프로그램 ‘아빠어디가’에 출연한 동생들은 자신의 형, 누나, 오빠가 가지지 못한 색다른 매력을 어필하며 안방극장을 찾았다. 동생들은 형들이 자신들을 돌보며 형 역할을 하게 만드는 모습으로 눈길을 끌었으며 예능을 모르는 동심으로 시청자들의 관심을 한 몸에 받았다. 아직 어리고 철없는 동생들이지만, 예능감에서만큼은 <em>난형난제(難兄難弟)</em>였다.",
+                    description: [
+                        "중국 한나라에 원방과 계방이란 형제는 둘 다 사람됨이 훌륭하고 학문이 뛰어났습니다. 이들 원방과 계방의 아들 군(群)과 충(忠) 역시도 친형제처럼 항상 사이가 좋았지만 단 한 가지, 누구의 아버지가 더 훌륭한가, 문제에 관해서는 추호의 양보도 없이 입씨름을 벌였습니다. 아무리 다투어도 자기들로서는 우열을 가릴 수 없자 할아버지인 진식에게 가서 판정을 받기로 했습니다.",
+                        "자신을 찾아와서 각각 자기의 손을 들어 달라고 손자들의 진식은 질문에 껄껄 웃으며 “너희들의 아버지는 나이를 따진다면 분명 형제간이지만, 두 사람 모두 훌륭하여 학문이나 사람됨에 있어서 ‘형을 형이라 하기도 어렵고 아우를 아우라 하기도 어렵구나.’ <br>이처럼 ‘난형난제(難兄難弟)’란 <em>누가 형인지 동생인지 분간하기 어려울 만큼, 두 사물이 비슷하여 낫고 못함을 정하기 어려움</em>을 뜻하는 말입니다. "
+                    ]
+                },
+                {
+                    title: "양두구육",
+                    letters: [
+                        ["羊", "양 양"],
+                        ["頭", "머리 두"],
+                        ["狗", "개 구"],
+                        ["肉", "고기 육"]
+                    ],
+                    story: "옛날부터 사람들은 양고기는 비싸고 좋은 고기, 개고기는 싸고 질이 떨어지는 고기라고 생각해왔습니다. 만약 어느 고깃집에서 가게 입구에 양의 머리를 걸어놓으면 많은 사람들은 그 가게에서 값비싼 양고기를 판다고 생각할 것입니다. 하지만 실제로 가게에서는 양고기가 아닌 값싼 개고기를 팔고 있다면 이것은 사람들을 속이는 것일 겁니다.",
+                    description: ["<em>변변치 않은 속을 가졌지만 번듯하고 그럴듯한 겉모습으로 남을 현혹할 때</em>, 즉 <em>겉과 속이 다를 때</em> 우리는 ‘양두구육(羊頭狗肉)’이라고 합니다. 귤 한 박스를 샀는데 잘 보이는 맨 윗줄의 귤은 탱글탱글하고 맛있어 보이지만 아래 줄의 귤은 모두 썩어있는 상황에서 우리는 ‘양두구육(羊頭狗肉)이네’라고 말할 수 있을 겁니다."]
+                },
+                {
+                    title: "수수방관",
+                    letters: [
+                        ["袖", "소매 수"],
+                        ["手", "손 수"],
+                        ["傍", "겉 방"],
+                        ["觀", "볼 관"]
+                    ],
+                    story: "여러분 바로 옆에서 큰 싸움이 일어났을 때 끼어들었다가 피해를 입을까 봐 일부러 가만히 있거나 별 관심이 없어서 신경을 쓰지 않은 적 있나요? ‘옛날에는 옷에 주머니가 거의 없어서 소매가 주머니의 역할을 대신하여 날씨가 추운 날에는 주머니 대신 소매에 손을 넣기도 하였는데, 가까운 곳에서 큰 일이 일어나도 손을 소매에 넣고 관심 없이 팔짱을 끼고 곁에서 구경만 한다는 것을 가리키는 말입니다. ",
+                    description: ["수수방관(袖手傍觀)’이란 <em>간섭하거나 거들지 않고 그대로 내버려 두는 것을 이야기</em>합니다. 우리 속담으로의 우리 속담의 '강 건너 불구경하듯 한다'와 같은 뜻으로, <em>자기와는 상관없는 일이라고 다른 사람의 일에 관심이 없는 태도를 보일 때</em> 주로 쓰입니다."]
+                },
+                {
+                    title: "정중지와",
+                    letters: [
+                        ["井", "우물 정"],
+                        ["中", "가운데 중"],
+                        ["之", "어조사 지"],
+                        ["蛙", "개구리 와"]
+                    ],
+                    story: "황하의 신 하백(河伯)이 물의 흐름을 따라 처음으로 북해까지 가서 바다를 바라보면서, 그 끝이 없음에 놀라 하였다. 그러자 북해의 신 약(若)이 이렇게 말했다. “<em>우물 안에서 살고 있는 개구리에게 바다를 이야기해도 알지 못하는 것은, 그들이 좁은 장소에서 살고 있기 때문</em>이다.  또 여름 벌레에게 얼음을 말해도 알지 못하는 것은, 그들이 여름만을 굳게 믿고 있기 때문이다. 따라서 식견이 좁은 사람에게 도를 말해도 알지 못하거니와, 그것은 그들이 상식의 가르침에 구속되어 있기 때문이다. 그러나 당신은 지금 좁은 개울에서 나와 큰 바다를 바라보고 자기의 추함을 알았기 때문에, 이제 더불어 큰 진리에 대하여 말할 수 있을 것이다”",
+                    description: ["‘정중지와(井中之蛙)’란 '우물 안 개구리'라는 의미로 <em>식견이 좁음</em>을 뜻합니다. 즉, <em>실력이나 지식이 뛰어나다고 본인은 생각하지만 실제로는 별것 아닌 사람</em>을 일컬을 때 쓰이게 되는데 대단히 부정적인 의미지만 당사자는 그 사실조차 잘 인식하지 못하고 오히려 자부심을 갖기도 합니다. "]
+                },
+                {
+                    title: "상전벽해",
+                    letters: [
+                        ["桑", "뽕나무 상"],
+                        ["田", "밭 전"],
+                        ["碧", "푸를 벽"],
+                        ["海", "바다 해"]
+                    ],
+                    story: "북한강 위에 반달 모양으로 떠 있는 남이섬은 1944년 청평댐을 만들 때 북한강 강물이 차서 생긴 내륙의 섬으로 수많은 사람들이 찾는 관광지이다. TV 드라마 「겨울연가」의 촬영지로 내외국인에게 너무나도 잘 알려진 이 섬은 조선 세조 때 역적으로 몰려 요절한 남이 장군의 묘가 있어 남이섬이라고 불리게 되었다. 1965년 모래뿐인 불모지 남이섬을 매입해 나무를 심기 시작한 것이 관광지로서의 출발점으로, 나무들이 만들어 준 천국이라 해도 과언이 아닐 만큼 아름다운 숲길이 섬 전체를 메우고 있는 남이섬의 수려한 자연경관은 탄식을 절로 자아내게 한다. ",
+                    description: [" 불과 50년 전만 해도 남이섬은 뽕나무나 자라던 불모지였던 이 척박한 모래섬은 반세기 가까운 시간이 흘러 남이섬은 이제 나무섬이 됐다. ‘뽕나무 밭이 푸른 바다로 변했다’는 뜻으로 <em>세상이 몰라볼 정도로 바뀐 모습</em>을 이르는 말 ‘상전벽해(桑田碧海)’의 대표적인 예가 바로 남이섬의 이야기다."]
+                },
+                {
+                    title: "교언영색",
+                    letters: [
+                        ["巧", "공교할 교"],
+                        ["言", "말씀 언"],
+                        ["令", "좋을 영"],
+                        ["色", "빛 색"]
+                    ],
+                    story: "공자(孔子)가 말하길, <em>“교묘한 말과 아첨하는 얼굴을 하는 사람은 착한 사람이 적다(巧言令色鮮矣仁)”</em>고 하였다. 즉, 말을 그럴 듯하게 꾸며대거나 남의 비위를 잘 맞추는 사람, 또는 남에게 잘 보이려는 사람치고 마음이 착하고 진실한 사람은 적다고 말한 데서 유래되었습니다.",
+                    description: ["<em>교묘한 말과 예쁘게 꾸민 얼굴</em>이라는 뜻인 ‘교언영색(巧言令色)’은 <em>남의 환심을 사기 위해 교묘한 말과 아첨하는 얼굴을 이르는 말</em>입니다. 다른 사람에게 잘 보이기 위해 말을 꾸며대며 아첨하는 모습에 상대방도 처음에는 기분이 좋을지는 몰라도 곧 진심이 담기지 않았다는 것을 알아채고 멀리하게 되는 법입니다."]
+                },
+                {
+                    title: "수주대토",
+                    letters: [
+                        ["守", "지킬 수"],
+                        ["株", "그루터기 주"],
+                        ["待", "기다릴 대"],
+                        ["兎", "토끼 토"]
+                    ],
+                    story: "송나라 사람이 밭을 갈고 있을 때 토끼가 달려와서 밭 가운데 있는 나무그루터기에 부딪혀 목이 부러져 죽었다. 그 후로 그 농부는 쟁기를 버리고 그 그루터기를 지켜보면서 다시 토끼가 달려와서 부딪혀 죽기만을 기다렸으나. 토끼는 두 번 다시 잡히지 않았다. 이처럼 <em>우연히 얻은 좋은 결과를 자기 실력으로 착각하는 것, 어쩌다가 통한 방법이 또 통할 줄 알고 그대로 답습하는 것</em>도 ‘수주대토(守株待兎)’하는 농부와 똑같은 모습입니다.",
+                    description: ["‘수주대토(守株待兎)란 <em>그루터기를 지키며 토끼를 기다린다는 뜻</em>으로 <em>어리석게 한 가지만을 기다리는 것을 비유</em>하는 말입니다. 학습할 때에도 마찬가지입니다. 자신의 공부 방법이 최고라고 생각하지 말고 시험을 여러 차례 치러본 결과, 성적이 생각만큼 잘 나오지 않는다면 과감히 학습 방법을 바꿔야 할 수도 있습니다."]
+                },
+                {
+                    title: "기인지우",
+                    letters: [
+                        ["杞", "기나라 기"],
+                        ["人", "사람 인"],
+                        ["之", "어조사 지"],
+                        ["憂", "걱정 우"]
+                    ],
+                    story: "중국 기나라에 쓸데없는 걱정을 하는 사람이 있었다. 그는 매일 ‘만약 하늘이 무너지거나 땅이 꺼진다면 몸 둘 곳이 없지 않은가?’ 이런 걱정들을 하느라 밤에 잠도 못 이루고 음식도 제대로 먹지 못했다. 보다 못한 친구가 그에게 말했다. “하늘은 (공)기가 쌓였을 뿐이야. 그런데, 왜 하늘이 무너져 내린단 말인가?” 그러자 그는 “그럼 땅이 꺼지면 어떻게 합니까?”라고 물었다. 친구가 “땅은 흙덩어리가 겹친 것이다. 모두다 흙으로 되어 있다. 온종일 그 흙 위를 밟고 다녀도 꺼질 염려는 없다.”라고 대답해주자 그제서야 그 사람은 비로소 근심 걱정을 놓으며 몹시 기뻐했다.",
+                    description: ["‘기인지우(杞人之憂)’란 <em>먼 장래에 있을지 없을지도 모르는 불행을 공연히 걱정하는 것을 비웃는 말</em>로 흔히 ‘기우’라고도 합니다. 이처럼 있을지 없을지도 모르는 문제를 걱정하기보다는 당면한 책임을 제대로 완수하는 것이 올바른 사회인의 생활태도일 것입니다."]
+                },
+                {
+                    title: "사상누각",
+                    letters: [
+                        ["沙", "모래 사"],
+                        ["上", "위 상"],
+                        ["樓", "다락 누"],
+                        ["閣", "집 각"]
+                    ],
+                    story: "초등학생까지 고교 수학을 배우는 등 선행학습은 이제 당연한 일상처럼 되어버렸다. 개념을 제대로 이해하기 위해 다양한 경험과 원리를 습득하지 않고 무조건 앞서 배우기만 해서는 학습 효과를 기대하기 힘들지만 학원들은 한 학기 또는 몇 개 학년을 앞서 선행학습을 강조하고 있어 학생들은 학교 수업을 등한시하고 수학에 대한 흥미를 잃어버리는 부작용을 초래하고 있다. 만약, 기초학습능력이 부족한데도 주위를 의식해 학원의 선행학습에 의존하면 문제풀이 요령은 늘 수도 있겠지만 원리를 응용한 문제는 아예 손도 대지 못할 수도 있다.",
+                    description: ["학교든 학원이든 기초과정을 무시한 선행학습은 ‘사상누각(沙上樓閣)’에 불과하다. <em>모래 위에 세운 다락방</em>이라는 뜻으로 단단하지 않은 모래 위에 집을 세우면 곧 무너지는 것처럼 ‘사상누각(沙上樓閣)’이란 <em>기초가 튼튼하지 못하여 오래 견디지 못할 일이나 물건</em>을 이르는 말이다."]
+                },
+                {
+                    title: "우공이산",
+                    letters: [
+                        ["愚", "어리석을 우"],
+                        ["公", "귀 공"],
+                        ["移", "옮길 이"],
+                        ["山", "뫼 산"]
+                    ],
+                    story: "중국에 우공이라는 아흔 살 된 노인 집 앞에는 넓이가 칠백 리, 만 길 높이의 두 산이 가로막고 있어 생활하는데 무척 불편했습니다. 어느 날 노인은 가족들에게 가족이 힘을 합쳐 산을 옮기면 그 길이 넓어져 다니기에 편리할 것이라며 산을 옮기기 위해 가족들과 꼬박 1년이 걸려 지게에 흙을 지고 발해 바다에 갔다 버리고 돌아왔습니다. 이를 본 이웃 사람들이 무모하다며 비웃었지만 우공은 “내가 죽으면 내 아들, 그가 죽으면 손자가 계속 할 것이오. 그 동안 산은 깎여 나가겠지만 더 높아지지는 않을 테니 언젠가는 길이 날 것이오.”라고 말하였습니다.  이 말을 들은 옥황상제는 우공의 정성에 감동해 두 산을 없애주기로 했습니다.",
+                    description: ["세상을 바꾸는 것은 머리 좋은 사람이 아니라 결코 포기하지 않고 끝까지 노력하는 사람임을 알려 주는 뜻을 가진 ‘우공이산(愚公移山)’은 우공이 산을 옮겨놓았다는 데서 유래하여 어떤 일이든 끊임없이 노력하면 반드시 이루어짐을 뜻하는 고사성어다. "]
+                }
+            ];
+            $scope.vm = this;
+
+            for (var i = 0; i < this.idioms.length; i++) {
+                var idiom = this.idioms[i];
+
+                for (var j = 0; j < idiom.letters.length; j++) {
+                    idiom.letters[j][1] = $sce.trustAsHtml(idiom.letters[j][1].replace(/(.)$/, "&nbsp;&nbsp;<b>$1</b>"));
+                }
+
+                idiom.story = $sce.trustAsHtml(idiom.story);
+
+                for (var j = 0; j < idiom.description.length; j++) {
+                    idiom.description[j] = $sce.trustAsHtml(idiom.description[j]);
+                }
+            }
+
+            var self = this;
+            this.timer = setInterval(function () {
+                if (self.hide < 100) {
+                    $scope.$apply(function () {
+                        return self.hide++;
+                    });
+                } else {
+                    clearInterval(self.timer);
+                    console.log("TIMEOUT!!");
+                }
+            }, 7200);
+        }
+        StudyController.prototype.prev = function () {
+            if (this.page > 0) {
+                this.page--;
+            } else {
+                if (this.stage > 0) {
+                    this.stage--;
+                    this.page = this.idioms[this.stage].description.length + 1;
+                }
+            }
+        };
+
+        StudyController.prototype.next = function () {
+            this.page++;
+            if (this.page == this.idioms[this.stage].description.length + 2) {
+                this.stage++;
+                this.page = 0;
+            }
+
+            if (this.stage == this.idioms.length) {
+                clearInterval(this.timer);
+                this.$location.path("/wrap");
+            }
+        };
+        return StudyController;
+    })();
+    Eun.StudyController = StudyController;
+})(Eun || (Eun = {}));
+var Eun;
+(function (Eun) {
     var WelcomeController = (function () {
         function WelcomeController($scope, $location) {
             this.$scope = $scope;
@@ -253,7 +455,7 @@ var Eun;
         }).when("/study", {
             title: "학습",
             template: s05.study.html,
-            controller: "Eun.PrepController"
+            controller: "Eun.StudyController"
         }).otherwise({
             redirectTo: "/"
         });
