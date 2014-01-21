@@ -1,7 +1,5 @@
 @font-face {
 	font-family: 'NanumBarunGothic';
-	font-style: normal;
-	font-weight: normal;
 	src:
 		url('/fonts/NanumBarunGothic.eot') format('embedded-opentype'),
 		url('/fonts/NanumBarunGothic.woff') format('woff'),
@@ -9,9 +7,7 @@
 }
 
 @font-face {
-	font-family: 'NanumBarunGothic';
-	font-style: normal;
-	font-weight: bold;
+	font-family: 'NanumBarunGothicBold';
 	src:
 		url('/fonts/NanumBarunGothic.eot') format('embedded-opentype'),
 		url('/fonts/NanumBarunGothic.woff') format('woff'),

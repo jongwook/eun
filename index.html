@@ -2,19 +2,36 @@
 <html ng-app="eun">
 <head>
     <title>중학교 프로그램 개별학습 - 숙달 date - {{title}}</title>
-	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div id="body" ng-view></div>
+<div id="loading"></div>
+
 <div id="header"></div>
 <div id="footer"></div>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="app/app.js"></script>
 <script>
-	WebFont.load({custom:{families:['NanumBarunGothic'],urls:['/css/fonts.css']}});
+$("#nav").hide();
+WebFont.load({
+	custom: {
+		families: ['NanumBarunGothic', 'NanumBarunGothicBold'],
+		urls: ['/css/fonts.css']
+	},
+	loading: function() {
+		$("#loading").text("Loading...");
+	},
+	active: function() {
+		$("#loading").remove();
+		$("#nav").show();
+	}
+});
 </script>
 </body>
 </html>

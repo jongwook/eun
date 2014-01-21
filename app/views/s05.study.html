@@ -15,6 +15,7 @@
 
 	<div ng-show="vm.page == 1" class="small-text">
 		<p>&nbsp;</p>
+		<p>&nbsp;</p>
 		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>
 	</div>
 
@@ -41,6 +42,9 @@
 		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>
 	</div>
 
+</div>
+
+<div id="nav">
 	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>
 	<button class="next" ng-click="vm.next()">다음</button>
 </div>

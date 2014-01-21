@@ -158,7 +158,7 @@ module Eun {
 				var idiom = this.idioms[i];
 
 				for (var j = 0; j < idiom.letters.length; j++) {
-					idiom.letters[j][1] = $sce.trustAsHtml(idiom.letters[j][1].replace(/(.)$/,"&nbsp;&nbsp;<b>$1</b>"));
+					idiom.letters[j][1] = $sce.trustAsHtml(idiom.letters[j][1].replace(/(.)$/,"&nbsp;&nbsp;<span style=\"font-size:24pt;color:#FF007F\">$1</span>"));
 				}
 
 				idiom.story = $sce.trustAsHtml(idiom.story);
