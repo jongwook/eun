@@ -293,7 +293,7 @@ var Eun;
                 {
                     type: IMAGE,
                     question: "빈칸에 들어갈 고사성어는?",
-                    image: "images/q2.png",
+                    image: "images/q2.jpg",
                     options: ["함흥차사(咸興差使)", "수주대토(守株待兎)", "난형난제(難兄難弟)", "교언영색(巧言令色)"],
                     answer: [3]
                 },
@@ -310,7 +310,7 @@ var Eun;
                 {
                     type: IMAGE,
                     question: "빈칸에 들어갈 고사성어는?",
-                    image: "images/q4.png",
+                    image: "images/q4.jpg",
                     options: ["난형난제(難兄難弟)", "우공이산(愚公移山)", "교언영색(巧言令色)", "기인지우{杞人之憂)"],
                     answer: [3]
                 },
@@ -323,7 +323,7 @@ var Eun;
                 {
                     type: IMAGE,
                     question: "그림을 설명하는 고사성어는?",
-                    image: "images/q6.png",
+                    image: "images/q6.jpg",
                     options: ["함흥차사(咸興差使)", "양두구육(羊頭狗肉)", "기인지우(杞人之憂)", "교언영색(巧言令色)"],
                     answer: [3]
                 },
@@ -356,14 +356,14 @@ var Eun;
                 {
                     type: IMAGE,
                     question: "빈칸에 들어갈 고사성어는?",
-                    image: "images/q10.png",
+                    image: "images/q10.jpg",
                     options: ["백중지세(伯仲之勢)", "양두구육(羊頭狗肉)", "교언영색(巧言令色)", "상전벽해(桑田碧海)"],
                     answer: [1]
                 },
                 {
                     type: IMAGE,
                     question: "빈칸에 들어갈 고사성어는?",
-                    image: "images/q11.png",
+                    image: "images/q11.jpg",
                     options: ["함흥차사(咸興差使)", "사상누각(沙上樓閣)", "상전벽해(桑田碧海)", "양두구육(羊頭狗肉)"],
                     answer: [1]
                 },
@@ -410,14 +410,14 @@ var Eun;
                 {
                     type: IMAGE,
                     question: "그림을 설명하고 있는 고사성어는?",
-                    image: "images/q18.png",
+                    image: "images/q18.jpg",
                     options: ["백중지세(伯仲之勢)", "수수방관(袖手傍觀)", "수주대토(守株待兎)", "난형난제(難兄難弟)"],
                     answer: [3]
                 },
                 {
                     type: IMAGE,
                     question: "그림을 설명하는 고사성어는?",
-                    image: "images/q19.png",
+                    image: "images/q19.jpg",
                     options: ["기인지우(杞人之憂)", "수수방관(袖手傍觀)", "수주대토(守株待兎)", "사상누각(沙上樓閣)"],
                     answer: [2]
                 },
