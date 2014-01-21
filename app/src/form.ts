@@ -19,19 +19,23 @@ module Eun {
 
 		next() {
 			if (!this.school || !this.year || !this.classroom || !this.id) {
-				alert("중학교, 학년, 반, 번호를 입력하세요");
+                $("#alert-message").text("중학교, 학년, 반, 번호를 입력하세요");
+                $("#alert-modal").modal();
 				return;
 			}
 			if (!this.gender) {
-				alert("성별을 입력하세요");
+                $("#alert-message").text("성별을 입력하세요");
+                $("#alert-modal").modal();
 				return;
 			}
 			if (!this.language) {
-				alert("집에서 주로 사용하는 언어를 입력하세요");
+                $("#alert-message").text("집에서 주로 사용하는 언어를 입력하세요");
+                $("#alert-modal").modal();
 				return;
 			}
 			if (this.language == "other" && !this.other) {
-				alert("집에서 주로 사용하는 언어가 무엇인지 괄호 안에 입력해 주세요");
+                $("#alert-message").text("집에서 주로 사용하는 언어가 무엇인지 괄호 안에 입력해 주세요");
+                $("#alert-modal").modal();
 				return;
 			}
 

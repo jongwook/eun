@@ -17,21 +17,20 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.min.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="app/app.js"></script>
-<script>
-$("#nav").hide();
-WebFont.load({
-	custom: {
-		families: ['NanumBarunGothic', 'NanumBarunGothicBold'],
-		urls: ['/css/fonts.css']
-	},
-	loading: function() {
-		$("#loading").text("Loading...");
-	},
-	active: function() {
-		$("#loading").remove();
-		$("#nav").show();
-	}
-});
-</script>
+
+<div class="modal fade" id="alert-modal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h2 class="modal-title" id="alert-message"></h2>
+			</div>
+			<div class="modal-footer" style="padding-top: 0; border-top: none;">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">닫기</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 </body>
 </html>

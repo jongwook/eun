@@ -12,6 +12,7 @@
 /// <reference path="src/poll.ts" />
 /// <reference path="src/prep.ts" />
 /// <reference path="src/study.ts" />
+/// <reference path="src/webfont.ts" />
 /// <reference path="src/welcome.ts" />
 //grunt-end
 

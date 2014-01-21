@@ -20,11 +20,11 @@
 			<tr>
 				<th width="40px"></th>
 				<th></th>
-				<th width="40px">1<br>전혀<br>다르다</th>
-				<th width="40px"></th>
-				<th width="40px"></th>
-				<th width="40px"></th>
-				<th width="40px">5<br>아주<br>비슷하다</th>
+				<th width="50px">1<br>전혀<br>다르다</th>
+				<th width="50px"></th>
+				<th width="50px"></th>
+				<th width="50px"></th>
+				<th width="50px">5<br>아주<br>비슷하다</th>
 			</tr>
 			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">
 				<td>{{n+1}}</td>
@@ -39,7 +39,7 @@
 
 </div>
 
-<div class="nav">
+<div id="nav">
 	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>
 	<button class="next" ng-click="vm.next()">다음</button>
 </div>

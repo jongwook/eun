@@ -76,7 +76,8 @@ module Eun {
 			} else {
 				for (var i = 0; i < this.questions.length; i++) {
 					if (!this.answers[i]) {
-						alert((i+1) + "번 문항에 응답해주세요");
+						$("#alert-message").text((i+1) + "번 문항에 응답해주세요");
+                        $("#alert-modal").modal();
 						return;
 					}
 

@@ -808,6 +808,8 @@ interface JQuery {
     queue(queueName?: string): any[];
     queue(queueName: string, newQueueOrCallback: any): JQuery;
     queue(newQueueOrCallback: any): JQuery;
+
+    modal(): any;
 }
 declare module "jquery" {
     export = $;

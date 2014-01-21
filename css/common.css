@@ -46,12 +46,12 @@ em {
 	position: fixed;
 	left: 50%;
 	top: 50%;
-	margin-top: -200px;
-	margin-left: -400px;
-	width: 800px;
-	height: 400px;
+	margin-top: -512px;
+	margin-left: -512px;
+	width: 1024px;
+	height: 1024px;
 	text-align: center;
-	line-height: 200px;
+	line-height: 1024px;
 	font-size: 50pt;
 	background-color: white;
 }
@@ -83,7 +83,7 @@ em {
 
 #slide {
 	position: relative;
-	width: 800px;
+	width: 1024px;
 	height: 100%;
 	margin: auto;
 	padding: 20px 20px 80px 20px;
@@ -94,7 +94,7 @@ em {
 }
 
 .large-text {
-	font-size: 18pt;
+	font-size: 24pt;
 }
 
 #slide input {
@@ -105,16 +105,21 @@ em {
 	text-align: center;
 }
 
-#slide input[type="radio"] {
+.form input[type="radio"] {
 	position: relative;
 	top: 5px;
 }
 
+.poll input[type="radio"] {
+	position: relative;
+	top: -5px;
+}
+
 #nav {
 	position: fixed;
-	width: 800px;
+	width: 1024px;
 	left: 50%;
-	margin-left: -400px;
+	margin-left: -512px;
 	bottom: 40px;
 	height: 70px;
 }
@@ -148,6 +153,10 @@ em {
 
 .poll table th {
 	font-size: 8pt;
+}
+
+.poll table td {
+	font-size: 16pt;
 }
 
 .round-box {
