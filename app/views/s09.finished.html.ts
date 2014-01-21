@@ -1,0 +1,1 @@
+module s09.finished { export var html =  '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺</div>' } 

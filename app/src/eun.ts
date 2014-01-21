@@ -1,9 +1,9 @@
 module Eun {
-    export var root;
+	export var root;
 	export var eun = angular.module("eun", ["ngRoute"]);
 
 	eun.run(($location, $rootScope) => {
-        root = $rootScope;
+		root = $rootScope;
 		$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 			$rootScope.title = current.$$route.title;
 		});

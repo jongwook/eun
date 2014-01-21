@@ -5,31 +5,30 @@
 		</p>
 		<table class="cover">
 			<tr>
-				<th ng-repeat="letter in vm.idioms[vm.stage].letters">{{letter[0]}}</th>
+				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>
 			</tr>
 			<tr>
-				<td ng-repeat="letter in vm.idioms[vm.stage].letters" ng-bind-html="letter[1]"></td>
+				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>
 			</tr>
 		</table>
 	</div>
 
 	<div ng-show="vm.page == 1" class="small-text">
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
+		<br>
 		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>
 	</div>
 
 	<div ng-show="vm.page == 2" class="small-text">
-		<p>&nbsp;</p>
+		<br>
 		<table class="header">
 			<tr>
-				<th ng-repeat="letter in vm.idioms[vm.stage].letters">{{letter[0]}}</th>
+				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>
 			</tr>
 			<tr>
-				<td ng-repeat="letter in vm.idioms[vm.stage].letters" ng-bind-html="letter[1]"></td>
+				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>
 			</tr>
 		</table>
-		<p>&nbsp;</p>
+		<br>
 		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>
 	</div>
 

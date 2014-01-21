@@ -1,5 +1,10 @@
 
 module Eun {
+	export function alert(message: string) {
+		$("#alert-message").text(message);
+		$("#alert-modal").modal();
+	}
+
 	eun.config(($routeProvider) => {
 		$routeProvider
 			.when("/", {
@@ -26,6 +31,26 @@ module Eun {
 				title: "학습",
 				template: s05.study.html,
 				controller: "Eun.StudyController"
+			})
+			.when("/standby", {
+				title: "준비",
+				template: s06.standby.html,
+				controller: "Eun.StandbyController"
+			})
+			.when("/quiz", {
+				title: "퀴즈",
+				template: s07.quiz.html,
+				controller: "Eun.QuizController"
+			})
+			.when("/survey", {
+				titie: "퀴즈",
+				template: s08.survey.html,
+				controller: "Eun.SurveyController"
+			})
+			.when("/finished", {
+				title: "수고하셨습니다",
+				template: s09.finished.html,
+				controller: "Eun.FinishedController"
 			})
 			.otherwise({
 				redirectTo: "/"

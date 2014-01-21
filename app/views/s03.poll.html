@@ -30,8 +30,8 @@
 				<td>{{n+1}}</td>
 				<td style="text-align: left;">{{vm.questions[n]}}</td>
 				<td ng-repeat="a in [1,2,3,4,5]">
-					{{a}}<br>
-					<input type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">
+					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>
+					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">
 				</td>
 			</tr>
 		</table>
