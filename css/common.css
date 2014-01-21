@@ -20,7 +20,7 @@ p {
 }
 
 .pink {
-	color: deeppink;
+	color: #FF007F;
 }
 
 .blue {
@@ -31,8 +31,8 @@ p {
 	color: red;
 }
 
-.bigger {
-	font-size: 20pt;
+.big {
+	font-size: 30pt;
 }
 
 em {
@@ -70,7 +70,7 @@ em {
 	top: 0;
 	width: 100%;
 	height: 40px;
-	background: #ff7d7f;
+	background: #BDFF12;
 }
 
 #footer {
@@ -78,7 +78,7 @@ em {
 	bottom: 0;
 	width: 100%;
 	height: 40px;
-	background: #ff7d7f;
+	background: #BDFF12;
 }
 
 #slide {
