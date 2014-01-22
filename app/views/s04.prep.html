@@ -1,3 +1,9 @@
+
+<div id="nav">
+	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0 && vm.page < 4">이전</button>
+	<button class="next" ng-click="vm.next()" ng-show="vm.page < 4">다음</button>
+</div>
+
 <div id="slide" class="large-text">
 	<div ng-show="vm.page == 0">
 		<p>
@@ -56,9 +62,4 @@
 		</p>
 	</div>
 
-</div>
-
-<div id="nav">
-	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0 && vm.page < 4">이전</button>
-	<button class="next" ng-click="vm.next()" ng-show="vm.page < 4">다음</button>
 </div>

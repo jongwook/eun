@@ -1,3 +1,9 @@
+
+<div id="nav">
+	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>
+	<button class="next" ng-click="vm.next()">다음</button>
+</div>
+
 <div id="slide" class="quiz large-text">
 	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>
 	<div ng-if="vm.page <= 1">
@@ -76,10 +82,5 @@
 	</div>
 
 
-</div>
-
-<div id="nav">
-	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>
-	<button class="next" ng-click="vm.next()">다음</button>
 </div>
 
