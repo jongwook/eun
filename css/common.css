@@ -46,6 +46,10 @@ em {
 	font-size: 28pt;
 }
 
+.study em {
+	font-size: 18pt;
+}
+
 #loading {
 	font-family: sans-serif;
 	position: fixed;
