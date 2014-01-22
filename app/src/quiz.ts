@@ -148,6 +148,7 @@ module Eun {
 			{
 				type: IMAGE,
 				question: "빈칸에 들어갈 고사성어는?",
+				image: "images/q15.jpg",
 				options: ["함흥차사(咸興差使)", "양두구육(羊頭狗肉)", "기인지우(杞人之憂)", "교언영색(巧言令色)"],
 				answer: [2]
 			},
@@ -269,6 +270,7 @@ module Eun {
 					this.score += 5;
 				} else {
 					this.page = INCORRECT;
+					this.score -= 2;
 				}
 			};
 
