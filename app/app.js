@@ -50,7 +50,7 @@ var s07;
 var s08;
 (function (s08) {
     (function (survey) {
-        survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td ng-if="vm.vertical[n]" colspan="6" style="text-align: left;" ng-bind-html="vm.questions[n]"></td>				<td ng-if="!vm.vertical[n]" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="!vm.vertical[n]" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
     })(s08.survey || (s08.survey = {}));
     var survey = s08.survey;
 })(s08 || (s08 = {}));
@@ -789,7 +789,7 @@ var Eun;
             this.$sce = $sce;
             this.page = 0;
             this.questions = [
-                "이번 수업시간의 나에게 주어진 목표는 " + "<div class=\"options\">" + "<input type=\"radio\" name=\"question-0\" value=\"0\" ng-model=\"vm.answers[0]\" id=\"survey-0-0\"><label for=\"survey-0-0\">(1) 완전히 이해하는 것</label><br>" + "<input type=\"radio\" name=\"question-0\" value=\"0\" ng-model=\"vm.answers[0]\" id=\"survey-0-1\"><label for=\"survey-0-1\">(2) 남들보다 잘하는 것</label>" + "</div> 이었다.",
+                "(question hard-coded in the view file)",
                 "나는 고사성어 학습하기가 재미있었다.",
                 "실수는 주어진 고사성어에 대한 이해를 높이는 데 도움을 주었다.",
                 "실수는 내가 주어진 고사성어를 이해하는 데 유용한 정보를 제공해 주었다.",
@@ -829,6 +829,15 @@ var Eun;
         };
 
         SurveyController.prototype.next = function () {
+            if (this.page > 0) {
+                for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+                    if (!this.answers[i]) {
+                        Eun.alert((i + 1) + "번 문항에 응답해주세요");
+                        return;
+                    }
+                }
+            }
+
             if (this.page < 5) {
                 this.page++;
             } else {

@@ -4,11 +4,7 @@ module Eun {
 
 		questions = [
 			// page 1: 1 to 4
-			"이번 수업시간의 나에게 주어진 목표는 " +
-			"<div class=\"options\">" +
-				"<input type=\"radio\" name=\"question-0\" value=\"0\" ng-model=\"vm.answers[0]\" id=\"survey-0-0\"><label for=\"survey-0-0\">(1) 완전히 이해하는 것</label><br>" +
-				"<input type=\"radio\" name=\"question-0\" value=\"0\" ng-model=\"vm.answers[0]\" id=\"survey-0-1\"><label for=\"survey-0-1\">(2) 남들보다 잘하는 것</label>" +
-			"</div> 이었다.",
+			"(question hard-coded in the view file)",
 			"나는 고사성어 학습하기가 재미있었다.",
 			"실수는 주어진 고사성어에 대한 이해를 높이는 데 도움을 주었다.",
 			"실수는 내가 주어진 고사성어를 이해하는 데 유용한 정보를 제공해 주었다.",
@@ -55,6 +51,17 @@ module Eun {
 		}
 
 		next() {
+			if (this.page > 0) {
+				for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+					if (!this.answers[i]) {
+						alert((i+1) + "번 문항에 응답해주세요");
+						return;
+					}
+
+					// TODO: save results
+				}
+			}
+
 			// flip page or finish
 			if (this.page < 5) {
 				this.page++;

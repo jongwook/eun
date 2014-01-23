@@ -27,9 +27,15 @@
 			</tr>
 			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">
 				<td>{{n+1}}</td>
-				<td ng-if="vm.vertical[n]" colspan="6" style="text-align: left;" ng-bind-html="vm.questions[n]"></td>
-				<td ng-if="!vm.vertical[n]" style="text-align: left;" ng-bind="vm.questions[n]"></td>
-				<td ng-if="!vm.vertical[n]" ng-repeat="a in [1,2,3,4,5]">
+				<td ng-if="n === 0" colspan="6" style="text-align: left;">
+					이번 수업시간의 나에게 주어진 목표는
+					<div class="options">
+						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>
+						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>
+					</div> 이었다.
+				</td>
+				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>
+				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">
 					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>
 					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">
 				</td>
