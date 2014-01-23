@@ -151,7 +151,7 @@ module Eun {
 					$scope.$apply(() => self.hide++);
 				} else {
 					clearInterval(self.timer);
-					console.log("TIMEOUT!!");
+					$scope.$apply(() => this.$location.path("/standby"));
 				}
 			}, 7200);   // timeout 12 min
 		}

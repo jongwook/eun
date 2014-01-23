@@ -41,6 +41,7 @@ module Eun {
 		hide: number = 0;
 
 		score: number = 0;
+		skips: number = 4;
 
 		problems: Problem[] = [
 			{
@@ -265,6 +266,16 @@ module Eun {
 		prev() {
 			if (this.page == 1) {
 				this.page = 0;
+			}
+		}
+
+		skip() {
+			this.skips--;
+			this.stage++;
+			if (this.stage % 5 === 0) {
+				this.page = STATS;
+			} else {
+				this.page = FIRST;
 			}
 		}
 

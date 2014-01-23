@@ -101,5 +101,6 @@
 
 <div id="nav">
 	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>
+	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>
 	<button class="next" ng-click="vm.next()">다음</button>
 </div>
