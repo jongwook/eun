@@ -1,7 +1,7 @@
 var s00;
 (function (s00) {
     (function (starter) {
-        starter.html = '<div id="slide" class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
+        starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
     })(s00.starter || (s00.starter = {}));
     var starter = s00.starter;
 })(s00 || (s00 = {}));
@@ -631,7 +631,7 @@ var Eun;
             var count = 0;
 
             $(document.body).keydown(function (event) {
-                if (event.keyCode) {
+                if (event.keyCode === 32) {
                     count++;
 
                     if (count >= 3) {

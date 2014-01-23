@@ -166,8 +166,15 @@ em {
 }
 
 .starter {
-	font-size: 14pt;
+	font-size: 64pt;
 	text-align: center;
+	width: 1000px;
+	height: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -500px;
 }
 
 .poll table {

@@ -6,7 +6,7 @@ module Eun {
 			var count = 0;
 
 			$(document.body).keydown(event => {
-				if (event.keyCode) {
+				if (event.keyCode === 32) {
 					count++;
 
 					if (count >= 3) {
