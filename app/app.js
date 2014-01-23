@@ -1,3 +1,10 @@
+var s00;
+(function (s00) {
+    (function (starter) {
+        starter.html = '<div id="slide" class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
+    })(s00.starter || (s00.starter = {}));
+    var starter = s00.starter;
+})(s00 || (s00 = {}));
 var s01;
 (function (s01) {
     (function (welcome) {
@@ -57,7 +64,7 @@ var s08;
 var s09;
 (function (s09) {
     (function (finished) {
-        finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
+        finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
     })(s09.finished || (s09.finished = {}));
     var finished = s09.finished;
 })(s09 || (s09 = {}));
@@ -615,6 +622,32 @@ var Eun;
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
+    var StarterController = (function () {
+        function StarterController($scope, $location) {
+            this.$scope = $scope;
+            this.$location = $location;
+            $scope.vm = this;
+
+            var count = 0;
+
+            $(document.body).keydown(function (event) {
+                if (event.keyCode) {
+                    count++;
+
+                    if (count >= 3) {
+                        $scope.$apply(function () {
+                            $location.path("/welcome");
+                        });
+                    }
+                }
+            });
+        }
+        return StarterController;
+    })();
+    Eun.StarterController = StarterController;
+})(Eun || (Eun = {}));
+var Eun;
+(function (Eun) {
     var StudyController = (function () {
         function StudyController($scope, $location, $sce) {
             var _this = this;
@@ -908,6 +941,10 @@ var Eun;
 
     Eun.eun.config(function ($routeProvider) {
         $routeProvider.when("/", {
+            title: "서울대학교 인지학습연구회",
+            template: s00.starter.html,
+            controller: "Eun.StarterController"
+        }).when("/welcome", {
             title: "환영합니다",
             template: s01.welcome.html,
             controller: "Eun.WelcomeController"

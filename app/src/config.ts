@@ -8,6 +8,11 @@ module Eun {
 	eun.config(($routeProvider) => {
 		$routeProvider
 			.when("/", {
+				title: "서울대학교 인지학습연구회",
+				template: s00.starter.html,
+				controller: "Eun.StarterController"
+			})
+			.when("/welcome", {
 				title: "환영합니다",
 				template: s01.welcome.html,
 				controller: "Eun.WelcomeController"

@@ -2,6 +2,7 @@
 /// <reference path="../vendor/types/angularjs/angular.d.ts" />
 
 //grunt-start
+/// <reference path="views/s00.starter.html.ts" />// generated
 /// <reference path="views/s01.welcome.html.ts" />// generated
 /// <reference path="views/s02.form.html.ts" />// generated
 /// <reference path="views/s03.poll.html.ts" />// generated
@@ -18,6 +19,7 @@
 /// <reference path="src/prep.ts" />
 /// <reference path="src/quiz.ts" />
 /// <reference path="src/standby.ts" />
+/// <reference path="src/starter.ts" />
 /// <reference path="src/study.ts" />
 /// <reference path="src/survey.ts" />
 /// <reference path="src/webfont.ts" />
