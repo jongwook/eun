@@ -334,6 +334,11 @@ em {
 	top: 50px;
 }
 
+.timer-marker {
+	position: absolute;
+	font-size: 8pt;
+}
+
 .finished {
 	font-size: 48pt;
 	text-align: center;
