@@ -70,6 +70,17 @@ module Eun {
 		}
 
 		next() {
+			if (this.page > 0) {
+				for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+					if (!this.answers[i]) {
+						alert((i+1) + "번 문항에 응답해주세요");
+						return;
+					}
+
+					// TODO: save results
+				}
+			}
+
 			// flip page or finish
 			if (this.page < 10) {
 				this.page++;

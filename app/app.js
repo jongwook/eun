@@ -205,6 +205,15 @@ var Eun;
         };
 
         PollController.prototype.next = function () {
+            if (this.page > 0) {
+                for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+                    if (!this.answers[i]) {
+                        Eun.alert((i + 1) + "번 문항에 응답해주세요");
+                        return;
+                    }
+                }
+            }
+
             if (this.page < 10) {
                 this.page++;
             } else {
