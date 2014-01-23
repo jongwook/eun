@@ -1,1 +1,1 @@
-module s09.finished { export var html =  '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺</div>' } 
+module s09.finished { export var html =  '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>' } 
