@@ -153,7 +153,7 @@ module Eun {
 					clearInterval(self.timer);
 					console.log("TIMEOUT!!");
 				}
-			}, 6000);   // timeout 10 min
+			}, 7200);   // timeout 12 min
 		}
 
 		prev() {

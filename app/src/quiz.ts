@@ -38,7 +38,7 @@ module Eun {
 		page: number = 0;
 
 		timer: number;
-		hide: number;
+		hide: number = 0;
 
 		score: number = 0;
 
@@ -215,8 +215,15 @@ module Eun {
 				} else {
 					clearInterval(self.timer);
 					console.log("TIMEOUT!!");
+					$scope.$apply(() => {
+						while (self.stage < self.problems.length) {
+							self.stage++;
+							self.score -= 2;
+						}
+						self.page = STATS;
+					})
 				}
-			}, 7200);   // timeout 12 min
+			}, 6000);   // timeout 10 min
 		}
 
 		answerCount(): number {
