@@ -25,6 +25,7 @@ module Eun {
 	var CORRECT = 2;
 	var INCORRECT = 3;
 	var STATS = 4;
+	var GROUP = 5;
 
 	export class QuizController {
 		// 0 ~ 19 : questions
@@ -194,7 +195,7 @@ module Eun {
 
 		answers: boolean[][] = this.problems.map(() => [false, false, false, false]);
 
-		constructor(private $scope, private $location, private $sce, public feedback) {
+		constructor(private $scope, private $location, private $sce, public feedback, public group) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.problems.length; i++) {
@@ -326,11 +327,18 @@ module Eun {
 					}
 					break;
 				case STATS:
+					if (this.group && this.stage >= this.problems.length) {
+						this.page = GROUP;
+					} else {
+						this.page = FIRST;
+					}
+					break;
+				case GROUP:
 					this.page = FIRST;
 					break;
 			}
 
-			if (this.page !== STATS && this.stage >= this.problems.length) {
+			if (this.page !== STATS && this.page !== GROUP && this.stage >= this.problems.length) {
 				this.$location.path("/survey");
 			}
 		}
