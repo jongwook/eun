@@ -94,8 +94,36 @@
 		</div>
 	</div>
 
-	<div ng-if="vm.page === 5">
-		group!!
+	<div ng-if="vm.page === 5" class="group">
+		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>
+		<p>
+			<table style="width:640px; margin: auto;">
+				<tr>
+					<td>당신은</td>
+					<td style="text-align: right;"><span class="blue">{{vm.score}}</span> 점 얻었습니다.</td>
+				</tr>
+				<tr>
+					<td>팀원 1은</td>
+					<td style="text-align: right;"><input ng-model="vm.score1" size="3" class="blue"><span class="blue"> 점</span> 얻었습니다.</td>
+				</tr>
+				<tr>
+					<td>팀원 2는</td>
+					<td style="text-align: right;"><input ng-model="vm.score2" size="3" class="blue"><span class="blue"> 점</span> 얻었습니다.</td>
+				</tr>
+			</table>
+		</p>
+		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>
+		<p>
+		<table style="width:640px; margin: auto;">
+			<tr>
+				<td>여러분 팀은</td>
+				<td style="text-align: right;">
+					<span class="blue" ng-bind="parseInt(vm.score) + parseInt(vm.score1 ? vm.score1 : 0) + parseInt(vm.score2 ? vm.score2 : 0)"></span>
+					<span class="blue">점</span> 얻었습니다.
+				</td>
+			</tr>
+		</table>
+		</p>
 	</div>
 
 	<div class="timer">

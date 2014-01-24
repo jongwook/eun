@@ -42,7 +42,10 @@ module Eun {
 		hide: number = 0;
 
 		score: number = 0;
-		skips: number = 4;
+		skips: number = 20;
+
+		score1: number;
+		score2: number;
 
 		problems: Problem[] = [
 			{

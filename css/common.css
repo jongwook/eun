@@ -350,6 +350,19 @@ em {
 	float: right;
 }
 
+.quiz .group {
+	text-align: center;
+}
+
+.quiz .group tr {
+	height: auto;
+}
+
+
+.quiz .group td {
+	padding: 0;
+}
+
 .quiz .score-gauge-go:after {
 	width: 50px;
 	height: 100px;
