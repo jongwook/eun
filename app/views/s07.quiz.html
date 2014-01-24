@@ -100,15 +100,15 @@
 			<table style="width:640px; margin: auto;">
 				<tr>
 					<td>당신은</td>
-					<td style="text-align: right;"><span class="blue">{{vm.score}}</span> 점 얻었습니다.</td>
+					<td style="text-align: right;"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>
 				</tr>
 				<tr>
 					<td>팀원 1은</td>
-					<td style="text-align: right;"><input ng-model="vm.score1" size="3" class="blue"><span class="blue"> 점</span> 얻었습니다.</td>
+					<td style="text-align: right;"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>
 				</tr>
 				<tr>
 					<td>팀원 2는</td>
-					<td style="text-align: right;"><input ng-model="vm.score2" size="3" class="blue"><span class="blue"> 점</span> 얻었습니다.</td>
+					<td style="text-align: right;"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>
 				</tr>
 			</table>
 		</p>
@@ -118,8 +118,7 @@
 			<tr>
 				<td>여러분 팀은</td>
 				<td style="text-align: right;">
-					<span class="blue" ng-bind="parseInt(vm.score) + parseInt(vm.score1 ? vm.score1 : 0) + parseInt(vm.score2 ? vm.score2 : 0)"></span>
-					<span class="blue">점</span> 얻었습니다.
+					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.
 				</td>
 			</tr>
 		</table>
