@@ -44,8 +44,8 @@ module Eun {
 		score: number = 0;
 		skips: number = 4;
 
-		score1: number;
-		score2: number;
+		score1: string;
+		score2: string;
 		groupscore: number;
 
 		problems: Problem[] = [
@@ -218,7 +218,7 @@ module Eun {
 
 			var parse = (value: any) => parseInt(value);
 
-			$scope.$watch("[vm.score1, vm.score2]", () => {
+			$scope.$watch("vm.score1 + vm.score2", () => {
 				self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : 0) + parse(self.score2 ? self.score2 : 0);
 			});
 
