@@ -80,7 +80,8 @@
 			최고 점수 100점 중 <span class="big blue">{{vm.score}}점</span>을 얻었습니다.
 		</p>
 		<div class="score-bar">
-			<div class="score-gauge" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>
+			<div ng-if="vm.feedback === 'date'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>
+			<div ng-if="vm.feedback === 'go'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">{{vm.score}}점</div>
 		</div>
 		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">
 			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100

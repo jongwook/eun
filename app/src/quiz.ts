@@ -194,7 +194,7 @@ module Eun {
 
 		answers: boolean[][] = this.problems.map(() => [false, false, false, false]);
 
-		constructor(private $scope, private $location, private $sce) {
+		constructor(private $scope, private $location, private $sce, public feedback) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.problems.length; i++) {

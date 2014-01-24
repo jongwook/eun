@@ -5,6 +5,39 @@ module Eun {
 		$("#alert-modal").modal();
 	}
 
+	eun.factory("type", () => {
+		var initial = location.hostname.substr(0, 1);
+		if ('1' <= initial && initial <= '8') {
+			return initial - '0';
+		}
+
+		return 1;
+	});
+
+	eun.factory("feedback", type => {
+		switch (type) {
+			case 1: case 2: case 5: case 6: return "date";
+			case 3: case 4: case 7: case 8: return "go";
+			default: throw new Error("unknown type");
+		}
+	})
+
+	eun.factory("group", type => {
+		switch (type) {
+			case 1: case 2: case 3: case 4: return true;
+			case 5: case 6: case 7: case 8: return false;
+			default: throw new Error("unknown type");
+		}
+	});
+
+	eun.factory("study", type => {
+		switch (type) {
+			case 1: case 3: case 5: case 7: return true;
+			case 2: case 4: case 6: case 8: return false;
+			default: throw new Error("unknown type");
+		}
+	});
+
 	eun.config(($routeProvider) => {
 		$routeProvider
 			.when("/", {

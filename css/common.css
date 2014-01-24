@@ -316,7 +316,7 @@ em {
 	height: 70px;
 }
 
-.quiz .score-gauge {
+.quiz .score-gauge-date {
 	background-color: blue;
 	color: #ccf;
 	white-space: nowrap;
@@ -327,7 +327,7 @@ em {
 	line-height: 70px;
 }
 
-.quiz .score-gauge:after {
+.quiz .score-gauge-date:after {
 	width: 50px;
 	height: 100px;
 	position: absolute;
@@ -337,6 +337,30 @@ em {
 	content: "";
 	z-index: -5;
 }
+
+.quiz .score-gauge-go {
+	background-color: red;
+	color: #fcc;
+	white-space: nowrap;
+	text-align: center;
+	position: relative;
+	z-index: 10;
+	height: 100%;
+	line-height: 70px;
+	float: right;
+}
+
+.quiz .score-gauge-go:after {
+	width: 50px;
+	height: 100px;
+	position: absolute;
+	left: -50px;
+	top: -18px;
+	background-image: url("/images/arrow-left.png");
+	content: "";
+	z-index: -5;
+}
+
 
 .survey table {
 	font-size: 12pt;
