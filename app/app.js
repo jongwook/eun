@@ -474,7 +474,7 @@ var Eun;
             };
 
             $scope.$watch("vm.score1 + vm.score2", function () {
-                self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : 0) + parse(self.score2 ? self.score2 : 0);
+                self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
             });
 
             this.timer = setInterval(function () {

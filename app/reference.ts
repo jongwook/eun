@@ -12,18 +12,18 @@
 /// <reference path="views/s07.quiz.html.ts" />// generated
 /// <reference path="views/s08.survey.html.ts" />// generated
 /// <reference path="views/s09.finished.html.ts" />// generated
-/// <reference path="src/eun.ts" />
-/// <reference path="src/finsihed.ts" />
-/// <reference path="src/form.ts" />
-/// <reference path="src/poll.ts" />
-/// <reference path="src/prep.ts" />
-/// <reference path="src/quiz.ts" />
-/// <reference path="src/standby.ts" />
-/// <reference path="src/starter.ts" />
-/// <reference path="src/study.ts" />
-/// <reference path="src/survey.ts" />
-/// <reference path="src/webfont.ts" />
-/// <reference path="src/welcome.ts" />
+/// <reference path="client/eun.ts" />
+/// <reference path="client/finsihed.ts" />
+/// <reference path="client/form.ts" />
+/// <reference path="client/poll.ts" />
+/// <reference path="client/prep.ts" />
+/// <reference path="client/quiz.ts" />
+/// <reference path="client/standby.ts" />
+/// <reference path="client/starter.ts" />
+/// <reference path="client/study.ts" />
+/// <reference path="client/survey.ts" />
+/// <reference path="client/webfont.ts" />
+/// <reference path="client/welcome.ts" />
 //grunt-end
 
-/// <reference path="src/config.ts" />
+/// <reference path="client/config.ts" />

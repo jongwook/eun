@@ -4,15 +4,21 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-ts");
 
 	// Configure grunt here
-	grunt.registerTask("default", ["ts:dev"]);
+	grunt.registerTask("default", ["ts:server", "ts:client"]);
 
 	grunt.initConfig({
 		ts: {
-			dev: {
-				src: ["app/**/*.ts"],
-				html: ["app/**/*.html"],
+			client: {
+				src: ["app/client/*.ts"],
+				html: ["app/views/*.html"],
 				reference: "./app/reference.ts",
 				out: 'app/app.js',
+				watch: '.'
+			},
+			server: {
+				src: ["app/server/*.ts"],
+				reference: "./app/server.ts",
+				out: 'app/server.js',
 				watch: '.'
 			}
 		}
