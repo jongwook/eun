@@ -411,6 +411,12 @@ em {
 	top: -14px;
 }
 
+.big-timer {
+	width: 800px;
+	margin: auto;
+
+}
+
 .timer {
 	background: #FF007F;
 	width: 30px;

@@ -128,7 +128,7 @@ module Eun {
 				"description": ["세상을 바꾸는 것은 머리 좋은 사람이 아니라 결코 포기하지 않고 끝까지 노력하는 사람임을 알려 주는 뜻을 가진 '우공이산(愚公移山)'은 우공이 산을 옮겨놓았다는 데서 유래하여 <em>어떤 일이든 끊임없이 노력하면 반드시 이루어짐</em>을 뜻하는 고사성어다. "]
 		}];
 
-		constructor(private $scope, private $location, private $sce) {
+		constructor(private $scope, private $location, private $sce, public group) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.idioms.length; i++) {
@@ -148,12 +148,12 @@ module Eun {
 			var self = this;
 			this.timer = setInterval(() => {
 				if (self.hide < 100) {
-					$scope.$apply(() => self.hide++);
+					$scope.$apply(() => self.hide += 0.1);
 				} else {
 					clearInterval(self.timer);
 					$scope.$apply(() => this.$location.path("/standby"));
 				}
-			}, 7200);   // timeout 12 min
+			}, 720);   // timeout 12 min
 		}
 
 		prev() {
