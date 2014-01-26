@@ -76,7 +76,7 @@ module Eun {
 				type: IMAGE,
 				question: "빈칸에 들어갈 고사성어는?",
 				image: "images/q4.jpg",
-				options: ["난형난제(難兄難弟)", "우공이산(愚公移山)", "교언영색(巧言令色)", "기인지우{杞人之憂)"],
+				options: ["난형난제(難兄難弟)", "우공이산(愚公移山)", "교언영색(巧言令色)", "기인지우(杞人之憂)"],
 				answer: [3]
 			},
 			{
@@ -216,10 +216,16 @@ module Eun {
 
 			var self = this;
 
+			console.log("feedback : " + feedback); this.skips = 20;
+
 			var parse = (value: any) => parseInt(value);
 
 			$scope.$watch("vm.score1 + vm.score2", () => {
-				self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+				if (self.feedback === 'date') {
+					self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+				} else {
+					self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+				}
 			});
 
 			this.timer = setInterval(() => {

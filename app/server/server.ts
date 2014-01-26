@@ -9,6 +9,7 @@ mongo.connect(MONGO_URL, (err, db) => {
 	console.log("Connected to " + MONGO_URL);
 
 	http.createServer(function (req, res) {
+
 		res.writeHead(200, {"Content-Type": "text/plain"});
 		res.end("wow, very website");
 	}).listen(9615);
