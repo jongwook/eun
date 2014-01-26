@@ -1,6 +1,6 @@
 module Eun {
 	export class StarterController {
-		constructor($scope, $location, type, feedback, group, study) {
+		constructor($scope, $location, type, feedback, group, study, submit) {
 			$scope.vm = this;
 
 			var count = 0;
@@ -18,6 +18,8 @@ module Eun {
 					}
 				}
 			});
+
+
 		}
 	}
 }

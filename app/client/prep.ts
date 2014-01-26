@@ -4,6 +4,18 @@ module Eun {
 
 		constructor(private $scope, private $location, public study, public group) {
 			$scope.vm = this;
+
+			var count = 0;
+			$(document.body).keydown(event => {
+				console.log("keydown : " + event.keyCode);
+				if (event.keyCode === 78) { // 'n'
+					count++;
+
+					if (count === 5) {
+						$scope.$apply(() => $scope.vm.next());
+					}
+				}
+			});
 		}
 
 		prev() {
@@ -13,7 +25,7 @@ module Eun {
 		}
 
 		next() {
-			
+
 			if (this.group && (this.page === 2 || this.page === 2.5)) {
 				this.page += 0.5;
 				return;
