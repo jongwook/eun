@@ -1,7 +1,7 @@
 
 
 <div id="slide" class="large-text">
-	<div ng-show="vm.page == 0">
+	<div ng-if="vm.page === 0">
 		<p>
 			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로
 			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며
@@ -13,7 +13,7 @@
 		</p>
 	</div>
 
-	<div ng-show="vm.page == 1">
+	<div ng-if="vm.page === 1">
 		<p>
 			여러분들은 지금부터 <span class="pink">12분 동안</span><br>
 			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>
@@ -25,7 +25,7 @@
 		</p>
 	</div>
 
-	<div ng-show="vm.page == 2">
+	<div ng-if="vm.page === 2">
 		<p>
 			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>
 			10분 동안 화면에 주어지는 문제를 보고<br>
@@ -39,19 +39,25 @@
 		</p>
 	</div>
 
-	<div ng-show="vm.page == 3">
+	<div ng-if="vm.page === 3">
 		<p>
 			오늘 수업에서 여러분의 목표는
 		</p>
 		<p>
 			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>
 		</p>
-		<p>
+		<p ng-if="vm.study">
 			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.
+		</p>
+		<p ng-if="!vm.study" class="big">
+			같은 과제를 수행하게 될
+		</p>
+		<p ng-if="!vm.study">
+			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.
 		</p>
 	</div>
 
-	<div ng-show="vm.page == 4">
+	<div ng-if="vm.page === 4">
 		<p style="text-align: center;">
 			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>
 			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">
@@ -63,6 +69,6 @@
 </div>
 
 <div id="nav">
-	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0 && vm.page < 4">이전</button>
-	<button class="next" ng-click="vm.next()" ng-show="vm.page < 4">다음</button>
+	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>
+	<button class="next" ng-click="vm.next()" ng-if="vm.page < 4">다음</button>
 </div>

@@ -29,7 +29,7 @@ var s03;
 var s04;
 (function (s04) {
     (function (prep) {
-        prep.html = '<div id="slide" class="large-text">	<div ng-show="vm.page == 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-show="vm.page == 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p>			학습하고 난 후에는<br>			스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-show="vm.page == 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 4번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-show="vm.page == 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p>			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>	</div>	<div ng-show="vm.page == 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.page < 4">다음</button></div>';
+        prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p>			학습하고 난 후에는<br>			스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 4번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page < 4">다음</button></div>';
     })(s04.prep || (s04.prep = {}));
     var prep = s04.prep;
 })(s04 || (s04 = {}));
@@ -43,7 +43,7 @@ var s05;
 var s06;
 (function (s06) {
     (function (standby) {
-        standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p>			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
+        standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
     })(s06.standby || (s06.standby = {}));
     var standby = s06.standby;
 })(s06 || (s06 = {}));
@@ -245,9 +245,10 @@ var Eun;
 var Eun;
 (function (Eun) {
     var PrepController = (function () {
-        function PrepController($scope, $location) {
+        function PrepController($scope, $location, study) {
             this.$scope = $scope;
             this.$location = $location;
+            this.study = study;
             this.page = 0;
             $scope.vm = this;
         }
@@ -614,9 +615,10 @@ var Eun;
 var Eun;
 (function (Eun) {
     var StandbyController = (function () {
-        function StandbyController($scope, $location) {
+        function StandbyController($scope, $location, study) {
             this.$scope = $scope;
             this.$location = $location;
+            this.study = study;
             this.page = 0;
             $scope.vm = this;
         }
