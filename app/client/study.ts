@@ -154,6 +154,20 @@ module Eun {
 					$scope.$apply(() => this.$location.path("/standby"));
 				}
 			}, 720);   // timeout 12 min
+
+			if (group) {
+				var count = 0;
+				$(document.body).keydown(event => {
+					if (event.keyCode === 78) { // 'n'
+						count++;
+
+						if (count === 5) {
+							clearInterval(self.timer);
+							$scope.$apply(() => this.$location.path("/standby"));
+						}
+					}
+				});
+			}
 		}
 
 		prev() {

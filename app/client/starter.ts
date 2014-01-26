@@ -14,10 +14,10 @@ module Eun {
 					if (count === 3) {
 						$scope.$apply(() => {
 							$location.path("/welcome");
-						})
+						});
 					}
 				}
-			})
+			});
 		}
 	}
 }

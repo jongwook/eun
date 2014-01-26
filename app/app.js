@@ -824,6 +824,22 @@ var Eun;
                     });
                 }
             }, 720);
+
+            if (group) {
+                var count = 0;
+                $(document.body).keydown(function (event) {
+                    if (event.keyCode === 78) {
+                        count++;
+
+                        if (count === 5) {
+                            clearInterval(self.timer);
+                            $scope.$apply(function () {
+                                return _this.$location.path("/standby");
+                            });
+                        }
+                    }
+                });
+            }
         }
         StudyController.prototype.prev = function () {
             if (this.page > 0) {
