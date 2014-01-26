@@ -288,16 +288,17 @@ module Eun {
 		}
 
 		skip() {
-			if (this.stage % 5 === 0) {
-				this.page = STATS;
-			} else {
-				this.page = FIRST;
-			}
 			this.results[this.stage] = "S";
 			this.timing[this.stage] = Date.now();
 
 			this.skips--;
 			this.stage++;
+
+			if (this.stage % 5 === 0) {
+				this.page = STATS;
+			} else {
+				this.page = FIRST;
+			}
 		}
 
 		next() {

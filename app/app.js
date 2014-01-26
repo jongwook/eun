@@ -581,16 +581,17 @@ var Eun;
         };
 
         QuizController.prototype.skip = function () {
-            if (this.stage % 5 === 0) {
-                this.page = STATS;
-            } else {
-                this.page = FIRST;
-            }
             this.results[this.stage] = "S";
             this.timing[this.stage] = Date.now();
 
             this.skips--;
             this.stage++;
+
+            if (this.stage % 5 === 0) {
+                this.page = STATS;
+            } else {
+                this.page = FIRST;
+            }
         };
 
         QuizController.prototype.next = function () {
@@ -1128,7 +1129,8 @@ var Eun;
 
     Eun.eun.factory('submit', function (id) {
         return function (data) {
-            data["hostname"] = data = JSON.stringify(data);
+            data["hostname"] = location.hostname;
+            data = JSON.stringify(data);
             $.ajax({
                 method: "POST",
                 url: "/submit/" + id,
