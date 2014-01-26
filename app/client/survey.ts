@@ -34,7 +34,7 @@ module Eun {
 
 		answers = [];
 
-		constructor(private $scope, private $location, private $sce) {
+		constructor(private $scope, private $location, private $sce, private submit) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.questions.length; i++) {
@@ -66,16 +66,11 @@ module Eun {
 			if (this.page < 5) {
 				this.page++;
 			} else {
-				/*
-				for (var i = 0; i < this.questions.length; i++) {
-					if (!this.answers[i]) {
-						alert((i+1) + "번 문항에 응답해주세요");
-						return;
-					}
+				this.submit({
+					survey: this.answers.map(x => parseInt(x)),
+					finished: Date.now()
+				});
 
-					// TODO: save results
-				}
-*/
 				this.$location.path("/finished");
 			}
 

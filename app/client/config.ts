@@ -57,7 +57,19 @@ module Eun {
 	});
 
 	eun.factory('submit', id => {
-		return new SubmissionService(id);
+		return (data: any) => {
+			data = JSON.stringify(data);
+			$.ajax({
+				method: "POST",
+				url: "/submit/" + id,
+				data: data,
+				contentType: 'application/json; charset=utf-8'
+			}).done(() => {
+				console.log("submitted: " + data);
+			}).fail((xhr, status, error) => {
+				alert(error);
+			});
+		};
 	});
 
 	eun.config(($routeProvider) => {

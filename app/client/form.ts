@@ -9,7 +9,7 @@ module Eun {
 		language = "";      // 언어
 		other = "";         // 기타언어
 
-		constructor(private $scope, private $location) {
+		constructor(private $scope, private $location, private submit) {
 			$scope.vm = this;
 		}
 
@@ -34,6 +34,16 @@ module Eun {
 				alert("집에서 주로 사용하는 언어가 무엇인지 괄호 안에 입력해 주세요");
 				return;
 			}
+
+			this.submit({
+				school: this.school,
+				year: this.year,
+				classroom: this.classroom,
+				id: this.id,
+				gender: this.gender,
+				language: this.language,
+				other: this.other
+			});
 
 			this.$location.path("/poll");
 		}

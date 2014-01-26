@@ -19,6 +19,7 @@ module Eun {
 				}
 			});
 
+			submit({started: Date.now()});
 
 		}
 	}

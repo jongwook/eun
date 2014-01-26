@@ -2,7 +2,7 @@ module Eun {
 	export class PrepController {
 		page = 0;   // 0, 1, 2, 3
 
-		constructor(private $scope, private $location, public study, public group) {
+		constructor(private $scope, private $location, public study, public group, private submit) {
 			$scope.vm = this;
 
 			var count = 0;
@@ -34,6 +34,7 @@ module Eun {
 			if (this.page < 4) {
 				this.page++;
 			} else {
+				this.submit({studies: Date.now()});
 				this.$location.path("/study");
 			}
 		}

@@ -57,7 +57,7 @@ module Eun {
 
 		answers = [];
 
-		constructor(private $scope, private $location) {
+		constructor(private $scope, private $location, private submit) {
 			$scope.vm = this;
 		}
 
@@ -93,6 +93,8 @@ module Eun {
 
 					// TODO: save results
 				}
+
+				this.submit({poll: this.answers.map(x => parseInt(x))});
 
 				this.$location.path("/prep");
 			}

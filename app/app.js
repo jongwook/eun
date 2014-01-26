@@ -1,29 +1,3 @@
-var Eun;
-(function (Eun) {
-    var SubmissionService = (function () {
-        function SubmissionService(id) {
-            this.id = id;
-            console.log("SubmissionService initialied : " + id);
-        }
-        SubmissionService.prototype.submit = function (key, value) {
-        };
-
-        SubmissionService.prototype.submitEvent = function (key, value) {
-            var timestamp = Date.now();
-
-            $.ajax({
-                method: "POST",
-                url: "http://edu.lyomi.net:8000/event/" + this.id
-            }).done(function (data, status, xhr) {
-                console.log("submitted event: " + key + " = " + value);
-            }).fail(function (xhr, status, error) {
-                Eun.alert(error);
-            });
-        };
-        return SubmissionService;
-    })();
-    Eun.SubmissionService = SubmissionService;
-})(Eun || (Eun = {}));
 var s00;
 (function (s00) {
     (function (starter) {
@@ -135,9 +109,10 @@ var Eun;
 var Eun;
 (function (Eun) {
     var FormController = (function () {
-        function FormController($scope, $location) {
+        function FormController($scope, $location, submit) {
             this.$scope = $scope;
             this.$location = $location;
+            this.submit = submit;
             this.school = "";
             this.year = "";
             this.classroom = "";
@@ -169,6 +144,16 @@ var Eun;
                 return;
             }
 
+            this.submit({
+                school: this.school,
+                year: this.year,
+                classroom: this.classroom,
+                id: this.id,
+                gender: this.gender,
+                language: this.language,
+                other: this.other
+            });
+
             this.$location.path("/poll");
         };
         return FormController;
@@ -178,9 +163,10 @@ var Eun;
 var Eun;
 (function (Eun) {
     var PollController = (function () {
-        function PollController($scope, $location) {
+        function PollController($scope, $location, submit) {
             this.$scope = $scope;
             this.$location = $location;
+            this.submit = submit;
             this.page = 0;
             this.questions = [
                 "실수는 내 공부를 향상시키는 데 도움을 준다.",
@@ -255,6 +241,10 @@ var Eun;
                     }
                 }
 
+                this.submit({ poll: this.answers.map(function (x) {
+                        return parseInt(x);
+                    }) });
+
                 this.$location.path("/prep");
             }
 
@@ -271,11 +261,12 @@ var Eun;
 var Eun;
 (function (Eun) {
     var PrepController = (function () {
-        function PrepController($scope, $location, study, group) {
+        function PrepController($scope, $location, study, group, submit) {
             this.$scope = $scope;
             this.$location = $location;
             this.study = study;
             this.group = group;
+            this.submit = submit;
             this.page = 0;
             $scope.vm = this;
 
@@ -308,6 +299,7 @@ var Eun;
             if (this.page < 4) {
                 this.page++;
             } else {
+                this.submit({ studies: Date.now() });
                 this.$location.path("/study");
             }
         };
@@ -338,12 +330,13 @@ var Eun;
     var GROUP = 5;
 
     var QuizController = (function () {
-        function QuizController($scope, $location, $sce, feedback, group) {
+        function QuizController($scope, $location, $sce, feedback, group, submit) {
             this.$scope = $scope;
             this.$location = $location;
             this.$sce = $sce;
             this.feedback = feedback;
             this.group = group;
+            this.submit = submit;
             this.stage = 0;
             this.page = 0;
             this.hide = 0;
@@ -498,6 +491,8 @@ var Eun;
             this.answers = this.problems.map(function () {
                 return [false, false, false, false];
             });
+            this.results = [];
+            this.timing = [];
             $scope.vm = this;
 
             for (var i = 0; i < this.problems.length; i++) {
@@ -586,13 +581,16 @@ var Eun;
         };
 
         QuizController.prototype.skip = function () {
-            this.skips--;
-            this.stage++;
             if (this.stage % 5 === 0) {
                 this.page = STATS;
             } else {
                 this.page = FIRST;
             }
+            this.results[this.stage] = "S";
+            this.timing[this.stage] = Date.now();
+
+            this.skips--;
+            this.stage++;
         };
 
         QuizController.prototype.next = function () {
@@ -600,13 +598,17 @@ var Eun;
             var checkAnswer = function () {
                 if (_this.answerCount() == 0) {
                     Eun.alert("정답을 입력해주세요.");
+                    return;
                 } else if (_this.solutionCorrect()) {
                     _this.page = CORRECT;
                     _this.score += 5;
+                    _this.results[_this.stage] = "O";
                 } else {
                     _this.page = INCORRECT;
                     _this.score -= 2;
+                    _this.results[_this.stage] = "X";
                 }
+                _this.timing[_this.stage] = Date.now();
             };
 
             switch (this.page) {
@@ -655,6 +657,15 @@ var Eun;
             }
 
             if (this.page !== STATS && this.page !== GROUP && this.stage >= this.problems.length) {
+                this.submit({
+                    answers: this.answers,
+                    results: this.results,
+                    timing: this.timing,
+                    score: this.score,
+                    score1: this.score1,
+                    score2: this.score2,
+                    groupscore: this.groupscore
+                });
                 this.$location.path("/survey");
             }
         };
@@ -665,10 +676,11 @@ var Eun;
 var Eun;
 (function (Eun) {
     var StandbyController = (function () {
-        function StandbyController($scope, $location, study) {
+        function StandbyController($scope, $location, study, submit) {
             this.$scope = $scope;
             this.$location = $location;
             this.study = study;
+            this.submit = submit;
             this.page = 0;
             $scope.vm = this;
         }
@@ -682,6 +694,7 @@ var Eun;
             if (this.page < 1) {
                 this.page++;
             } else {
+                this.submit({ quiz: Date.now() });
                 this.$location.path("/quiz");
             }
         };
@@ -710,6 +723,8 @@ var Eun;
                     }
                 }
             });
+
+            submit({ started: Date.now() });
         }
         return StarterController;
     })();
@@ -718,12 +733,12 @@ var Eun;
 var Eun;
 (function (Eun) {
     var StudyController = (function () {
-        function StudyController($scope, $location, $sce, group) {
-            var _this = this;
+        function StudyController($scope, $location, $sce, group, submit) {
             this.$scope = $scope;
             this.$location = $location;
             this.$sce = $sce;
             this.group = group;
+            this.submit = submit;
             this.stage = 0;
             this.page = 0;
             this.hide = 0;
@@ -863,27 +878,12 @@ var Eun;
                     });
                 } else {
                     clearInterval(self.timer);
+                    self.submit({ studied: Date.now() });
                     $scope.$apply(function () {
-                        return _this.$location.path("/standby");
+                        return self.$location.path("/standby");
                     });
                 }
             }, 720);
-
-            if (group) {
-                var count = 0;
-                $(document.body).keydown(function (event) {
-                    if (event.keyCode === 78) {
-                        count++;
-
-                        if (count === 5) {
-                            clearInterval(self.timer);
-                            $scope.$apply(function () {
-                                return _this.$location.path("/standby");
-                            });
-                        }
-                    }
-                });
-            }
         }
         StudyController.prototype.prev = function () {
             if (this.page > 0) {
@@ -905,6 +905,7 @@ var Eun;
 
             if (this.stage == this.idioms.length) {
                 clearInterval(this.timer);
+                this.submit({ studied: Date.now() });
                 this.$location.path("/standby");
             }
         };
@@ -915,10 +916,11 @@ var Eun;
 var Eun;
 (function (Eun) {
     var SurveyController = (function () {
-        function SurveyController($scope, $location, $sce) {
+        function SurveyController($scope, $location, $sce, submit) {
             this.$scope = $scope;
             this.$location = $location;
             this.$sce = $sce;
+            this.submit = submit;
             this.page = 0;
             this.questions = [
                 "(question hard-coded in the view file)",
@@ -973,6 +975,13 @@ var Eun;
             if (this.page < 5) {
                 this.page++;
             } else {
+                this.submit({
+                    survey: this.answers.map(function (x) {
+                        return parseInt(x);
+                    }),
+                    finished: Date.now()
+                });
+
                 this.$location.path("/finished");
             }
 
@@ -1003,12 +1012,14 @@ WebFont.load({
 var Eun;
 (function (Eun) {
     var WelcomeController = (function () {
-        function WelcomeController($scope, $location) {
+        function WelcomeController($scope, $location, submit) {
             this.$scope = $scope;
             this.$location = $location;
+            this.submit = submit;
             $scope.vm = this;
         }
         WelcomeController.prototype.next = function () {
+            this.submit({ welcomed: Date.now() });
             console.log("next");
             this.$location.path("/form");
         };
@@ -1116,7 +1127,19 @@ var Eun;
     });
 
     Eun.eun.factory('submit', function (id) {
-        return new Eun.SubmissionService(id);
+        return function (data) {
+            data = JSON.stringify(data);
+            $.ajax({
+                method: "POST",
+                url: "/submit/" + id,
+                data: data,
+                contentType: 'application/json; charset=utf-8'
+            }).done(function () {
+                console.log("submitted: " + data);
+            }).fail(function (xhr, status, error) {
+                alert(error);
+            });
+        };
     });
 
     Eun.eun.config(function ($routeProvider) {

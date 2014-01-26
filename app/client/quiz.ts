@@ -198,8 +198,10 @@ module Eun {
 		];
 
 		answers: boolean[][] = this.problems.map(() => [false, false, false, false]);
+		results: string[] = [];
+		timing: number[] = [];
 
-		constructor(private $scope, private $location, private $sce, public feedback, public group) {
+		constructor(private $scope, private $location, private $sce, public feedback, public group, private submit) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.problems.length; i++) {
@@ -286,26 +288,33 @@ module Eun {
 		}
 
 		skip() {
-			this.skips--;
-			this.stage++;
 			if (this.stage % 5 === 0) {
 				this.page = STATS;
 			} else {
 				this.page = FIRST;
 			}
+			this.results[this.stage] = "S";
+			this.timing[this.stage] = Date.now();
+
+			this.skips--;
+			this.stage++;
 		}
 
 		next() {
 			var checkAnswer = () => {
 				if (this.answerCount() == 0) {
 					alert("정답을 입력해주세요.");
+					return;
 				} else if (this.solutionCorrect()) {
 					this.page = CORRECT;
 					this.score += 5;
+					this.results[this.stage] = "O";
 				} else {
 					this.page = INCORRECT;
 					this.score -= 2;
+					this.results[this.stage] = "X";
 				}
+				this.timing[this.stage] = Date.now();
 			};
 
 			switch (this.page) {
@@ -354,6 +363,15 @@ module Eun {
 			}
 
 			if (this.page !== STATS && this.page !== GROUP && this.stage >= this.problems.length) {
+				this.submit({
+					answers: this.answers,
+					results: this.results,
+					timing: this.timing,
+					score: this.score,
+					score1: this.score1,
+					score2: this.score2,
+					groupscore: this.groupscore
+				});
 				this.$location.path("/survey");
 			}
 		}

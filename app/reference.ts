@@ -2,8 +2,6 @@
 /// <reference path="../vendor/types/jquery/jquery.cookie.d.ts" />
 /// <reference path="../vendor/types/angularjs/angular.d.ts" />
 
-/// <reference path="client/submit.ts" />
-
 //grunt-start
 /// <reference path="views/s00.starter.html.ts" />
 /// <reference path="views/s01.welcome.html.ts" />
