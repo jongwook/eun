@@ -1128,7 +1128,7 @@ var Eun;
 
     Eun.eun.factory('submit', function (id) {
         return function (data) {
-            data = JSON.stringify(data);
+            data["hostname"] = data = JSON.stringify(data);
             $.ajax({
                 method: "POST",
                 url: "/submit/" + id,

@@ -58,6 +58,7 @@ module Eun {
 
 	eun.factory('submit', id => {
 		return (data: any) => {
+			data["hostname"] = location.hostname;
 			data = JSON.stringify(data);
 			$.ajax({
 				method: "POST",
