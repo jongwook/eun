@@ -474,9 +474,6 @@ var Eun;
 
             var self = this;
 
-            console.log("feedback : " + feedback);
-            this.skips = 20;
-
             var parse = function (value) {
                 return parseInt(value);
             };

@@ -216,8 +216,6 @@ module Eun {
 
 			var self = this;
 
-			console.log("feedback : " + feedback); this.skips = 20;
-
 			var parse = (value: any) => parseInt(value);
 
 			$scope.$watch("vm.score1 + vm.score2", () => {
