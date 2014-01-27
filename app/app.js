@@ -29,7 +29,7 @@ var s03;
 var s04;
 (function (s04) {
     (function (prep) {
-        prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 4번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
+        prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
     })(s04.prep || (s04.prep = {}));
     var prep = s04.prep;
 })(s04 || (s04 = {}));
@@ -80,7 +80,8 @@ var Eun;
         });
     });
 
-    Eun.eun.factory('safeApply', [function ($rootScope) {
+    Eun.eun.factory('safeApply', [
+        function ($rootScope) {
             return function ($scope, fn) {
                 var phase = $scope.$root.$$phase;
                 if (phase == '$apply' || phase == '$digest') {
@@ -95,7 +96,8 @@ var Eun;
                     }
                 }
             };
-        }]);
+        }
+    ]);
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
@@ -317,10 +319,10 @@ var Eun;
     })(Eun.ProblemType || (Eun.ProblemType = {}));
     var ProblemType = Eun.ProblemType;
 
-    var SINGLE = 0 /* SINGLE */;
-    var MULTIPLE = 1 /* MULTIPLE */;
-    var IMAGE = 2 /* IMAGE */;
-    var BLANK = 3 /* BLANK */;
+    var SINGLE = ProblemType.SINGLE;
+    var MULTIPLE = ProblemType.MULTIPLE;
+    var IMAGE = ProblemType.IMAGE;
+    var BLANK = ProblemType.BLANK;
 
     var FIRST = 0;
     var SECOND = 1;
@@ -341,7 +343,7 @@ var Eun;
             this.page = 0;
             this.hide = 0;
             this.score = 0;
-            this.skips = 4;
+            this.skips = 5;
             this.problems = [
                 {
                     type: SINGLE,
@@ -854,7 +856,8 @@ var Eun;
                     ],
                     "story": "중국에 우공이라는 아흔 살 된 노인 집 앞에는 넓이가 칠백 리, 만 길 높이의 두 산이 가로막고 있어 생활하는데 무척 불편했습니다. 어느 날 노인은 가족들에게 가족이 힘을 합쳐 산을 옮기면 그 길이 넓어져 다니기에 편리할 것이라며 산을 옮기기 위해 가족들과 꼬박 1년이 걸려 지게에 흙을 지고 발해 바다에 갔다 버리고 돌아왔습니다. 이를 본 이웃 사람들이 무모하다며 비웃었지만 우공은 “내가 죽으면 내 아들, 그가 죽으면 손자가 계속 할 것이오. 그 동안 산은 깎여 나가겠지만 더 높아지지는 않을 테니 언젠가는 길이 날 것이오.”라고 말하였습니다.  이 말을 들은 옥황상제는 우공의 정성에 감동해 두 산을 없애주기로 했습니다.",
                     "description": ["세상을 바꾸는 것은 머리 좋은 사람이 아니라 결코 포기하지 않고 끝까지 노력하는 사람임을 알려 주는 뜻을 가진 '우공이산(愚公移山)'은 우공이 산을 옮겨놓았다는 데서 유래하여 <em>어떤 일이든 끊임없이 노력하면 반드시 이루어짐</em>을 뜻하는 고사성어다. "]
-                }];
+                }
+            ];
             $scope.vm = this;
 
             for (var i = 0; i < this.idioms.length; i++) {
