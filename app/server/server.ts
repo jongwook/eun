@@ -35,7 +35,10 @@ mongo.connect(MONGO_URL, (err, db) => {
 	app.get("/data/:hostname", (req, res) => {
 		db.collection('data').find({hostname: req.params.hostname}).sort({updated: -1}).limit(10000).toArray((err, data) => {
 			if (err) throw err;
-			res.set('Content-Type', 'application/json; charset=utf-8');
+			res.set({
+				'Content-Type': 'application/json; charset=utf-8',
+				"Access-Control-Allow-Origin": "*"
+			});
 			res.send(JSON.stringify(data, null, 2));
 		});
 	});
