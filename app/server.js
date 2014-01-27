@@ -11,15 +11,16 @@ mongo.connect(MONGO_URL, function (err, db) {
     var app = express();
 
     app.use(function (req, res, next) {
-        console.log('%s %s', req.method, req.url);
+        console.log('%s\t%s %s', req.ip, req.method, req.url);
         next();
     });
-
-    app.use("/", express.static(__dirname + "/.."));
 
     app.post("/submit/:id", express.bodyParser(), function (req, res) {
         console.log("Post : %s=%s", req.params.id, JSON.stringify(req.body));
         var id = req.params.id;
+
+        req.body["ip"] = req.ip;
+        req.body["updated"] = Date.now();
 
         db.collection('data').update({ _id: id }, { $set: req.body }, { upsert: true }, function (err) {
             if (err) {
@@ -30,6 +31,17 @@ mongo.connect(MONGO_URL, function (err, db) {
             res.send(200);
         });
     });
+
+    app.get("/data/:hostname", function (req, res) {
+        db.collection('data').find({ hostname: req.params.hostname }).sort({ updated: -1 }).limit(10000).toArray(function (err, data) {
+            if (err)
+                throw err;
+            res.set('Content-Type', 'application/json; charset=utf-8');
+            res.send(JSON.stringify(data, null, 2));
+        });
+    });
+
+    app.use("/", express.static(__dirname + "/.."));
 
     app.listen(80);
 });
