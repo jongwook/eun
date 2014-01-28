@@ -342,7 +342,8 @@ var Eun;
             this.page = 0;
             this.hide = 0;
             this.score = 0;
-            this.skips = 5;
+            this.skips = 20;
+            this.groupscore = "";
             this.problems = [
                 {
                     type: SINGLE,
@@ -514,15 +515,17 @@ var Eun;
                 return parseInt(value);
             };
 
-            var update = function () {
-                if (self.feedback === 'date') {
-                    self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+            $scope.$watch("vm.score1 + vm.score2", function () {
+                if (self.score1 || self.score2) {
+                    if (self.feedback === 'date') {
+                        self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+                    } else {
+                        self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+                    }
                 } else {
-                    self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+                    self.groupscore = "";
                 }
-            };
-            update();
-            $scope.$watch("vm.score1 + vm.score2", update);
+            });
 
             this.timer = setInterval(function () {
                 if (self.hide < 100) {

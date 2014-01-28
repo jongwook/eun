@@ -45,11 +45,11 @@ module Eun {
 		hide: number = 0;
 
 		score: number = 0;
-		skips: number = 5;
+		skips: number = 20;
 
 		score1: string;
 		score2: string;
-		groupscore: number;
+		groupscore: any = "";
 
 		problems: Problem[] = [
 			{
@@ -223,15 +223,17 @@ module Eun {
 
 			var parse = (value: any) => parseInt(value);
 
-			var update = () => {
-				if (self.feedback === 'date') {
-					self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+			$scope.$watch("vm.score1 + vm.score2", () => {
+				if (self.score1 || self.score2) {
+					if (self.feedback === 'date') {
+						self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+					} else {
+						self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+					}
 				} else {
-					self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
+					self.groupscore = "";
 				}
-			};
-			update();
-			$scope.$watch("vm.score1 + vm.score2", update);
+			});
 
 			this.timer = setInterval(() => {
 				if (self.hide < 100) {
