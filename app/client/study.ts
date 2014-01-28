@@ -146,15 +146,18 @@ module Eun {
 			}
 
 			var self = this;
+			var startedAt = Date.now();
 			this.timer = setInterval(() => {
 				if (self.hide < 100) {
-					$scope.$apply(() => self.hide += 0.1);
+					$scope.$apply(() => {
+						self.hide = 100 * (Date.now() - startedAt) / 720000;  // timeout 12 min
+					});
 				} else {
 					clearInterval(self.timer);
 					self.submit({studied: Date.now()});
 					$scope.$apply(() => self.$location.path("/standby"));
 				}
-			}, 720);   // timeout 12 min
+			}, 1000);
 		}
 
 		prev() {

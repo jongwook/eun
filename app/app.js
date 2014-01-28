@@ -36,7 +36,7 @@ var s04;
 var s05;
 (function (s05) {
     (function (study) {
-        study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>	</div>	<div ng-if="vm.page == 1" class="small-text">		<br>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">고사성어 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>	</div>	<div ng-if="vm.page == 1" class="small-text">		<br>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">고사성어 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
     })(s05.study || (s05.study = {}));
     var study = s05.study;
 })(s05 || (s05 = {}));
@@ -57,7 +57,7 @@ var s07;
 var s08;
 (function (s08) {
     (function (survey) {
-        survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]" ng-if="n < vm.questions.length">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
     })(s08.survey || (s08.survey = {}));
     var survey = s08.survey;
 })(s08 || (s08 = {}));
@@ -872,10 +872,11 @@ var Eun;
             }
 
             var self = this;
+            var startedAt = Date.now();
             this.timer = setInterval(function () {
                 if (self.hide < 100) {
                     $scope.$apply(function () {
-                        return self.hide += 0.1;
+                        self.hide = 100 * (Date.now() - startedAt) / 720000;
                     });
                 } else {
                     clearInterval(self.timer);
@@ -884,7 +885,7 @@ var Eun;
                         return self.$location.path("/standby");
                     });
                 }
-            }, 720);
+            }, 1000);
         }
         StudyController.prototype.prev = function () {
             if (this.page > 0) {
@@ -943,7 +944,10 @@ var Eun;
                 "과제를 하는 동안 나는 어떻게 하면 실수하는 것을 막을 수 있을까에 대해서 종종 생각하고 싶었다.",
                 "과제를 하는 동안 정답을 제시하지 못할 경우, 나는 그것을 매우 신중하게 생각하고 싶었다.",
                 "과제를 하는 동안 실수를 한 후, 나는 어떻게 실수를 고칠 수 있을까에 대해 오랫동안 신중히 고민하고 싶었다.",
-                "과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다."
+                "과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다.",
+                "나는 고사성어 학습하기를 또 하고 싶다.",
+                "나는 고사성어 학습하기가 즐거웠다.",
+                "나는 고사성어 학습하기가 지루했었다."
             ];
             this.vertical = this.questions.map(function (q) {
                 return q.indexOf("<") !== -1;
@@ -965,7 +969,7 @@ var Eun;
 
         SurveyController.prototype.next = function () {
             if (this.page > 0) {
-                for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+                for (var i = this.page * 4 - 4; i < this.page * 4 && i < this.questions.length; i++) {
                     if (!this.answers[i]) {
                         Eun.alert((i + 1) + "번 문항에 응답해주세요");
                         return;
@@ -973,7 +977,7 @@ var Eun;
                 }
             }
 
-            if (this.page < 5) {
+            if (this.page < 6) {
                 this.page++;
             } else {
                 this.submit({

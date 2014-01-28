@@ -25,7 +25,7 @@
 				<th width="50px"></th>
 				<th width="50px">5<br>아주<br>비슷하다</th>
 			</tr>
-			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">
+			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]" ng-if="n < vm.questions.length">
 				<td>{{n+1}}</td>
 				<td ng-if="n === 0" colspan="6" style="text-align: left;">
 					이번 수업시간의 나에게 주어진 목표는

@@ -71,5 +71,5 @@
 
 <div id="nav" ng-if="!vm.group">
 	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>
-	<button class="next" ng-click="vm.next()">다음</button>
+	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button>
 </div>

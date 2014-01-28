@@ -28,6 +28,10 @@ module Eun {
 			"과제를 하는 동안 정답을 제시하지 못할 경우, 나는 그것을 매우 신중하게 생각하고 싶었다.",
 			"과제를 하는 동안 실수를 한 후, 나는 어떻게 실수를 고칠 수 있을까에 대해 오랫동안 신중히 고민하고 싶었다.",
 			"과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다.",
+			// page 6: 21 to 23
+			"나는 고사성어 학습하기를 또 하고 싶다.",
+			"나는 고사성어 학습하기가 즐거웠다.",
+			"나는 고사성어 학습하기가 지루했었다."
 		];
 
 		vertical = this.questions.map(q => q.indexOf("<") !== -1);
@@ -52,18 +56,16 @@ module Eun {
 
 		next() {
 			if (this.page > 0) {
-				for (var i = this.page * 4 - 4; i < this.page * 4; i++) {
+				for (var i = this.page * 4 - 4; i < this.page * 4 && i < this.questions.length; i++) {
 					if (!this.answers[i]) {
 						alert((i+1) + "번 문항에 응답해주세요");
 						return;
 					}
-
-					// TODO: save results
 				}
 			}
 
 			// flip page or finish
-			if (this.page < 5) {
+			if (this.page < 6) {
 				this.page++;
 			} else {
 				this.submit({
