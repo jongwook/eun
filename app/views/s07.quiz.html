@@ -131,6 +131,28 @@
 		</p>
 	</div>
 
+	<div ng-if="vm.page === 6">
+		<p ng-if="vm.feedback === 'date'">
+			여러분 팀은
+			<br>
+			본 과제를 통해 얻을 수 있는<br>
+			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.
+		</p>
+		<p ng-if="vm.feedback === 'go'">
+			여러분 팀은
+			<br>
+			본 과제를 통해 얻을 수 있는<br>
+			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.
+		</p>
+		<div class="score-bar">
+			<div ng-if="vm.feedback === 'date'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>
+			<div ng-if="vm.feedback === 'go'" class="score-gauge-go" style="width:{{(300 - vm.groupscore)/3}}%">-{{vm.groupscore}}점</div>
+		</div>
+		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">
+			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100
+		</div>
+	</div>
+
 	<div class="timer">
 		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>
 		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>

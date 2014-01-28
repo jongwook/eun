@@ -50,7 +50,7 @@ var s06;
 var s07;
 (function (s07) {
     (function (quiz) {
-        quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 3">			<table class="cover">				<tr>					<th ng-repeat="letter in vm.problems[vm.stage].letters[0] track by $index" style="background-color: {{letter ? \'\' : \'#FF007F\'}}">{{letter}}</th>				</tr>				<tr>					<td ng-repeat="letter in vm.problems[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type !== 2 || vm.page === 1 && vm.problems[vm.stage].type === 2">			<br>			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 3">			<table class="cover">				<tr>					<th ng-repeat="letter in vm.problems[vm.stage].letters[0] track by $index" style="background-color: {{letter ? \'\' : \'#FF007F\'}}">{{letter}}</th>				</tr>				<tr>					<td ng-repeat="letter in vm.problems[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type !== 2 || vm.page === 1 && vm.problems[vm.stage].type === 2">			<br>			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{(300 - vm.groupscore)/3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
     })(s07.quiz || (s07.quiz = {}));
     var quiz = s07.quiz;
 })(s07 || (s07 = {}));
@@ -328,6 +328,7 @@ var Eun;
     var INCORRECT = 3;
     var STATS = 4;
     var GROUP = 5;
+    var GROUPSTAT = 6;
 
     var QuizController = (function () {
         function QuizController($scope, $location, $sce, feedback, group, submit) {
@@ -527,7 +528,11 @@ var Eun;
                         return self.hide++;
                     });
                 } else {
-                    clearInterval(self.timer);
+                    if (self.timer) {
+                        clearInterval(self.timer);
+                        self.timer = null;
+                    }
+
                     console.log("TIMEOUT!!");
                     $scope.$apply(function () {
                         while (self.stage < self.problems.length) {
@@ -594,31 +599,30 @@ var Eun;
             }
         };
 
-        QuizController.prototype.next = function () {
-            var _this = this;
-            var checkAnswer = function () {
-                if (_this.answerCount() == 0) {
-                    Eun.alert("정답을 입력해주세요.");
-                    return;
-                } else if (_this.solutionCorrect()) {
-                    _this.page = CORRECT;
-                    _this.score += 5;
-                    _this.results[_this.stage] = "O";
-                } else {
-                    _this.page = INCORRECT;
-                    _this.score -= 2;
-                    _this.results[_this.stage] = "X";
-                }
-                _this.timing[_this.stage] = Date.now();
-            };
+        QuizController.prototype.checkAnswer = function () {
+            if (this.answerCount() == 0) {
+                Eun.alert("정답을 입력해주세요.");
+                return;
+            } else if (this.solutionCorrect()) {
+                this.page = CORRECT;
+                this.score += 5;
+                this.results[this.stage] = "O";
+            } else {
+                this.page = INCORRECT;
+                this.score -= 2;
+                this.results[this.stage] = "X";
+            }
+            this.timing[this.stage] = Date.now();
+        };
 
+        QuizController.prototype.next = function () {
             switch (this.page) {
                 case FIRST:
                     switch (this.problems[this.stage].type) {
                         case SINGLE:
                         case MULTIPLE:
                         case BLANK:
-                            checkAnswer();
+                            this.checkAnswer();
                             break;
                         case IMAGE:
                             this.page = SECOND;
@@ -632,7 +636,7 @@ var Eun;
                             console.error("Should not reach here");
                             break;
                         case IMAGE:
-                            checkAnswer();
+                            this.checkAnswer();
                             break;
                     }
                     break;
@@ -653,11 +657,25 @@ var Eun;
                     }
                     break;
                 case GROUP:
+                    if (!this.score1 || !this.score2) {
+                        Eun.alert("팀원들의 점수를 입력해 주세요");
+                        return;
+                    }
+                    this.page = GROUPSTAT;
+                    break;
+                case GROUPSTAT:
                     this.page = FIRST;
                     break;
             }
 
-            if (this.page !== STATS && this.page !== GROUP && this.stage >= this.problems.length) {
+            console.log(this.page);
+
+            if (this.stage >= this.problems.length && this.timer) {
+                clearInterval(this.timer);
+                this.timer = null;
+            }
+
+            if (this.page === FIRST && this.stage >= this.problems.length) {
                 this.submit({
                     answers: this.answers,
                     results: this.results,

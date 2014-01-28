@@ -26,6 +26,7 @@ module Eun {
 	var INCORRECT = 3;
 	var STATS = 4;
 	var GROUP = 5;
+	var GROUPSTAT = 6;
 
 	export class QuizController {
 		// 0 ~ 19 : questions
@@ -36,6 +37,8 @@ module Eun {
 		// 2: correct
 		// 3: incorrect
 		// 4: stats
+		// 5: group score input
+		// 6: group score stats
 		page: number = 0;
 
 		timer: any;
@@ -232,7 +235,11 @@ module Eun {
 				if (self.hide < 100) {
 					$scope.$apply(() => self.hide++);
 				} else {
-					clearInterval(self.timer);
+					if (self.timer) {
+						clearInterval(self.timer);
+						self.timer = null;
+					}
+
 					console.log("TIMEOUT!!");
 					$scope.$apply(() => {
 						while (self.stage < self.problems.length) {
@@ -301,30 +308,30 @@ module Eun {
 			}
 		}
 
-		next() {
-			var checkAnswer = () => {
-				if (this.answerCount() == 0) {
-					alert("정답을 입력해주세요.");
-					return;
-				} else if (this.solutionCorrect()) {
-					this.page = CORRECT;
-					this.score += 5;
-					this.results[this.stage] = "O";
-				} else {
-					this.page = INCORRECT;
-					this.score -= 2;
-					this.results[this.stage] = "X";
-				}
-				this.timing[this.stage] = Date.now();
-			};
+		checkAnswer() {
+			if (this.answerCount() == 0) {
+				alert("정답을 입력해주세요.");
+				return;
+			} else if (this.solutionCorrect()) {
+				this.page = CORRECT;
+				this.score += 5;
+				this.results[this.stage] = "O";
+			} else {
+				this.page = INCORRECT;
+				this.score -= 2;
+				this.results[this.stage] = "X";
+			}
+			this.timing[this.stage] = Date.now();
+		}
 
+		next() {
 			switch (this.page) {
 				case FIRST:
 					switch (this.problems[this.stage].type) {
 						case SINGLE:
 						case MULTIPLE:
 						case BLANK:
-							checkAnswer();
+							this.checkAnswer();
 							break;
 						case IMAGE:
 							this.page = SECOND;
@@ -338,7 +345,7 @@ module Eun {
 							console.error("Should not reach here");
 							break;
 						case IMAGE:
-							checkAnswer();
+							this.checkAnswer();
 							break;
 					}
 					break;
@@ -359,11 +366,25 @@ module Eun {
 					}
 					break;
 				case GROUP:
+					if (!this.score1 || !this.score2) {
+						alert("팀원들의 점수를 입력해 주세요");
+						return;
+					}
+					this.page = GROUPSTAT;
+					break;
+				case GROUPSTAT:
 					this.page = FIRST;
 					break;
 			}
 
-			if (this.page !== STATS && this.page !== GROUP && this.stage >= this.problems.length) {
+			console.log(this.page);
+
+			if (this.stage >= this.problems.length && this.timer) {
+				clearInterval(this.timer);
+				this.timer = null;
+			}
+
+			if (this.page === FIRST && this.stage >= this.problems.length) {
 				this.submit({
 					answers: this.answers,
 					results: this.results,
