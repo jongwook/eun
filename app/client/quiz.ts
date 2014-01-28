@@ -223,13 +223,15 @@ module Eun {
 
 			var parse = (value: any) => parseInt(value);
 
-			$scope.$watch("vm.score1 + vm.score2", () => {
+			var update = () => {
 				if (self.feedback === 'date') {
 					self.groupscore = parse(self.score) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
 				} else {
 					self.groupscore = (100 - parse(self.score)) + parse(self.score1 ? self.score1 : "0") + parse(self.score2 ? self.score2 : "0");
 				}
-			});
+			};
+			update();
+			$scope.$watch("vm.score1 + vm.score2", update);
 
 			this.timer = setInterval(() => {
 				if (self.hide < 100) {

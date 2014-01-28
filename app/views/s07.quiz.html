@@ -146,10 +146,10 @@
 		</p>
 		<div class="score-bar">
 			<div ng-if="vm.feedback === 'date'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>
-			<div ng-if="vm.feedback === 'go'" class="score-gauge-go" style="width:{{(300 - vm.groupscore)/3}}%">-{{vm.groupscore}}점</div>
+			<div ng-if="vm.feedback === 'go'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>
 		</div>
 		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">
-			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100
+			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300
 		</div>
 	</div>
 
