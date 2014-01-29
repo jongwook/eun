@@ -3,16 +3,16 @@
 /// <reference path="../vendor/types/angularjs/angular.d.ts" />
 
 //grunt-start
-/// <reference path="views/s00.starter.html.ts" />
-/// <reference path="views/s01.welcome.html.ts" />
-/// <reference path="views/s02.form.html.ts" />
-/// <reference path="views/s03.poll.html.ts" />
-/// <reference path="views/s04.prep.html.ts" />
-/// <reference path="views/s05.study.html.ts" />
-/// <reference path="views/s06.standby.html.ts" />
-/// <reference path="views/s07.quiz.html.ts" />
-/// <reference path="views/s08.survey.html.ts" />
-/// <reference path="views/s09.finished.html.ts" />
+/// <reference path="views/s00.starter.html.ts" />// generated
+/// <reference path="views/s01.welcome.html.ts" />// generated
+/// <reference path="views/s02.form.html.ts" />// generated
+/// <reference path="views/s03.poll.html.ts" />// generated
+/// <reference path="views/s04.prep.html.ts" />// generated
+/// <reference path="views/s05.study.html.ts" />// generated
+/// <reference path="views/s06.standby.html.ts" />// generated
+/// <reference path="views/s07.quiz.html.ts" />// generated
+/// <reference path="views/s08.survey.html.ts" />// generated
+/// <reference path="views/s09.finished.html.ts" />// generated
 /// <reference path="client/eun.ts" />
 /// <reference path="client/finsihed.ts" />
 /// <reference path="client/form.ts" />

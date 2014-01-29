@@ -80,7 +80,8 @@ var Eun;
         });
     });
 
-    Eun.eun.factory('safeApply', [function ($rootScope) {
+    Eun.eun.factory('safeApply', [
+        function ($rootScope) {
             return function ($scope, fn) {
                 var phase = $scope.$root.$$phase;
                 if (phase == '$apply' || phase == '$digest') {
@@ -95,7 +96,8 @@ var Eun;
                     }
                 }
             };
-        }]);
+        }
+    ]);
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
@@ -317,10 +319,10 @@ var Eun;
     })(Eun.ProblemType || (Eun.ProblemType = {}));
     var ProblemType = Eun.ProblemType;
 
-    var SINGLE = 0 /* SINGLE */;
-    var MULTIPLE = 1 /* MULTIPLE */;
-    var IMAGE = 2 /* IMAGE */;
-    var BLANK = 3 /* BLANK */;
+    var SINGLE = ProblemType.SINGLE;
+    var MULTIPLE = ProblemType.MULTIPLE;
+    var IMAGE = ProblemType.IMAGE;
+    var BLANK = ProblemType.BLANK;
 
     var FIRST = 0;
     var SECOND = 1;
@@ -342,7 +344,7 @@ var Eun;
             this.page = 0;
             this.hide = 0;
             this.score = 0;
-            this.skips = 20;
+            this.skips = 5;
             this.groupscore = "";
             this.problems = [
                 {
@@ -877,7 +879,8 @@ var Eun;
                     ],
                     "story": "중국에 우공이라는 아흔 살 된 노인 집 앞에는 넓이가 칠백 리, 만 길 높이의 두 산이 가로막고 있어 생활하는데 무척 불편했습니다. 어느 날 노인은 가족들에게 가족이 힘을 합쳐 산을 옮기면 그 길이 넓어져 다니기에 편리할 것이라며 산을 옮기기 위해 가족들과 꼬박 1년이 걸려 지게에 흙을 지고 발해 바다에 갔다 버리고 돌아왔습니다. 이를 본 이웃 사람들이 무모하다며 비웃었지만 우공은 “내가 죽으면 내 아들, 그가 죽으면 손자가 계속 할 것이오. 그 동안 산은 깎여 나가겠지만 더 높아지지는 않을 테니 언젠가는 길이 날 것이오.”라고 말하였습니다.  이 말을 들은 옥황상제는 우공의 정성에 감동해 두 산을 없애주기로 했습니다.",
                     "description": ["세상을 바꾸는 것은 머리 좋은 사람이 아니라 결코 포기하지 않고 끝까지 노력하는 사람임을 알려 주는 뜻을 가진 '우공이산(愚公移山)'은 우공이 산을 옮겨놓았다는 데서 유래하여 <em>어떤 일이든 끊임없이 노력하면 반드시 이루어짐</em>을 뜻하는 고사성어다. "]
-                }];
+                }
+            ];
             $scope.vm = this;
 
             for (var i = 0; i < this.idioms.length; i++) {
