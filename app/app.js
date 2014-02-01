@@ -474,7 +474,7 @@ var Eun;
             this.page = 0;
             this.hide = 0;
             this.score = 0;
-            this.skips = 20;
+            this.skips = 5;
             this.groupscore = "";
             this.problems = [
                 {

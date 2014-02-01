@@ -23,6 +23,25 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.min.js"></script>
 <script src="vendor/util/jquery.cookie.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$(document).bind('keydown', function (event) {
+		var doPrevent = false;
+		if (event.keyCode === 8) {
+			var d = event.srcElement || event.target;
+			if ((d.tagName.toUpperCase() === 'INPUT' && (d.type.toUpperCase() === 'TEXT' || d.type.toUpperCase() === 'PASSWORD' || d.type.toUpperCase() === 'FILE'))
+					|| d.tagName.toUpperCase() === 'TEXTAREA') {
+				doPrevent = d.readOnly || d.disabled;
+			}
+			else {
+				doPrevent = true;
+			}
+		}
+
+		if (doPrevent) {
+			event.preventDefault();
+		}
+	});
+</script>
 <script src="app/app.js"></script>
 
 <div class="modal fade" id="alert-modal">

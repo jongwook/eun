@@ -45,7 +45,7 @@ module Eun {
 		hide: number = 0;
 
 		score: number = 0;
-		skips: number = 20;
+		skips: number = 5;
 
 		score1: string;
 		score2: string;
