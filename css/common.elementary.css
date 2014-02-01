@@ -268,11 +268,11 @@ em {
 }
 
 .quiz table tr {
-	height: 100px;
 }
 
 .quiz table td {
-	padding: 20px;
+	padding-left: 100px;
+	text-align: left;
 }
 
 .quiz input {

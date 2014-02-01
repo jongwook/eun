@@ -3,13 +3,15 @@ module Eun {
 		SINGLE,
 		MULTIPLE,
 		IMAGE,
-		BLANK
+		BLANK,
+		PARAGRAPH
 	}
 
 	var SINGLE = ProblemType.SINGLE;
 	var MULTIPLE = ProblemType.MULTIPLE;
 	var IMAGE = ProblemType.IMAGE;
 	var BLANK = ProblemType.BLANK;
+	var PARAGRAPH = ProblemType.PARAGRAPH;
 
 	export interface Problem {
 		type: ProblemType;           // "simple", "image", "blank"
@@ -18,6 +20,7 @@ module Eun {
 		letters?: string[][];   // letter table if applicable
 		options: string[];      // the 4 options
 		answer: number[];         // the answer ( of 1, 2, 3, 4 )
+		paragraph?: string;
 	}
 
 	var FIRST = 0;
@@ -51,7 +54,126 @@ module Eun {
 		score2: string;
 		groupscore: any = "";
 
-		problems: Problem[] = [
+		problems: Problem[] = this.elementary ? [
+			{
+				type: SINGLE,
+				question: "<em>자신이 잘못을 하고도 도리어 남에게 화를 낸다</em>는 뜻을 가진 속담은?",
+				options: [
+					"감나무 밑에 누워 연시 떨어지기를 바란다",
+					"마파람에 게눈 감추듯",
+					"방귀 뀌고 성낸다",
+					"한강에 돌 던지기"
+				],
+				answer: [3]
+			},
+			{
+				type: IMAGE,
+				question: "빈칸에 들어갈 알맞은 속담은?",
+				image: "images/e02.jpg",
+				options: [
+					"구슬이 서 말이라도 꿰어야 보배	",
+					"돌다리도 두드려보고 건너라",
+					"소 잃고 외양간 고친다",
+					"우물 안 개구리",
+				],
+				answer: [1]
+			},
+			{
+				type: SINGLE,
+				question: "<em>아주 무식하다</em>는 뜻을 가진 속담은?",
+				options: [
+					"소 잃고 외양간 고친다",
+					"밑 빠진 독에 물 붓기",
+					"낫 놓고 기역 자도 모른다",
+					"우물 안 개구리"
+				],
+				answer: [3]
+			},
+			{
+				type: IMAGE,
+				question: "엄마가 세상을 떠난 후에야 엄마가 비에 떠내려갈까 슬피 우는 개구리들처럼 <em>이미 일이 잘못된 뒤에는 후회밖에 할 수 없다</em>는 뜻을 가진 속담은?",
+				image: "images/e04.jpg",
+				options: [
+					"한강에 돌 던지기",
+					"아는 길도 물어가라",
+					"우물 안 개구리",
+					"소 잃고 외양간 고친다"
+				],
+				answer: [4]
+			},
+			{
+				type: PARAGRAPH,
+				question: "아래의 상황에 알맞은 속담은?",
+				paragraph: "수원이가 기분 좋게 책을 읽고 있는데 갑자기 이상한 냄새가 방 안에 퍼졌습니다. 순간 수원이는 함께 있던 오빠를 쳐다보며 “오빠, 지금 뿡 했지?” 하면서 코를 감쌌습니다. 수원이의 말에 기분이 상한 오빠는 “그래 내가 했다. 그래서 뭐?” 하고 버럭 화를 냈습니다. 갑작스런 오빠의 반응에 놀란 수원이는 황당해 하며 코를 막고 방에서 나왔습니다.",
+				options: [
+					"소 잃고 외양간 고친다",
+					"구슬이 서 말이라도 꿰어야 보배",
+					"방귀 뀌고 성낸다",
+					"한강에 돌 던지기"
+				],
+				answer: [3]
+			},
+
+			{
+				type: IMAGE,
+				question: "그림을 설명하는 알맞은 속담은?",
+				image: "images/e06.jpg",
+				options: [
+					"감나무 밑에 누워 연시 떨어지기를 바란다",
+					"낫 놓고 기역자도 모른다",
+					"부뚜막의 소금도 집어 넣어야 짜다",
+					"아는 길도 물어서 가라"
+				],
+				answer: [2]
+			},
+			{
+				type: PARAGRAPH,
+				question: "빈칸에 들어갈 알맞은 속담은?",
+				paragraph: "어린 때라 달콤한 팥죽 한 그릇을 (빈칸) 후딱 먹어 치웠던 기억만 있다.",
+				options: [
+					"마파람에 게눈 감추듯	",
+					"방귀뀌고 성내는",
+					"밑 빠진 독에 물 붓기",
+					"돌다리도 두드려보고 건너라"
+				],
+				answer: [1]
+			},
+			{
+				type: PARAGRAPH,
+				question: "빈칸에 들어갈 알맞은 속담은?",
+				paragraph: "명섭:  오후에 눈이 온대요. 아빠 회사에 우산을 가져다 드려야겠어요.<br>엄마:  좋은 생각이다! 약도를 그려줄게 잘 보고 찾아가렴.<br>명섭:  필요 없어요. 어딘지 아는걸요!<br>얼마 후, 명섭이 우산을 들고 다시 집으로 돌아왔습니다.<br>엄마: 왜 다시 돌아왔니?<br>	명섭: 건물이 다 비슷해서 못 찾겠어요…☹<br>엄마: 그러게.. (빈칸) 고 했거늘..",
+				options: [
+					"한강에 돌 던지기",
+					"방귀뀌고 성낸다",
+					"아는 길도 물어서 가라",
+					"감나무 밑에 누워 연시 떨어지기를 바란다"
+				],
+				answer: [3]
+			},
+			{
+				type: SINGLE,
+				question: "<em>아무런 노력도 하지 않고서 좋은 결과만 바란다</em>는 뜻을 가진 속담은?",
+				options: [
+					"구슬이 서 말이라도 꿰어야 보배	",
+					"낫 놓고 기역 자도 모른다",
+					"마파람에 게눈 감추듯",
+					"감나무 밑에 누워 연시 떨어지기를 바란다"
+				],
+				answer: [4]
+			},
+			{
+				type: IMAGE,
+				question: "그림과 비슷한 뜻을 가진 속담은?",
+				image: "images/e10.jpg",
+				options: [
+					"돌다리도 두드려보고 건너라",
+					"부뚜막의 소금도 집어 넣어야 짜다",
+					"우물 안 개구리",
+					"마파람에 게눈 감추듯"
+				],
+				answer: [2]
+			}
+		] : [
 			{
 				type: SINGLE,
 				question: "우리 속담 <em>'강 건너 불구경 한다'</em>와 같은 뜻을 가진 고사성어는?",
@@ -204,7 +326,7 @@ module Eun {
 		results: string[] = [];
 		timing: number[] = [];
 
-		constructor(private $scope, private $location, private $sce, public feedback, public group, private submit) {
+		constructor(private $scope, private $location, private $sce, public feedback, public group, private submit, private elementary) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.problems.length; i++) {
@@ -338,6 +460,7 @@ module Eun {
 							this.checkAnswer();
 							break;
 						case IMAGE:
+						case PARAGRAPH:
 							this.page = SECOND;
 					}
 					break;
@@ -349,6 +472,7 @@ module Eun {
 							console.error("Should not reach here");
 							break;
 						case IMAGE:
+						case PARAGRAPH:
 							this.checkAnswer();
 							break;
 					}
