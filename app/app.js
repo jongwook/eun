@@ -22,7 +22,7 @@ var el;
 (function (el) {
     (function (s02) {
         (function (form) {
-            form.html = '<div id="slide" class="large-text" class="form">	<form>		<p>			먼저 자신에 대해서 적어봅시다.		</p>		<p>			1.			<input id="form-school" type="text" ng-model="vm.school" size="6"><label for="form-school">중학교</label>&nbsp;&nbsp;&nbsp;			<input id="form-year" type="text" ng-model="vm.year" size="2"><label for="form-year">학년</label>&nbsp;&nbsp;&nbsp;			<input id="form-classroom" type="text" ng-model="vm.classroom" size="2"><label for="form-classroom">반</label>&nbsp;&nbsp;&nbsp;			<input id="form-id" type="text" ng-model="vm.id" size="2"><label for="form-id">번</label>		</p>		<p>			2. 성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-male" type="radio" ng-model="vm.gender" name="gender" value="male"> <label for="form-male">남</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-female" type="radio" ng-model="vm.gender" name="gender" value="female"> <label for="form-female">여</label>		</p>		<p>			3. 집에서 주로 사용하는 언어는 무엇입니까?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-korean" type="radio" ng-model="vm.language" name="language" value="korean"> <label for="form-korean">한국어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-english" type="radio" ng-model="vm.language" name="language" value="english"> <label for="form-english">영어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-other" type="radio" ng-model="vm.language" name="language" value="other"> <label for="form-other">기타</label>			(<input id="form-language" type="text" ng-model="vm.other" size="5">)		</p>	</form></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+            form.html = '<div id="slide" class="large-text" class="form">	<form>		<p>			먼저 자신에 대해서 적어봅시다.		</p>		<p>			1.			<input id="form-school" type="text" ng-model="vm.school" size="6"><label for="form-school">초등학교</label>&nbsp;&nbsp;&nbsp;			<input id="form-year" type="text" ng-model="vm.year" size="2"><label for="form-year">학년</label>&nbsp;&nbsp;&nbsp;			<input id="form-classroom" type="text" ng-model="vm.classroom" size="2"><label for="form-classroom">반</label>&nbsp;&nbsp;&nbsp;			<input id="form-id" type="text" ng-model="vm.id" size="2"><label for="form-id">번</label>		</p>		<p>			2. 성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-male" type="radio" ng-model="vm.gender" name="gender" value="male"> <label for="form-male">남</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-female" type="radio" ng-model="vm.gender" name="gender" value="female"> <label for="form-female">여</label>		</p>		<p>			3. 집에서 주로 사용하는 언어는 무엇입니까?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-korean" type="radio" ng-model="vm.language" name="language" value="korean"> <label for="form-korean">한국어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-english" type="radio" ng-model="vm.language" name="language" value="english"> <label for="form-english">영어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-other" type="radio" ng-model="vm.language" name="language" value="other"> <label for="form-other">기타</label>			(<input id="form-language" type="text" ng-model="vm.other" size="5">)		</p>	</form></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
         })(s02.form || (s02.form = {}));
         var form = s02.form;
     })(el.s02 || (el.s02 = {}));
@@ -42,7 +42,7 @@ var el;
 (function (el) {
     (function (s04) {
         (function (prep) {
-            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
+            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 속담은 초등학교 국어 교과서에서 많이 다루는 내용으로			<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>로 선정되어 있으며			매년 전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 속담을 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 초등학교에서 <span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>			학습프로그램으로 속담을 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;초등학생이 꼭 알아야 할 속담&quot;</span> 학습프로그램을 통해<br>			속담을 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			초등학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">속담에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				속담 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
         })(s04.prep || (s04.prep = {}));
         var prep = s04.prep;
     })(el.s04 || (el.s04 = {}));
@@ -62,7 +62,7 @@ var el;
 (function (el) {
     (function (s06) {
         (function (standby) {
-            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
+            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
         })(s06.standby || (s06.standby = {}));
         var standby = s06.standby;
     })(el.s06 || (el.s06 = {}));
@@ -293,11 +293,13 @@ var Eun;
 var Eun;
 (function (Eun) {
     var PollController = (function () {
-        function PollController($scope, $location, submit) {
+        function PollController($scope, $location, submit, elementary) {
             this.$scope = $scope;
             this.$location = $location;
             this.submit = submit;
+            this.elementary = elementary;
             this.page = 0;
+            this.topic = this.elementary ? "속담" : "고사성어";
             this.questions = [
                 "실수는 내 공부를 향상시키는 데 도움을 준다.",
                 "실수는 내가 공부를 계속하는 데 유용한 정보를 제공해 준다.",
@@ -331,14 +333,14 @@ var Eun;
                 "나는 우리 반 친구들을 정말 좋아한다.",
                 "우리 반 친구들과 나는 평소에 서로 도움을 주고받는다.",
                 "우리 반 친구들은 평소에 나와 같은 감정을 공유할 때가 많다.",
-                "나는 고사성어 학습프로그램에서 다루어지는 내용을 잘 이해할 자신이 있다.",
-                "나는 고사성어 학습프로그램을 매우 잘 할 수 있다고 확신한다.",
-                "나는 고사성어 학습프로그램에서 주어진 문제나 숙제를 성공적으로 해낼 수 있다고 확신한다.",
-                "나는 고사성어 학습프로그램에서 좋은 성적을 받을 것이라고 생각한다.",
-                "나는 고사성어 학습프로그램에서 다루어지는 내용을 잘 배울 것이라고 생각한다.",
-                "나는 고사성어 학습프로그램에서 다뤄지는 내용들이 중요하다고 생각한다.",
-                "나는 고사성어 학습프로그램에서 배우는 내용들이 재미있다고 생각한다.",
-                "나는 고사성어 학습프로그램에서 배우는 내용들이 유용하다고 생각한다."
+                "나는 " + this.topic + " 학습프로그램에서 다루어지는 내용을 잘 이해할 자신이 있다.",
+                "나는 " + this.topic + " 학습프로그램을 매우 잘 할 수 있다고 확신한다.",
+                "나는 " + this.topic + " 학습프로그램에서 주어진 문제나 숙제를 성공적으로 해낼 수 있다고 확신한다.",
+                "나는 " + this.topic + " 학습프로그램에서 좋은 성적을 받을 것이라고 생각한다.",
+                "나는 " + this.topic + " 학습프로그램에서 다루어지는 내용을 잘 배울 것이라고 생각한다.",
+                "나는 " + this.topic + " 학습프로그램에서 다뤄지는 내용들이 중요하다고 생각한다.",
+                "나는 " + this.topic + " 학습프로그램에서 배우는 내용들이 재미있다고 생각한다.",
+                "나는 " + this.topic + " 학습프로그램에서 배우는 내용들이 유용하다고 생각한다."
             ];
             this.answers = [];
             $scope.vm = this;
@@ -1071,19 +1073,21 @@ var Eun;
 var Eun;
 (function (Eun) {
     var SurveyController = (function () {
-        function SurveyController($scope, $location, $sce, submit) {
+        function SurveyController($scope, $location, $sce, submit, elementary) {
             this.$scope = $scope;
             this.$location = $location;
             this.$sce = $sce;
             this.submit = submit;
+            this.elementary = elementary;
             this.page = 0;
+            this.topic = this.elementary ? "속담" : "고사성어";
             this.questions = [
                 "(question hard-coded in the view file)",
-                "나는 고사성어 학습하기가 재미있었다.",
-                "실수는 주어진 고사성어에 대한 이해를 높이는 데 도움을 주었다.",
-                "실수는 내가 주어진 고사성어를 이해하는 데 유용한 정보를 제공해 주었다.",
-                "나의 실수는 주어진 고사성어에 대해 이해하는 데 도움을 주었다.",
-                "내 실수 덕분에 주어진 고사성어에 대해 보다 깊은 이해를 할 수 있었다.",
+                "나는 " + this.topic + " 학습하기가 재미있었다.",
+                "실수는 주어진 " + this.topic + "에 대한 이해를 높이는 데 도움을 주었다.",
+                "실수는 내가 주어진 " + this.topic + "를 이해하는 데 유용한 정보를 제공해 주었다.",
+                "나의 실수는 주어진 " + this.topic + "에 대해 이해하는 데 도움을 주었다.",
+                "내 실수 덕분에 주어진 " + this.topic + "에 대해 보다 깊은 이해를 할 수 있었다.",
                 "높은 점수를 얻고 싶다면, 과제에서 실수하는 것을 두려워해서는 안되었다.",
                 "가만히 있는 것보다는 위험을 감수하더라도 실수를 하는 것이 나았다.",
                 "과제를 잘 수행하기 위해서라면 나는 기꺼이 실수를 받아들였다.",
@@ -1098,9 +1102,9 @@ var Eun;
                 "과제를 하는 동안 정답을 제시하지 못할 경우, 나는 그것을 매우 신중하게 생각하고 싶었다.",
                 "과제를 하는 동안 실수를 한 후, 나는 어떻게 실수를 고칠 수 있을까에 대해 오랫동안 신중히 고민하고 싶었다.",
                 "과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다.",
-                "나는 고사성어 학습하기를 또 하고 싶다.",
-                "나는 고사성어 학습하기가 즐거웠다.",
-                "나는 고사성어 학습하기가 지루했었다."
+                "나는 " + this.topic + " 학습하기를 또 하고 싶다.",
+                "나는 " + this.topic + " 학습하기가 즐거웠다.",
+                "나는 " + this.topic + " 학습하기가 지루했었다."
             ];
             this.vertical = this.questions.map(function (q) {
                 return q.indexOf("<") !== -1;

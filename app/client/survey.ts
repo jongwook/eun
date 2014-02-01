@@ -2,15 +2,17 @@ module Eun {
 	export class SurveyController {
 		page = 0;   // 0 (intro) -> 1~5 pages (4 questions per page)
 
+		topic = this.elementary ? "속담" : "고사성어";
+
 		questions = [
 			// page 1: 1 to 4
 			"(question hard-coded in the view file)",
-			"나는 고사성어 학습하기가 재미있었다.",
-			"실수는 주어진 고사성어에 대한 이해를 높이는 데 도움을 주었다.",
-			"실수는 내가 주어진 고사성어를 이해하는 데 유용한 정보를 제공해 주었다.",
+			"나는 " + this.topic + " 학습하기가 재미있었다.",
+			"실수는 주어진 " + this.topic + "에 대한 이해를 높이는 데 도움을 주었다.",
+			"실수는 내가 주어진 " + this.topic + "를 이해하는 데 유용한 정보를 제공해 주었다.",
 			// page 2: 5 to 8
-			"나의 실수는 주어진 고사성어에 대해 이해하는 데 도움을 주었다.",
-			"내 실수 덕분에 주어진 고사성어에 대해 보다 깊은 이해를 할 수 있었다.",
+			"나의 실수는 주어진 " + this.topic + "에 대해 이해하는 데 도움을 주었다.",
+			"내 실수 덕분에 주어진 " + this.topic + "에 대해 보다 깊은 이해를 할 수 있었다.",
 			"높은 점수를 얻고 싶다면, 과제에서 실수하는 것을 두려워해서는 안되었다.",
 			"가만히 있는 것보다는 위험을 감수하더라도 실수를 하는 것이 나았다.",
 			// page 3: 9 to 12
@@ -29,16 +31,16 @@ module Eun {
 			"과제를 하는 동안 실수를 한 후, 나는 어떻게 실수를 고칠 수 있을까에 대해 오랫동안 신중히 고민하고 싶었다.",
 			"과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다.",
 			// page 6: 21 to 23
-			"나는 고사성어 학습하기를 또 하고 싶다.",
-			"나는 고사성어 학습하기가 즐거웠다.",
-			"나는 고사성어 학습하기가 지루했었다."
+			"나는 " + this.topic + " 학습하기를 또 하고 싶다.",
+			"나는 " + this.topic + " 학습하기가 즐거웠다.",
+			"나는 " + this.topic + " 학습하기가 지루했었다."
 		];
 
 		vertical = this.questions.map(q => q.indexOf("<") !== -1);
 
 		answers = [];
 
-		constructor(private $scope, private $location, private $sce, private submit) {
+		constructor(private $scope, private $location, private $sce, private submit, private elementary) {
 			$scope.vm = this;
 
 			for (var i = 0; i < this.questions.length; i++) {
