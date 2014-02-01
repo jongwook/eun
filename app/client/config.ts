@@ -5,6 +5,10 @@ module Eun {
 		$("#alert-modal").modal();
 	}
 
+	var elementary = location.hostname.substr(2, 1) === 'e';
+
+	eun.value("elementary", elementary);
+
 	eun.factory("type", () => {
 		var initial = location.hostname.substr(0, 1);
 		switch (initial) {
@@ -74,55 +78,57 @@ module Eun {
 	});
 
 	eun.config(($routeProvider) => {
+		console.log("elementary : " + elementary);
+		var base = elementary ? el : mid;
 		$routeProvider
 			.when("/", {
 				title: "서울대학교 인지학습연구회",
-				template: s00.starter.html,
+				template: base.s00.starter.html,
 				controller: "Eun.StarterController"
 			})
 			.when("/welcome", {
 				title: "환영합니다",
-				template: s01.welcome.html,
+				template: base.s01.welcome.html,
 				controller: "Eun.WelcomeController"
 			})
 			.when("/form", {
 				title: "자기소개",
-				template: s02.form.html,
+				template: base.s02.form.html,
 				controller: "Eun.FormController"
 			})
 			.when("/poll", {
 				title: "설문조사",
-				template: s03.poll.html,
+				template: base.s03.poll.html,
 				controller: "Eun.PollController"
 			})
 			.when("/prep", {
 				title: "학습안내",
-				template: s04.prep.html,
+				template: base.s04.prep.html,
 				controller: "Eun.PrepController"
 			})
 			.when("/study", {
 				title: "학습",
-				template: s05.study.html,
+				template: base.s05.study.html,
 				controller: "Eun.StudyController"
 			})
 			.when("/standby", {
 				title: "준비",
-				template: s06.standby.html,
+				template: base.s06.standby.html,
 				controller: "Eun.StandbyController"
 			})
 			.when("/quiz", {
 				title: "퀴즈",
-				template: s07.quiz.html,
+				template: base.s07.quiz.html,
 				controller: "Eun.QuizController"
 			})
 			.when("/survey", {
 				titie: "퀴즈",
-				template: s08.survey.html,
+				template: base.s08.survey.html,
 				controller: "Eun.SurveyController"
 			})
 			.when("/finished", {
 				title: "수고하셨습니다",
-				template: s09.finished.html,
+				template: base.s09.finished.html,
 				controller: "Eun.FinishedController"
 			})
 			.otherwise({

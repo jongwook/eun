@@ -3,11 +3,13 @@
 <head>
     <title>중학생이 꼭 알아야 할 고사성어 - {{title}}</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<!--[if lt IE 9]>
-	<script src="vendor/util/html5shiv.js"></script>
-	<script src="vendor/util/ie8.js"></script>
-	<![endif]-->
+	<script>
+		if (location.hostname.substr(2, 1) === 'e') {
+			document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common.elementary.css\">");
+		} else {
+			document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/common.middle.css\">");
+		}
+	</script>
 </head>
 <body>
 <div id="body" ng-view></div>

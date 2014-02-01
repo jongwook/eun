@@ -1,0 +1,1 @@
+module el.s00.starter { export var html =  '<div class="starter">	서울대학교 인지학습연구회<br>	속담 학습 프로그램</div>' } 

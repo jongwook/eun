@@ -1,73 +1,203 @@
-var s00;
-(function (s00) {
-    (function (starter) {
-        starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
-    })(s00.starter || (s00.starter = {}));
-    var starter = s00.starter;
-})(s00 || (s00 = {}));
-var s01;
-(function (s01) {
-    (function (welcome) {
-        welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 서울대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>를 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변을 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
-    })(s01.welcome || (s01.welcome = {}));
-    var welcome = s01.welcome;
-})(s01 || (s01 = {}));
-var s02;
-(function (s02) {
-    (function (form) {
-        form.html = '<div id="slide" class="large-text" class="form">	<form>		<p>			먼저 자신에 대해서 적어봅시다.		</p>		<p>			1.			<input id="form-school" type="text" ng-model="vm.school" size="6"><label for="form-school">중학교</label>&nbsp;&nbsp;&nbsp;			<input id="form-year" type="text" ng-model="vm.year" size="2"><label for="form-year">학년</label>&nbsp;&nbsp;&nbsp;			<input id="form-classroom" type="text" ng-model="vm.classroom" size="2"><label for="form-classroom">반</label>&nbsp;&nbsp;&nbsp;			<input id="form-id" type="text" ng-model="vm.id" size="2"><label for="form-id">번</label>		</p>		<p>			2. 성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-male" type="radio" ng-model="vm.gender" name="gender" value="male"> <label for="form-male">남</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-female" type="radio" ng-model="vm.gender" name="gender" value="female"> <label for="form-female">여</label>		</p>		<p>			3. 집에서 주로 사용하는 언어는 무엇입니까?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-korean" type="radio" ng-model="vm.language" name="language" value="korean"> <label for="form-korean">한국어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-english" type="radio" ng-model="vm.language" name="language" value="english"> <label for="form-english">영어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-other" type="radio" ng-model="vm.language" name="language" value="other"> <label for="form-other">기타</label>			(<input id="form-language" type="text" ng-model="vm.other" size="5">)		</p>	</form></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
-    })(s02.form || (s02.form = {}));
-    var form = s02.form;
-})(s02 || (s02 = {}));
-var s03;
-(function (s03) {
-    (function (poll) {
-        poll.html = '<div id="slide" class="large-text poll">	<div ng-show="vm.page == 0">		다음 문항들은 여러분의 생각에 대한 질문입니다.<br>		주의깊게 읽으시고, 자신의 생각과 <span class="pink">얼마나 비슷한지 표시</span>해 주시면 됩니다.<br>		정답이 있거나 좋고 나쁜 답이 있는 것이 아니므로<br>		<span class="pink">&quot;내 생각과 가장 비슷하다&quot;고 생각하는 쪽</span>으로 편안하게 표시하십시오.<br>		<br>		<div class="round-box">		    1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>	    전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td style="text-align: left;">{{vm.questions[n]}}</td>				<td ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
-    })(s03.poll || (s03.poll = {}));
-    var poll = s03.poll;
-})(s03 || (s03 = {}));
-var s04;
-(function (s04) {
-    (function (prep) {
-        prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
-    })(s04.prep || (s04.prep = {}));
-    var prep = s04.prep;
-})(s04 || (s04 = {}));
-var s05;
-(function (s05) {
-    (function (study) {
-        study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>	</div>	<div ng-if="vm.page == 1" class="small-text">		<br>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">고사성어 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
-    })(s05.study || (s05.study = {}));
-    var study = s05.study;
-})(s05 || (s05 = {}));
-var s06;
-(function (s06) {
-    (function (standby) {
-        standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
-    })(s06.standby || (s06.standby = {}));
-    var standby = s06.standby;
-})(s06 || (s06 = {}));
-var s07;
-(function (s07) {
-    (function (quiz) {
-        quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 3">			<table class="cover">				<tr>					<th ng-repeat="letter in vm.problems[vm.stage].letters[0] track by $index" style="background-color: {{letter ? \'\' : \'#FF007F\'}}">{{letter}}</th>				</tr>				<tr>					<td ng-repeat="letter in vm.problems[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type !== 2 || vm.page === 1 && vm.problems[vm.stage].type === 2">			<br>			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
-    })(s07.quiz || (s07.quiz = {}));
-    var quiz = s07.quiz;
-})(s07 || (s07 = {}));
-var s08;
-(function (s08) {
-    (function (survey) {
-        survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]" ng-if="n < vm.questions.length">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
-    })(s08.survey || (s08.survey = {}));
-    var survey = s08.survey;
-})(s08 || (s08 = {}));
-var s09;
-(function (s09) {
-    (function (finished) {
-        finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
-    })(s09.finished || (s09.finished = {}));
-    var finished = s09.finished;
-})(s09 || (s09 = {}));
+var el;
+(function (el) {
+    (function (s00) {
+        (function (starter) {
+            starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	속담 학습 프로그램</div>';
+        })(s00.starter || (s00.starter = {}));
+        var starter = s00.starter;
+    })(el.s00 || (el.s00 = {}));
+    var s00 = el.s00;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s01) {
+        (function (welcome) {
+            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 어린이 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 서울대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>을 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s01.welcome || (s01.welcome = {}));
+        var welcome = s01.welcome;
+    })(el.s01 || (el.s01 = {}));
+    var s01 = el.s01;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s02) {
+        (function (form) {
+            form.html = '<div id="slide" class="large-text" class="form">	<form>		<p>			먼저 자신에 대해서 적어봅시다.		</p>		<p>			1.			<input id="form-school" type="text" ng-model="vm.school" size="6"><label for="form-school">중학교</label>&nbsp;&nbsp;&nbsp;			<input id="form-year" type="text" ng-model="vm.year" size="2"><label for="form-year">학년</label>&nbsp;&nbsp;&nbsp;			<input id="form-classroom" type="text" ng-model="vm.classroom" size="2"><label for="form-classroom">반</label>&nbsp;&nbsp;&nbsp;			<input id="form-id" type="text" ng-model="vm.id" size="2"><label for="form-id">번</label>		</p>		<p>			2. 성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-male" type="radio" ng-model="vm.gender" name="gender" value="male"> <label for="form-male">남</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-female" type="radio" ng-model="vm.gender" name="gender" value="female"> <label for="form-female">여</label>		</p>		<p>			3. 집에서 주로 사용하는 언어는 무엇입니까?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-korean" type="radio" ng-model="vm.language" name="language" value="korean"> <label for="form-korean">한국어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-english" type="radio" ng-model="vm.language" name="language" value="english"> <label for="form-english">영어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-other" type="radio" ng-model="vm.language" name="language" value="other"> <label for="form-other">기타</label>			(<input id="form-language" type="text" ng-model="vm.other" size="5">)		</p>	</form></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s02.form || (s02.form = {}));
+        var form = s02.form;
+    })(el.s02 || (el.s02 = {}));
+    var s02 = el.s02;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s03) {
+        (function (poll) {
+            poll.html = '<div id="slide" class="large-text poll">	<div ng-show="vm.page == 0">		다음 문항들은 여러분의 생각에 대한 질문입니다.<br>		주의깊게 읽으시고, 자신의 생각과 <span class="pink">얼마나 비슷한지 표시</span>해 주시면 됩니다.<br>		정답이 있거나 좋고 나쁜 답이 있는 것이 아니므로<br>		<span class="pink">&quot;내 생각과 가장 비슷하다&quot;고 생각하는 쪽</span>으로 편안하게 표시하십시오.<br>		<br>		<div class="round-box">		    1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>	    전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td style="text-align: left;">{{vm.questions[n]}}</td>				<td ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s03.poll || (s03.poll = {}));
+        var poll = s03.poll;
+    })(el.s03 || (el.s03 = {}));
+    var s03 = el.s03;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s04) {
+        (function (prep) {
+            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
+        })(s04.prep || (s04.prep = {}));
+        var prep = s04.prep;
+    })(el.s04 || (el.s04 = {}));
+    var s04 = el.s04;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s05) {
+        (function (study) {
+            study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>	</div>	<div ng-if="vm.page == 1" class="small-text">		<br>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">고사성어 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
+        })(s05.study || (s05.study = {}));
+        var study = s05.study;
+    })(el.s05 || (el.s05 = {}));
+    var s05 = el.s05;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s06) {
+        (function (standby) {
+            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
+        })(s06.standby || (s06.standby = {}));
+        var standby = s06.standby;
+    })(el.s06 || (el.s06 = {}));
+    var s06 = el.s06;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s07) {
+        (function (quiz) {
+            quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 3">			<table class="cover">				<tr>					<th ng-repeat="letter in vm.problems[vm.stage].letters[0] track by $index" style="background-color: {{letter ? \'\' : \'#FF007F\'}}">{{letter}}</th>				</tr>				<tr>					<td ng-repeat="letter in vm.problems[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type !== 2 || vm.page === 1 && vm.problems[vm.stage].type === 2">			<br>			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s07.quiz || (s07.quiz = {}));
+        var quiz = s07.quiz;
+    })(el.s07 || (el.s07 = {}));
+    var s07 = el.s07;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s08) {
+        (function (survey) {
+            survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]" ng-if="n < vm.questions.length">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s08.survey || (s08.survey = {}));
+        var survey = s08.survey;
+    })(el.s08 || (el.s08 = {}));
+    var s08 = el.s08;
+})(el || (el = {}));
+var el;
+(function (el) {
+    (function (s09) {
+        (function (finished) {
+            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
+        })(s09.finished || (s09.finished = {}));
+        var finished = s09.finished;
+    })(el.s09 || (el.s09 = {}));
+    var s09 = el.s09;
+})(el || (el = {}));
+var mid;
+(function (mid) {
+    (function (s00) {
+        (function (starter) {
+            starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
+        })(s00.starter || (s00.starter = {}));
+        var starter = s00.starter;
+    })(mid.s00 || (mid.s00 = {}));
+    var s00 = mid.s00;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s01) {
+        (function (welcome) {
+            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 서울대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>를 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변을 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s01.welcome || (s01.welcome = {}));
+        var welcome = s01.welcome;
+    })(mid.s01 || (mid.s01 = {}));
+    var s01 = mid.s01;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s02) {
+        (function (form) {
+            form.html = '<div id="slide" class="large-text" class="form">	<form>		<p>			먼저 자신에 대해서 적어봅시다.		</p>		<p>			1.			<input id="form-school" type="text" ng-model="vm.school" size="6"><label for="form-school">중학교</label>&nbsp;&nbsp;&nbsp;			<input id="form-year" type="text" ng-model="vm.year" size="2"><label for="form-year">학년</label>&nbsp;&nbsp;&nbsp;			<input id="form-classroom" type="text" ng-model="vm.classroom" size="2"><label for="form-classroom">반</label>&nbsp;&nbsp;&nbsp;			<input id="form-id" type="text" ng-model="vm.id" size="2"><label for="form-id">번</label>		</p>		<p>			2. 성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-male" type="radio" ng-model="vm.gender" name="gender" value="male"> <label for="form-male">남</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-female" type="radio" ng-model="vm.gender" name="gender" value="female"> <label for="form-female">여</label>		</p>		<p>			3. 집에서 주로 사용하는 언어는 무엇입니까?<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-korean" type="radio" ng-model="vm.language" name="language" value="korean"> <label for="form-korean">한국어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-english" type="radio" ng-model="vm.language" name="language" value="english"> <label for="form-english">영어</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<input id="form-other" type="radio" ng-model="vm.language" name="language" value="other"> <label for="form-other">기타</label>			(<input id="form-language" type="text" ng-model="vm.other" size="5">)		</p>	</form></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s02.form || (s02.form = {}));
+        var form = s02.form;
+    })(mid.s02 || (mid.s02 = {}));
+    var s02 = mid.s02;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s03) {
+        (function (poll) {
+            poll.html = '<div id="slide" class="large-text poll">	<div ng-show="vm.page == 0">		다음 문항들은 여러분의 생각에 대한 질문입니다.<br>		주의깊게 읽으시고, 자신의 생각과 <span class="pink">얼마나 비슷한지 표시</span>해 주시면 됩니다.<br>		정답이 있거나 좋고 나쁜 답이 있는 것이 아니므로<br>		<span class="pink">&quot;내 생각과 가장 비슷하다&quot;고 생각하는 쪽</span>으로 편안하게 표시하십시오.<br>		<br>		<div class="round-box">		    1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>	    전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]">				<td>{{n+1}}</td>				<td style="text-align: left;">{{vm.questions[n]}}</td>				<td ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s03.poll || (s03.poll = {}));
+        var poll = s03.poll;
+    })(mid.s03 || (mid.s03 = {}));
+    var s03 = mid.s03;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s04) {
+        (function (prep) {
+            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 고사성어는 중학교 국어 및 한문 교과서에서 자주 다루는 수업 내용으로			<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>로 선정되어 있으며			전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 고사성어를 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 중학교에서 <span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>			학습프로그램으로 고사성어를 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span> 학습프로그램을 통해<br>			<span class="pink">12개의</span> 고사성어를 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			중학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">고사성어에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				고사성어 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
+        })(s04.prep || (s04.prep = {}));
+        var prep = s04.prep;
+    })(mid.s04 || (mid.s04 = {}));
+    var s04 = mid.s04;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s05) {
+        (function (study) {
+            study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0" class="large-text">		<p>			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<table class="cover">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>	</div>	<div ng-if="vm.page == 1" class="small-text">		<br>		<div class="pink-box" ng-bind-html="vm.idioms[vm.stage].story"></div>	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">고사성어 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
+        })(s05.study || (s05.study = {}));
+        var study = s05.study;
+    })(mid.s05 || (mid.s05 = {}));
+    var s05 = mid.s05;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s06) {
+        (function (standby) {
+            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			중학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">고사성어에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
+        })(s06.standby || (s06.standby = {}));
+        var standby = s06.standby;
+    })(mid.s06 || (mid.s06 = {}));
+    var s06 = mid.s06;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s07) {
+        (function (quiz) {
+            quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 3">			<table class="cover">				<tr>					<th ng-repeat="letter in vm.problems[vm.stage].letters[0] track by $index" style="background-color: {{letter ? \'\' : \'#FF007F\'}}">{{letter}}</th>				</tr>				<tr>					<td ng-repeat="letter in vm.problems[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type !== 2 || vm.page === 1 && vm.problems[vm.stage].type === 2">			<br>			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s07.quiz || (s07.quiz = {}));
+        var quiz = s07.quiz;
+    })(mid.s07 || (mid.s07 = {}));
+    var s07 = mid.s07;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s08) {
+        (function (survey) {
+            survey.html = '<div id="slide" class="large-text survey">	<div ng-show="vm.page == 0">		주어진 10분이 모두 지났습니다.<br>		문항을 주의 깊게 읽으시고 <span class="pink">느낀 그대로 솔직하게</span> 대답해주세요.<br>		<br>		<div class="round-box">			1 ---------- 2 ---------- 3 ---------- 4 ---------- 5<br>			전혀 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 다르다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			보통이다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			조금 비슷하다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			아주 비슷하다		</div>	</div>	<div ng-show="vm.page > 0">		<table style="width: 100%;">			<tr>				<th width="40px"></th>				<th></th>				<th width="50px">1<br>전혀<br>다르다</th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px"></th>				<th width="50px">5<br>아주<br>비슷하다</th>			</tr>			<tr ng-repeat="n in [vm.page * 4 - 4, vm.page * 4 - 3, vm.page * 4 - 2, vm.page * 4 - 1]" ng-if="n < vm.questions.length">				<td>{{n+1}}</td>				<td ng-if="n === 0" colspan="6" style="text-align: left;">					이번 수업시간의 나에게 주어진 목표는					<div class="options">						<input type="radio" name="question-0" value="1" ng-model="vm.answers[0]" id="survey-0-0"><label for="survey-0-0">(1) 완전히 이해하는 것</label><br>						<input type="radio" name="question-0" value="2" ng-model="vm.answers[0]" id="survey-0-1"><label for="survey-0-1">(2) 남들보다 잘하는 것</label>					</div> 이었다.				</td>				<td ng-if="n !== 0" style="text-align: left;" ng-bind="vm.questions[n]"></td>				<td ng-if="n !== 0" ng-repeat="a in [1,2,3,4,5]">					<label for="survey-{{n}}-{{a}}">{{a}}</label><br>					<input id="survey-{{n}}-{{a}}" type="radio" name="question-{{n}}" value="{{a}}" ng-model="vm.answers[n]">				</td>			</tr>		</table>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+        })(s08.survey || (s08.survey = {}));
+        var survey = s08.survey;
+    })(mid.s08 || (mid.s08 = {}));
+    var s08 = mid.s08;
+})(mid || (mid = {}));
+var mid;
+(function (mid) {
+    (function (s09) {
+        (function (finished) {
+            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
+        })(s09.finished || (s09.finished = {}));
+        var finished = s09.finished;
+    })(mid.s09 || (mid.s09 = {}));
+    var s09 = mid.s09;
+})(mid || (mid = {}));
 var Eun;
 (function (Eun) {
     Eun.root;
@@ -1063,6 +1193,10 @@ var Eun;
     }
     Eun.alert = alert;
 
+    var elementary = location.hostname.substr(2, 1) === 'e';
+
+    Eun.eun.value("elementary", elementary);
+
     Eun.eun.factory("type", function () {
         var initial = location.hostname.substr(0, 1);
         switch (initial) {
@@ -1172,45 +1306,47 @@ var Eun;
     });
 
     Eun.eun.config(function ($routeProvider) {
+        console.log("elementary : " + elementary);
+        var base = elementary ? el : mid;
         $routeProvider.when("/", {
             title: "서울대학교 인지학습연구회",
-            template: s00.starter.html,
+            template: base.s00.starter.html,
             controller: "Eun.StarterController"
         }).when("/welcome", {
             title: "환영합니다",
-            template: s01.welcome.html,
+            template: base.s01.welcome.html,
             controller: "Eun.WelcomeController"
         }).when("/form", {
             title: "자기소개",
-            template: s02.form.html,
+            template: base.s02.form.html,
             controller: "Eun.FormController"
         }).when("/poll", {
             title: "설문조사",
-            template: s03.poll.html,
+            template: base.s03.poll.html,
             controller: "Eun.PollController"
         }).when("/prep", {
             title: "학습안내",
-            template: s04.prep.html,
+            template: base.s04.prep.html,
             controller: "Eun.PrepController"
         }).when("/study", {
             title: "학습",
-            template: s05.study.html,
+            template: base.s05.study.html,
             controller: "Eun.StudyController"
         }).when("/standby", {
             title: "준비",
-            template: s06.standby.html,
+            template: base.s06.standby.html,
             controller: "Eun.StandbyController"
         }).when("/quiz", {
             title: "퀴즈",
-            template: s07.quiz.html,
+            template: base.s07.quiz.html,
             controller: "Eun.QuizController"
         }).when("/survey", {
             titie: "퀴즈",
-            template: s08.survey.html,
+            template: base.s08.survey.html,
             controller: "Eun.SurveyController"
         }).when("/finished", {
             title: "수고하셨습니다",
-            template: s09.finished.html,
+            template: base.s09.finished.html,
             controller: "Eun.FinishedController"
         }).otherwise({
             redirectTo: "/"
