@@ -251,6 +251,12 @@ em {
 	font-size: 18pt;
 }
 
+.study-image {
+	display: block;
+	margin: auto;
+	max-height: 300px;
+}
+
 .quiz table {
 	width: 90%;
 	border-collapse: collapse;

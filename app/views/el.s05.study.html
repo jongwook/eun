@@ -5,6 +5,7 @@
 			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}
 		</p>
 		<div class="pink-box small-text" ng-bind-html="vm.idioms[vm.stage].story"></div>
+		<img class="study-image" ng-if="vm.idioms[vm.stage].image" src="{{vm.idioms[vm.stage].image}}">
 	</div>
 
 	<div ng-if="vm.page == 2" class="small-text">
@@ -19,6 +20,7 @@
 		</table>
 		<br>
 		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>
+		<img class="study-image" ng-if="vm.idioms[vm.stage].images[vm.page-2]" src="{{vm.idioms[vm.stage].images[vm.page-2]}}">
 	</div>
 
 	<div ng-if="vm.page > 2" class="small-text">
