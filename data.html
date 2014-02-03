@@ -42,6 +42,7 @@
 					if (!row.answers) row.answers = new Array(20);
 					if (!row.results) row.results = new Array(20);
 					if (!row.survey) row.survey = new Array(23);
+					else if (row.survey.length === 20) row.survey.push("", "", "");
 				});
 
 			}
