@@ -42,7 +42,7 @@ var el;
 (function (el) {
     (function (s04) {
         (function (prep) {
-            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 속담은 초등학교 국어 교과서에서 많이 다루는 내용으로			<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>로 선정되어 있으며			매년 전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 속담을 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 초등학교에서 <span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>			학습프로그램으로 속담을 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;초등학생이 꼭 알아야 할 속담&quot;</span> 학습프로그램을 통해<br>			속담을 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			초등학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">속담에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: green; color: white; font-size: 18pt; border: 0;">				속담 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
+            prep.html = '<div id="slide" class="large-text">	<div ng-if="vm.page === 0">		<p>			오늘 여러분이 학습할 속담은 초등학교 국어 교과서에서 많이 다루는 내용으로			<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>로 선정되어 있으며			매년 전국적으로 실시되는 학업능력평가에서도 많은 비중을 차지하기 때문에 속담을 학습하는 것은 매우 중요합니다.		</p>		<p>			지난 일 년 동안 많은 초등학교에서 <span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>			학습프로그램으로 속담을 열심히 공부한 학생들은 진단평가에서 높은 성적을 거두는 것으로 보고되고 있습니다.		</p>	</div>	<div ng-if="vm.page === 1">		<p>			여러분들은 지금부터 <span class="pink">12분 동안</span><br>			<span class="green">&quot;초등학생이 꼭 알아야 할 속담&quot;</span> 학습프로그램을 통해<br>			속담을 학습하게 됩니다.		</p>		<p ng-if="vm.group">			<span class="big pink">4분</span> 동안 자신이 맡은 부분을 학습한 후<br>			<span class="big pink">8분</span> 동안 자신이 학습한 내용을 <span class="big pink">팀원들에게 설명해주어야</span> 합니다.		</p>		<p>			학습하고 난 후에는 스피드 퀴즈를 통해 자신의 이해를 점검하게 됩니다.		</p>	</div>	<div ng-if="vm.page === 2">		<p>			스피드퀴즈는 <span class="big pink">총 20문제</span>로 이루어져 있으며,<br>			10분 동안 화면에 주어지는 문제를 보고<br>			정답을 선택하면 됩니다.		</p>		<p>			<span class="blue">정답</span>을 선택할 경우 <span class="blue">5점</span>을 획득하지만,			<span class="red">오답</span>을 선택할 경우 <span class="red">2점</span>을 잃게 되고,<br>			<span class="green-box">SKIP</span> 을 누를 경우 <span class="green">0점</span>을 얻게 됩니다.<br>			단, <span class="green-box">SKIP</span>은 <span class="big">총 5번</span>만 누를 수 있습니다.		</p>	</div>	<div ng-if="vm.page === 2.5">		<p>			스피드퀴즈는 각자 풀게 되지만<br>			팀원 모두의 점수를 합한 점수가 여러분의 점수가 됩니다.		</p>		<p>			세 명 점수의 합이 <span class="big pink">총 300점 만점</span>인 스피드퀴즈에서<br>			여러분의 팀이 높은 점수를 얻기 위해서는<br>			<span class="pink">팀원 모두가 높은 점수를 받는 것이 중요</span>합니다.		</p>	</div>	<div ng-if="vm.page === 3">		<p>			오늘 수업에서 여러분의 목표는		</p>		<p>			초등학생들이 <span class="big pink">꼭</span> 알아야 할 <span class="big pink">속담에 대해 배우고</span>		</p>		<p ng-if="vm.study">			<span class="big">과제를 수행하며</span> <span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study" class="big">			같은 과제를 수행하게 될		</p>		<p ng-if="!vm.study">			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div>	<div ng-if="vm.page === 4">		<p style="text-align: center;">			과제를 통한 새로운 학습방법으로 <span class="big pink">재미있게</span> 학습해 보세요.<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: #007FFF; color: white; font-size: 18pt; border: 0;">				속담 12개 학습하기			</button>		</p>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button></div>';
         })(s04.prep || (s04.prep = {}));
         var prep = s04.prep;
     })(el.s04 || (el.s04 = {}));
@@ -52,7 +52,7 @@ var el;
 (function (el) {
     (function (s05) {
         (function (study) {
-            study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0">		<p class="large-text">			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<div class="pink-box small-text" ng-bind-html="vm.idioms[vm.stage].story"></div>		<img class="study-image" ng-if="vm.idioms[vm.stage].image" src="{{vm.idioms[vm.stage].image}}">	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>		<img class="study-image" ng-if="vm.idioms[vm.stage].images[vm.page-2]" src="{{vm.idioms[vm.stage].images[vm.page-2]}}">	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #1abd14;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">속담 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: pink; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
+            study.html = '<div id="slide" class="study" ng-if="!vm.group">	<div ng-if="vm.page == 0">		<p class="large-text">			{{vm.stage + 1}}. {{vm.idioms[vm.stage].title}}		</p>		<div class="pink-box small-text" ng-bind-html="vm.idioms[vm.stage].story"></div>		<img class="study-image" ng-if="vm.idioms[vm.stage].image" src="{{vm.idioms[vm.stage].image}}">	</div>	<div ng-if="vm.page == 2" class="small-text">		<br>		<table class="header">			<tr>				<th ng-repeat="letter in vm.idioms[vm.stage].letters[0] track by $index">{{letter}}</th>			</tr>			<tr>				<td ng-repeat="letter in vm.idioms[vm.stage].letters[1] track by $index" ng-bind-html="letter"></td>			</tr>		</table>		<br>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>		<img class="study-image" ng-if="vm.idioms[vm.stage].images[vm.page-2]" src="{{vm.idioms[vm.stage].images[vm.page-2]}}">	</div>	<div ng-if="vm.page > 2" class="small-text">		<p>&nbsp;</p>		<div ng-bind-html="vm.idioms[vm.stage].description[vm.page-2]"></div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">12</div>		<div class="timer-marker" style="right: 32px; top: 18px;">6</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="slide" class="study" ng-if="vm.group">	<p style="text-align: center;">		<span style="background: #007FFF;color: white;display: inline-block;text-align: center;width: 800px;height: 60px;font-size: 32pt;line-height: 60px;">속담 학습시간</span>	</p>	<p>&nbsp;</p>	<div class="big-timer">		<table>			<tr>				<td colspan="3">					<div style="background: #6bb1ff; width: {{100 - vm.hide}}%; height: 50px;"></div>				</td>			</tr>			<tr>				<td style="text-align: left; width: 33.33%;">0</td>				<td style="text-align: center; width: 33.33%;">6</td>				<td style="text-align: right; width: 33.33%;">12</td>			</tr>		</table>	</div></div><div id="nav" ng-if="!vm.group">	<button class="prev" ng-click="vm.prev()" ng-show="vm.stage > 0 || vm.page > 0">이전</button>	<button class="next" ng-click="vm.next()" ng-show="vm.stage !== vm.idioms.length - 1 || vm.page !== vm.idioms[vm.stage].description.length + 1">다음</button></div>';
         })(s05.study || (s05.study = {}));
         var study = s05.study;
     })(el.s05 || (el.s05 = {}));
@@ -62,7 +62,7 @@ var el;
 (function (el) {
     (function (s06) {
         (function (standby) {
-            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: deeppink; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
+            standby.html = '<div id="slide" class="large-text">	<div ng-if="vm.page == 0">		<p style="text-align: center;">			열심히 공부했나요?<br><br>			이제부터 <button ng-click="vm.next()" style="width: 150px; height: 40px; background-color: #497cff; color: white; font-size: 18pt; border: 0;">S T A R T</button> 버튼을 누르시고<br>			<span class="big pink">10분</span> 동안 스피드 퀴즈를 풀어봅시다<br><br>			<button ng-click="vm.next()" style="width: 600px; height: 50px; background-color: #497cff; color: white; font-size: 18pt; border: 0;">				S T A R T			</button>		</p>	</div>	<div ng-if="vm.page == 1">		<h1 style="color:red;">			다시 한 번 기억하세요!		</h1>		<p ng-if="vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">과제를 수행하며 </span><span class="big pink">완전히 이해하는 것</span>입니다.		</p>		<p ng-if="!vm.study">			<br>			오늘 수업에서 여러분의 목표는<br>			초등학생들이 <span class="pink">꼭</span> 알아야 할 <span class="pink">속담에 대해 배우고</span><br><br>			<span class="big">같은 과제를 수행하게 될</span><br>			<span class="big pink">다른 친구들보다 높은 점수를 받는 것</span>입니다.		</p>	</div></div><div id="nav">	<button class="next" ng-click="vm.next()" ng-show="vm.page == 1">다음</button></div>';
         })(s06.standby || (s06.standby = {}));
         var standby = s06.standby;
     })(el.s06 || (el.s06 = {}));
@@ -557,7 +557,7 @@ var Eun;
                 {
                     type: SENTENCE,
                     question: "빈칸에 들어갈 알맞은 속담은?",
-                    text: "어린 때라 달콤한 팥죽 한 그릇을 <span class='blank'></span> 후딱 먹어 치웠던 기억만 있다.",
+                    text: "어릴적 달콤한 팥죽 한 그릇을 <span class='blank'></span> 후딱 먹어 치웠던 기억만 있다.",
                     options: [
                         "마파람에 게눈 감추듯	",
                         "방귀뀌고 성내는",
@@ -598,6 +598,123 @@ var Eun;
                         "부뚜막의 소금도 집어 넣어야 짜다",
                         "우물 안 개구리",
                         "마파람에 게눈 감추듯"
+                    ],
+                    answer: [2]
+                },
+                {
+                    type: SENTENCE,
+                    question: "빈칸에 들어갈 알맞은 단어는?",
+                    text: "<span class='blank'></span> 에 돌 던지기",
+                    options: [
+                        "한탄강",
+                        "북한강",
+                        "한강",
+                        "인제가"
+                    ],
+                    answer: [3]
+                },
+                {
+                    type: SINGLE,
+                    question: "<em>“아는 길도 물어서 가라”</em>와 뜻이 비슷한 속담을 고르시오",
+                    options: [
+                        "돌다리도 두드려보고 건너라",
+                        "우물 안 개구리",
+                        "소 잃고 외양간 고친다",
+                        "감나무 밑에 누워 연시 떨어지기를 바란다"
+                    ],
+                    answer: [1]
+                },
+                {
+                    type: IMAGE,
+                    question: "그림을 설명하는 알맞은 속담은?",
+                    image: "images/e13.jpg",
+                    options: [
+                        "마파람에 게눈 감추듯",
+                        "방귀 뀐 놈이 성낸다",
+                        "밑 빠진 독에 물 붓기",
+                        "부뚜막의 소금도 집어 넣어야 짜다"
+                    ],
+                    answer: [3]
+                },
+                {
+                    type: SINGLE,
+                    question: "<em>보고 들은 게 없어서 세상을 잘 모르는 사람</em>을 가리키는 속담은?",
+                    options: [
+                        "감나무 밑에 누워 연시 떨어지기를 바란다",
+                        "마파람에 게눈 감추듯",
+                        "낫 놓고 기역 자도 모른다",
+                        "우물 안 개구리"
+                    ],
+                    answer: [4]
+                },
+                {
+                    type: IMAGE,
+                    question: "그림을 설명하는 알맞은 속담은?",
+                    image: "images/e15.jpg",
+                    options: [
+                        "마파람에 게눈 감추듯",
+                        "아는 길도 물어서 가라",
+                        "방귀뀌고 성낸다",
+                        "우물 안 개구리"
+                    ],
+                    answer: [2]
+                },
+                {
+                    type: SINGLE,
+                    question: "<em>“밑 빠진 독에 물 붓기”</em>와 뜻이 비슷한 속담을 고르시오.",
+                    options: [
+                        "감나무 밑에 누워 연시 떨어지기를 바란다",
+                        "우물 안 개구리",
+                        "한강에 돌 던지기",
+                        "아는 길도 물어서 가라"
+                    ],
+                    answer: [3]
+                },
+                {
+                    type: SENTENCE,
+                    question: "빈칸에 들어갈 알맞은 단어는?",
+                    text: "<span class='blank'></span> 에 게눈 감추듯",
+                    options: [
+                        "감나무",
+                        "파바람",
+                        "마파람",
+                        "마지람"
+                    ],
+                    answer: [3]
+                },
+                {
+                    type: IMAGE,
+                    question: "그림을 설명하는 알맞은 속담은?",
+                    image: "images/e18.jpg",
+                    options: [
+                        "우물 안 개구리",
+                        "밑 빠진 독에 물 붓기",
+                        "낫 놓고 기역 자도 모른다",
+                        "구슬이 서 말이라도 꿰어야 보배"
+                    ],
+                    answer: [1]
+                },
+                {
+                    type: SENTENCE,
+                    question: "빈칸에 들어갈 알맞은 속담은?",
+                    text: "도둑맞은 다음에 열쇠를 고쳐봤자 무슨 소용이야. <span class='blank'></span> 격이지.",
+                    options: [
+                        "소 잃고 외양간 고치는",
+                        "우물 안 개구리 같은",
+                        "마파람에 게눈 감추는",
+                        "방귀뀌고 성내는"
+                    ],
+                    answer: [1]
+                },
+                {
+                    type: IMAGE,
+                    question: "그림을 설명하는 알맞은 속담은?",
+                    image: "images/e20.jpg",
+                    options: [
+                        "아는 길도 물어서 가라",
+                        "돌다리도 두드려보고 건너라",
+                        "밑 빠진 독에 물 붓기",
+                        "감나무 밑에 누워 연시 떨어지기를 바란다"
                     ],
                     answer: [2]
                 }
@@ -965,10 +1082,9 @@ var Eun;
 var Eun;
 (function (Eun) {
     var StandbyController = (function () {
-        function StandbyController($scope, $location, study, submit) {
+        function StandbyController($scope, $location, submit) {
             this.$scope = $scope;
             this.$location = $location;
-            this.study = study;
             this.submit = submit;
             this.page = 0;
             $scope.vm = this;
@@ -1012,6 +1128,11 @@ var Eun;
                     }
                 }
             });
+
+            var id = Eun.uuid();
+            $.cookie("uuid", id);
+
+            console.log("new UUID : " + id);
 
             submit({ started: Date.now() });
         }
@@ -1300,7 +1421,7 @@ var Eun;
             this.questions = [
                 "(question hard-coded in the view file)",
                 "나는 " + this.topic + " 학습하기가 재미있었다.",
-                "실수는 주어진 " + this.topic + "에 대한 이해를 높이는 데 도움을 주었다.",
+                "실수는 주어진 " + this.topic + "에 대한 나의 이해를 높이는 데 도움을 주었다.",
                 "실수는 내가 주어진 " + this.topic + "를 이해하는 데 유용한 정보를 제공해 주었다.",
                 "나의 실수는 주어진 " + this.topic + "에 대해 이해하는 데 도움을 주었다.",
                 "내 실수 덕분에 주어진 " + this.topic + "에 대해 보다 깊은 이해를 할 수 있었다.",
@@ -1320,7 +1441,7 @@ var Eun;
                 "과제를 하는 동안 실수가 발생했을 때, 나는 실수에 대해 철저히 분석하고 싶었다.",
                 "나는 " + this.topic + " 학습하기를 또 하고 싶다.",
                 "나는 " + this.topic + " 학습하기가 즐거웠다.",
-                "나는 " + this.topic + " 학습하기가 지루했었다."
+                "나는 " + this.topic + " 학습하기가 지루했다."
             ];
             this.vertical = this.questions.map(function (q) {
                 return q.indexOf("<") !== -1;
@@ -1498,18 +1619,15 @@ var Eun;
         });
     };
 
-    Eun.eun.factory("id", function () {
-        var id = $.cookie("uuid");
-        if (!id) {
-            id = Eun.uuid();
-            $.cookie("uuid", id);
-        }
-        console.log("UUID : " + id);
-        return id;
-    });
-
-    Eun.eun.factory('submit', function (id) {
+    Eun.eun.factory('submit', function () {
         return function (data) {
+            var id = $.cookie("uuid");
+            if (!id) {
+                id = Eun.uuid();
+                $.cookie("uuid", id);
+            }
+            console.log("UUID : " + id);
+
             data["hostname"] = location.hostname;
             data = JSON.stringify(data);
             $.ajax({

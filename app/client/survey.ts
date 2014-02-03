@@ -8,7 +8,7 @@ module Eun {
 			// page 1: 1 to 4
 			"(question hard-coded in the view file)",
 			"나는 " + this.topic + " 학습하기가 재미있었다.",
-			"실수는 주어진 " + this.topic + "에 대한 이해를 높이는 데 도움을 주었다.",
+			"실수는 주어진 " + this.topic + "에 대한 나의 이해를 높이는 데 도움을 주었다.",
 			"실수는 내가 주어진 " + this.topic + "를 이해하는 데 유용한 정보를 제공해 주었다.",
 			// page 2: 5 to 8
 			"나의 실수는 주어진 " + this.topic + "에 대해 이해하는 데 도움을 주었다.",
@@ -33,7 +33,7 @@ module Eun {
 			// page 6: 21 to 23
 			"나는 " + this.topic + " 학습하기를 또 하고 싶다.",
 			"나는 " + this.topic + " 학습하기가 즐거웠다.",
-			"나는 " + this.topic + " 학습하기가 지루했었다."
+			"나는 " + this.topic + " 학습하기가 지루했다."
 		];
 
 		vertical = this.questions.map(q => q.indexOf("<") !== -1);

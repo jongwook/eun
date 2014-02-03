@@ -50,18 +50,15 @@ module Eun {
 
 	export var uuid = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => (c == 'x' ? (Math.random()*16|0) : ((Math.random()*16|0)&0x3|0x8)).toString(16));
 
-	eun.factory("id", () => {
-		var id = $.cookie("uuid");
-		if (!id) {
-			id = uuid();
-			$.cookie("uuid", id);
-		}
-		console.log("UUID : " + id);
-		return id;
-	});
-
-	eun.factory('submit', id => {
+	eun.factory('submit', () => {
 		return (data: any) => {
+			var id = $.cookie("uuid");
+			if (!id) {
+				id = uuid();
+				$.cookie("uuid", id);
+			}
+			console.log("UUID : " + id);
+
 			data["hostname"] = location.hostname;
 			data = JSON.stringify(data);
 			$.ajax({

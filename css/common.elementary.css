@@ -21,11 +21,11 @@ p {
 }
 
 .green {
-	color: green;
+	color: darkblue;
 }
 
 .green-box {
-	background: #1abd14;
+	background: #6db8ff;
 	color: white;
 	display: inline-block;
 	text-align: center;
@@ -35,7 +35,7 @@ p {
 }
 
 .pink {
-	color: #FF007F;
+	color: #007FFF;
 }
 
 .blue {
@@ -60,7 +60,7 @@ p {
 
 em {
 	font-style: normal;
-	color: #FF007F;
+	color: #007FFF;
 	font-size: 28pt;
 }
 
@@ -160,8 +160,8 @@ em {
 	right: 70px;
 	bottom: 50px;
 	z-index: 100;
-	border: 1px solid green;
-	background: #1DDB16;
+	border: 1px solid #303b80;
+	background: #6db8ff;
 }
 
 #nav button.next {
@@ -251,7 +251,7 @@ em {
 }
 
 .pink-box {
-	background-color: #fdd;
+	background-color: #ddf;
 	padding: 10px;
 }
 
@@ -432,7 +432,7 @@ em {
 }
 
 .timer {
-	background: #FF007F;
+	background: #007FFF;
 	width: 30px;
 	height: 50px;
 	position: absolute;

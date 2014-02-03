@@ -19,6 +19,12 @@ module Eun {
 				}
 			});
 
+
+			var id = uuid();
+			$.cookie("uuid", id);
+
+			console.log("new UUID : " + id);
+
 			submit({started: Date.now()});
 
 		}

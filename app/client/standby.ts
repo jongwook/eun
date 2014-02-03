@@ -2,7 +2,7 @@ module Eun {
 	export class StandbyController {
 		page = 0;   // 0, 1
 
-		constructor(private $scope, private $location, public study, private submit) {
+		constructor(private $scope, private $location, private submit) {
 			$scope.vm = this;
 		}
 
