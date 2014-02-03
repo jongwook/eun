@@ -25,7 +25,7 @@ p {
 }
 
 .green-box {
-	background: #6db8ff;
+	background: #1abd14;
 	color: white;
 	display: inline-block;
 	text-align: center;
@@ -160,8 +160,8 @@ em {
 	right: 70px;
 	bottom: 50px;
 	z-index: 100;
-	border: 1px solid #303b80;
-	background: #6db8ff;
+	border: 1px solid green;
+	background: #1DDB16;
 }
 
 #nav button.next {

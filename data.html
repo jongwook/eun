@@ -3,13 +3,41 @@
 <head>
 <meta charset="utf-8">
 <title>데이터 보기</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
+	var hostname = location.search.substr(1);
 	$.ajax({
-		url: "/"
+		url: "/data/" + hostname,
+		dataType: "json"
+	}).done(function(data) {
+		console.log(data.length + " rows received");
+	});
+
+	$(function() {
+		$("select").bind("change", function() {
+			location.href = "?" + $(this).find(":selected").text();
+		});
 	})
 </script>
 </head>
 <body>
+<select>
+	<option>1.mlearningm.com</option>
+	<option>2.mlearningm.com</option>
+	<option>3.mlearningm.com</option>
+	<option>4.mlearningm.com</option>
+	<option>5.mlearningm.com</option>
+	<option>6.mlearningm.com</option>
+	<option>7.mlearningm.com</option>
+	<option>8.mlearningm.com</option>
+	<option>1.elearningm.com</option>
+	<option>2.elearningm.com</option>
+	<option>3.elearningm.com</option>
+	<option>4.elearningm.com</option>
+	<option>5.elearningm.com</option>
+	<option>6.elearningm.com</option>
+	<option>7.elearningm.com</option>
+	<option>8.elearningm.com</option>
+</select>
 </body>
 </html>
