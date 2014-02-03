@@ -75,7 +75,7 @@ module Eun {
 					finished: Date.now()
 				});
 
-				this.$location.path("/finished");
+				this.$location.path("/finished").replace();
 			}
 
 			console.log("page : " + this.page);
