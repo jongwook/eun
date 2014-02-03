@@ -17,7 +17,7 @@ module Eun {
 				this.page++;
 			} else {
 				this.submit({quiz: Date.now()});
-				this.$location.path("/quiz");
+				this.$location.path("/quiz").replace();
 			}
 		}
 	}

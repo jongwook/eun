@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-ts");
 
 	// Configure grunt here
-	grunt.registerTask("default", ["ts:server", "ts:client"]);
+	grunt.registerTask("default", ["ts:client"]);
 
 	grunt.initConfig({
 		ts: {

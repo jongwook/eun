@@ -72,7 +72,7 @@ var el;
 (function (el) {
     (function (s07) {
         (function (quiz) {
-            quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="vm.problems[vm.stage].type === 4 && vm.page === 0" ng-bind="vm.problems[vm.stage].paragraph" class="pink-box small-text">		</div>		<div ng-if="(vm.problems[vm.stage].type !== 2 && vm.problems[vm.stage].type !== 4) ||		        vm.page === 1 && (vm.problems[vm.stage].type === 2 || vm.problems[vm.stage].type === 4)" style="padding-top: 20px;">			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}" style="max-height: 450px; width: auto;">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
+            quiz.html = '<div id="slide" class="quiz large-text">	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>	<div ng-if="vm.page <= 1">		<div ng-if="(vm.problems[vm.stage].type === 4 || vm.problems[vm.stage].type === 5) && vm.page === 0" ng-bind-html="vm.problems[vm.stage].text" class="pink-box small-text">		</div>		<div ng-if="(vm.problems[vm.stage].type !== 2 && vm.problems[vm.stage].type !== 5) ||		        vm.page === 1 && (vm.problems[vm.stage].type === 2 || vm.problems[vm.stage].type === 5)" style="padding-top: 20px;">			<table>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][0]" ng-value="true" ng-click="vm.clicked(0)"						       id="quiz-option-1">						<label for="quiz-option-1">① {{vm.problems[vm.stage].options[0]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][1]" ng-value="true" ng-click="vm.clicked(1)"						       id="quiz-option-2">						<label for="quiz-option-2">② {{vm.problems[vm.stage].options[1]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][2]" ng-value="true" ng-click="vm.clicked(2)"						       id="quiz-option-3">						<label for="quiz-option-3">③ {{vm.problems[vm.stage].options[2]}}</label>					</td>				</tr>				<tr>					<td>						<input type="{{vm.problems[vm.stage].type === 1 ? \'checkbox\' : \'radio\'}}"						       ng-model="vm.answers[vm.stage][3]" ng-value="true" ng-click="vm.clicked(3)"						       id="quiz-option-4">						<label for="quiz-option-4">④ {{vm.problems[vm.stage].options[3]}}</label>					</td>				</tr>			</table>		</div>		<div ng-if="vm.problems[vm.stage].type === 2 && vm.page === 0">			<img src="{{vm.problems[vm.stage].image}}" style="max-height: 450px; width: auto;">		</div>	</div>	<div ng-if="vm.page === 2" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/correct1.jpg">		</div>		<div style="position: absolute; right: 150px; top: 200px;">			<img src="images/correct2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">맞았습니다</p>	</div>	<div ng-if="vm.page === 3" class="result">		<div style="position: absolute; left: 200px; top: 100px;">			<img src="images/wrong1.jpg">		</div>		<div style="position: absolute; right: 200px; top: 150px;">			<img src="images/wrong2.jpg">		</div>		<p style="line-height: 480px; font-size: 30pt;">틀렸습니다</p>	</div>	<div ng-if="vm.page === 4">		<p ng-if="vm.feedback === \'date\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big blue">{{vm.stage}}문제</span>를 풀었으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big blue">{{vm.score}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			지금까지 총 {{vm.problems.length}}문제 중 <span class="big red">{{vm.problems.length - vm.stage}}문제</span>가 남았으며			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 100점 중	<span class="big red">{{100 - vm.score}}점</span> 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="left: {{(vm.score > 0) ? 33 : 0}}%; width:{{(vm.score > 0 ? vm.score : vm.score + 50)/3*2 }}%">{{vm.score}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{100 - (vm.score + 50)/150 * 100}}%">-{{100 - vm.score}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			-50　　　　　　　　　　　　　　　　　　0　　　　　　　　　　　　　　　　　　50　　　　　　　   　　　　　　　　　　　100		</div>	</div>	<div ng-if="vm.page === 5" class="group">		<p style="text-decoration: underline">본 과제를 통해 개인이 얻을 수 있는 <span class="big green">최고 100점</span> 중</p>		<p>			<table style="width:640px; margin: auto;">				<tr>					<td>당신은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><span class="blue">{{vm.score}} 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><span class="red">{{100 - vm.score}} 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 1은</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score1" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score1" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>				<tr>					<td>팀원 2는</td>					<td style="text-align: right;" ng-if="vm.feedback === \'date\'"><input ng-model="vm.score2" size="3" maxlength="3" class="blue" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="blue"> 점</span> 얻었습니다.</td>					<td style="text-align: right;" ng-if="vm.feedback === \'go\'"><input ng-model="vm.score2" size="3" maxlength="3" class="red" style="height: 40px;font-size: 20pt;position: relative;top: 0;"><span class="red"> 점</span> 모자랍니다.</td>				</tr>			</table>		</p>		<p style="text-decoration: underline">본 과제를 통해 팀이 얻을 수 있는 <span class="big green">최고 300점</span> 중</p>		<p>		<table style="width:640px; margin: auto;">			<tr>				<td>여러분 팀은</td>				<td style="text-align: right;" ng-if="vm.feedback === \'date\'">					<span class="blue">{{vm.groupscore}}점</span> 얻었습니다.				</td>				<td style="text-align: right;" ng-if="vm.feedback === \'go\'">					<span class="red">{{vm.groupscore}}점</span> 모자랍니다.				</td>			</tr>		</table>		</p>	</div>	<div ng-if="vm.page === 6">		<p ng-if="vm.feedback === \'date\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big blue">최종</span>적으로 <span class="big blue">{{vm.groupscore}}점</span>을 얻었습니다.		</p>		<p ng-if="vm.feedback === \'go\'">			여러분 팀은			<br>			본 과제를 통해 얻을 수 있는<br>			최고 점수 300점 중	<span class="big red">최종</span>적으로 <span class="big red">{{vm.groupscore}}점</span>이 모자랍니다.		</p>		<div class="score-bar">			<div ng-if="vm.feedback === \'date\'" class="score-gauge-date" style="width:{{(vm.groupscore > 0 ? vm.groupscore : 0)/3 }}%">{{vm.groupscore}}점</div>			<div ng-if="vm.feedback === \'go\'" class="score-gauge-go" style="width:{{vm.groupscore / 3}}%">-{{vm.groupscore}}점</div>		</div>		<div style="font-size: 14pt; text-align: center; white-space: nowrap; padding-top: 10px; position: relative; left: -18px;">			0　　　　　　　　　　　　　　　　　100　　　　　　　　　　　　　　　　　　200　　　　　　　  　　　　　　　　　　　300		</div>	</div>	<div class="timer">		<div class="timer-marker" style="right: 32px; top: -5px;">10</div>		<div class="timer-marker" style="right: 32px; top: 16px;">5</div>		<div class="timer-marker" style="right: 32px; top: 41px;">0</div>		<div class="hider" style="background: white; width: 100%; height: {{vm.hide * 50 / 100}}px;"></div>	</div></div><div id="nav">	<button class="prev" ng-click="vm.prev()" ng-show="vm.page === 1">이전</button>	<button class="skip" ng-click="vm.skip()" ng-show="vm.page <= 1 && vm.skips > 0">SKIP ({{vm.skips}})</button>	<button class="next" ng-click="vm.next()">다음</button></div>';
         })(s07.quiz || (s07.quiz = {}));
         var quiz = s07.quiz;
     })(el.s07 || (el.s07 = {}));
@@ -210,7 +210,8 @@ var Eun;
         });
     });
 
-    Eun.eun.factory('safeApply', [function ($rootScope) {
+    Eun.eun.factory('safeApply', [
+        function ($rootScope) {
             return function ($scope, fn) {
                 var phase = $scope.$root.$$phase;
                 if (phase == '$apply' || phase == '$digest') {
@@ -225,7 +226,8 @@ var Eun;
                     }
                 }
             };
-        }]);
+        }
+    ]);
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
@@ -284,7 +286,7 @@ var Eun;
                 other: this.other
             });
 
-            this.$location.path("/poll");
+            this.$location.path("/poll").replace();
         };
         return FormController;
     })();
@@ -377,7 +379,7 @@ var Eun;
                         return parseInt(x);
                     }) });
 
-                this.$location.path("/prep");
+                this.$location.path("/prep").replace();
             }
 
             console.log("page : " + this.page);
@@ -432,7 +434,7 @@ var Eun;
                 this.page++;
             } else {
                 this.submit({ studies: Date.now() });
-                this.$location.path("/study");
+                this.$location.path("/study").replace();
             }
         };
         return PrepController;
@@ -446,15 +448,17 @@ var Eun;
         ProblemType[ProblemType["MULTIPLE"] = 1] = "MULTIPLE";
         ProblemType[ProblemType["IMAGE"] = 2] = "IMAGE";
         ProblemType[ProblemType["BLANK"] = 3] = "BLANK";
-        ProblemType[ProblemType["PARAGRAPH"] = 4] = "PARAGRAPH";
+        ProblemType[ProblemType["SENTENCE"] = 4] = "SENTENCE";
+        ProblemType[ProblemType["PARAGRAPH"] = 5] = "PARAGRAPH";
     })(Eun.ProblemType || (Eun.ProblemType = {}));
     var ProblemType = Eun.ProblemType;
 
-    var SINGLE = 0 /* SINGLE */;
-    var MULTIPLE = 1 /* MULTIPLE */;
-    var IMAGE = 2 /* IMAGE */;
-    var BLANK = 3 /* BLANK */;
-    var PARAGRAPH = 4 /* PARAGRAPH */;
+    var SINGLE = ProblemType.SINGLE;
+    var MULTIPLE = ProblemType.MULTIPLE;
+    var IMAGE = ProblemType.IMAGE;
+    var BLANK = ProblemType.BLANK;
+    var SENTENCE = ProblemType.SENTENCE;
+    var PARAGRAPH = ProblemType.PARAGRAPH;
 
     var FIRST = 0;
     var SECOND = 1;
@@ -529,7 +533,7 @@ var Eun;
                 {
                     type: PARAGRAPH,
                     question: "아래의 상황에 알맞은 속담은?",
-                    paragraph: "수원이가 기분 좋게 책을 읽고 있는데 갑자기 이상한 냄새가 방 안에 퍼졌습니다. 순간 수원이는 함께 있던 오빠를 쳐다보며 “오빠, 지금 뿡 했지?” 하면서 코를 감쌌습니다. 수원이의 말에 기분이 상한 오빠는 “그래 내가 했다. 그래서 뭐?” 하고 버럭 화를 냈습니다. 갑작스런 오빠의 반응에 놀란 수원이는 황당해 하며 코를 막고 방에서 나왔습니다.",
+                    text: "수원이가 기분 좋게 책을 읽고 있는데 갑자기 이상한 냄새가 방 안에 퍼졌습니다. 순간 수원이는 함께 있던 오빠를 쳐다보며 “오빠, 지금 뿡 했지?” 하면서 코를 감쌌습니다. 수원이의 말에 기분이 상한 오빠는 “그래 내가 했다. 그래서 뭐?” 하고 버럭 화를 냈습니다. 갑작스런 오빠의 반응에 놀란 수원이는 황당해 하며 코를 막고 방에서 나왔습니다.",
                     options: [
                         "소 잃고 외양간 고친다",
                         "구슬이 서 말이라도 꿰어야 보배",
@@ -551,9 +555,9 @@ var Eun;
                     answer: [2]
                 },
                 {
-                    type: PARAGRAPH,
+                    type: SENTENCE,
                     question: "빈칸에 들어갈 알맞은 속담은?",
-                    paragraph: "어린 때라 달콤한 팥죽 한 그릇을 (빈칸) 후딱 먹어 치웠던 기억만 있다.",
+                    text: "어린 때라 달콤한 팥죽 한 그릇을 <span class='blank'></span> 후딱 먹어 치웠던 기억만 있다.",
                     options: [
                         "마파람에 게눈 감추듯	",
                         "방귀뀌고 성내는",
@@ -565,7 +569,7 @@ var Eun;
                 {
                     type: PARAGRAPH,
                     question: "빈칸에 들어갈 알맞은 속담은?",
-                    paragraph: "명섭:  오후에 눈이 온대요. 아빠 회사에 우산을 가져다 드려야겠어요.<br>엄마:  좋은 생각이다! 약도를 그려줄게 잘 보고 찾아가렴.<br>명섭:  필요 없어요. 어딘지 아는걸요!<br>얼마 후, 명섭이 우산을 들고 다시 집으로 돌아왔습니다.<br>엄마: 왜 다시 돌아왔니?<br>	명섭: 건물이 다 비슷해서 못 찾겠어요…☹<br>엄마: 그러게.. (빈칸) 고 했거늘..",
+                    text: "명섭:  오후에 눈이 온대요. 아빠 회사에 우산을 가져다 드려야겠어요.<br>엄마:  좋은 생각이다! 약도를 그려줄게 잘 보고 찾아가렴.<br>명섭:  필요 없어요. 어딘지 아는걸요!<br>얼마 후, 명섭이 우산을 들고 다시 집으로 돌아왔습니다.<br>엄마: 왜 다시 돌아왔니?<br>	명섭: 건물이 다 비슷해서 못 찾겠어요…☹<br>엄마: 그러게.. <span class='blank'></span> 고 했거늘..",
                     options: [
                         "한강에 돌 던지기",
                         "방귀뀌고 성낸다",
@@ -759,6 +763,10 @@ var Eun;
                     }
                 }
 
+                if (problem.type === SENTENCE || problem.type === PARAGRAPH) {
+                    problem.text = $sce.trustAsHtml(problem.text);
+                }
+
                 problem.question = $sce.trustAsHtml(problem.question);
             }
 
@@ -880,6 +888,7 @@ var Eun;
                         case SINGLE:
                         case MULTIPLE:
                         case BLANK:
+                        case SENTENCE:
                             this.checkAnswer();
                             break;
                         case IMAGE:
@@ -892,6 +901,7 @@ var Eun;
                         case SINGLE:
                         case MULTIPLE:
                         case BLANK:
+                        case SENTENCE:
                             console.error("Should not reach here");
                             break;
                         case IMAGE:
@@ -945,7 +955,7 @@ var Eun;
                     score2: this.score2,
                     groupscore: this.groupscore
                 });
-                this.$location.path("/survey");
+                this.$location.path("/survey").replace();
             }
         };
         return QuizController;
@@ -974,7 +984,7 @@ var Eun;
                 this.page++;
             } else {
                 this.submit({ quiz: Date.now() });
-                this.$location.path("/quiz");
+                this.$location.path("/quiz").replace();
             }
         };
         return StandbyController;
@@ -1027,7 +1037,7 @@ var Eun;
                     title: "낫 놓고 기역 자도 모른다",
                     story: "아직 한글을 아직 모르는 철수가 시골 할아버지 댁에 놀러 갔습니다. 마당에서 뛰어 놀던 철수에게 할아버지께서 말씀하셨습니다. “철수야, 창고에 가서 낫 좀 가지고 오거라. 날이 구부러져서 ‘ㄱ’자 같이 생겼단다.” 고개를 갸우뚱하던 철수가 할아버지께 되물었습니다. “할아버지, ‘ㄱ’자는 어떻게 생긴 건데요?”",
                     image: "images/s01.jpg",
-                    description: ["풀을 벨 때 쓰는 낫은 옛날부터 집집마다 흔하게 볼 수 있는 농기구로 ‘ㄱ’자를 닮았습니다. <b>“낫 놓고 기역 자도 모른다”</b>는 속담은 <em>‘ㄱ’자 모양으로 생긴 낫을 보면서도 ‘ㄱ’자를 모른다는 말로 아주 무식하다는 뜻</em>입니다. 우리 친구들은 낫 놓고 기역 자도 모르는 사람이 되지 않도록 학교에서 선생님 말씀도 잘 듣고 열심히 공부하도록 해요. ☺"]
+                    description: ["풀을 벨 때 쓰는 낫은 옛날부터 집집마다 흔하게 볼 수 있는 농기구로 ‘ㄱ’자를 닮았습니다. <b>“낫 놓고 기역 자도 모른다”</b>는 속담은 <em>‘ㄱ’자 모양으로 생긴 낫을 보면서도 ‘ㄱ’자를 모른다는 말로 아주 무식하다는 뜻</em>입니다. 우리 친구들은 낫 놓고 기역 자도 모르는 사람이 되지 않도록 학교에서 선생님 말씀도 잘 듣고 열심히 공부하도록 해요. ?"]
                 },
                 {
                     title: "우물 안 개구리",
@@ -1073,7 +1083,7 @@ var Eun;
                 },
                 {
                     title: "아는 길도 물어서 가라",
-                    story: "조선 시대의 개성 상인은 수완 좋고 신용 있기로 유명해서 장사를 배우고자 하는 많은 사람들이 몰려들었습니다. 그 중 두 젊은이의 재질을 본 대상인은 두 사람에게 사람 모으는 법, 사기 당하지 않는 법 등의 기술을 가르쳤습니다.  삼 년 넘게 많은 것을 배운 두 사람은 각자 가게를 열었습니다. 가게를 열자마자 한 사람은 먼저 개업한 이웃 가게들을 돌아다니며 여러 가지를 물었지만 다른 한 사람은 개성 최고의 상인에게 배운 자신이 지방 상인들의 이야기를 듣는 것이 시간 낭비라고 생각했습니다.  그러나 얼마 가지 않아 이웃 가게들을 돌아다니며 이것 저것 질문한 친구를 비웃던 사람은 큰 사기에 휘말려 가게를 통째로 날려버리게 되었습니다.",
+                    story: "조선 시대의 개성 상인은 수완 좋고 신용 있기로 유명해서 장사를 배우고자 하는 많은 사람들이 몰려들었습니다. 그 중 두 젊은이의 재질을 본 대상인은 두 사람에게 사람 모으는 법, 사기 당하지 않는 법 등의 기술을 가르쳤습니다.? 삼 년 넘게 많은 것을 배운 두 사람은 각자 가게를 열었습니다. 가게를 열자마자 한 사람은 먼저 개업한 이웃 가게들을 돌아다니며 여러 가지를 물었지만 다른 한 사람은 개성 최고의 상인에게 배운 자신이 지방 상인들의 이야기를 듣는 것이 시간 낭비라고 생각했습니다.  그러나 얼마 가지 않아 이웃 가게들을 돌아다니며 이것 저것 질문한 친구를 비웃던 사람은 큰 사기에 휘말려 가게를 통째로 날려버리게 되었습니다.",
                     description: ["이처럼 <b>“아는 길도 물어서 가라”</b>라는 속담은 <em>아무리 누구보다 잘 알고 자신만만한 쉬운 일이라도 실수하지 않기 위해서는 꼼꼼하고 철저하게 한번 더 살펴서 해야 한다</em>는 뜻입니다. "]
                 },
                 {
@@ -1205,7 +1215,8 @@ var Eun;
                     ],
                     story: "중국에 우공이라는 아흔 살 된 노인 집 앞에는 넓이가 칠백 리, 만 길 높이의 두 산이 가로막고 있어 생활하는데 무척 불편했습니다. 어느 날 노인은 가족들에게 가족이 힘을 합쳐 산을 옮기면 그 길이 넓어져 다니기에 편리할 것이라며 산을 옮기기 위해 가족들과 꼬박 1년이 걸려 지게에 흙을 지고 발해 바다에 갔다 버리고 돌아왔습니다. 이를 본 이웃 사람들이 무모하다며 비웃었지만 우공은 “내가 죽으면 내 아들, 그가 죽으면 손자가 계속 할 것이오. 그 동안 산은 깎여 나가겠지만 더 높아지지는 않을 테니 언젠가는 길이 날 것이오.”라고 말하였습니다.  이 말을 들은 옥황상제는 우공의 정성에 감동해 두 산을 없애주기로 했습니다.",
                     description: ["세상을 바꾸는 것은 머리 좋은 사람이 아니라 결코 포기하지 않고 끝까지 노력하는 사람임을 알려 주는 뜻을 가진 '우공이산(愚公移山)'은 우공이 산을 옮겨놓았다는 데서 유래하여 <em>어떤 일이든 끊임없이 노력하면 반드시 이루어짐</em>을 뜻하는 고사성어다. "]
-                }];
+                }
+            ];
             $scope.vm = this;
 
             for (var i = 0; i < this.idioms.length; i++) {
@@ -1235,7 +1246,7 @@ var Eun;
                     clearInterval(self.timer);
                     self.submit({ studied: Date.now() });
                     $scope.$apply(function () {
-                        return self.$location.path("/standby");
+                        return self.$location.path("/standby").replace();
                     });
                 }
             }, 1000);
@@ -1268,7 +1279,7 @@ var Eun;
             if (this.stage == this.idioms.length) {
                 clearInterval(this.timer);
                 this.submit({ studied: Date.now() });
-                this.$location.path("/standby");
+                this.$location.path("/standby").replace();
             }
         };
         return StudyController;
@@ -1388,7 +1399,7 @@ var Eun;
         WelcomeController.prototype.next = function () {
             this.submit({ welcomed: Date.now() });
             console.log("next");
-            this.$location.path("/form");
+            this.$location.path("/form").replace();
         };
         return WelcomeController;
     })();

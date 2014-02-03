@@ -35,7 +35,7 @@ module Eun {
 				this.page++;
 			} else {
 				this.submit({studies: Date.now()});
-				this.$location.path("/study");
+				this.$location.path("/study").replace();
 			}
 		}
 	}

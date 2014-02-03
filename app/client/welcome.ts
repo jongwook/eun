@@ -7,7 +7,7 @@ module Eun {
 		next() {
 			this.submit({welcomed: Date.now()});
 			console.log("next");
-			this.$location.path("/form");
+			this.$location.path("/form").replace();
 		}
 	}
 }

@@ -45,7 +45,7 @@ module Eun {
 				other: this.other
 			});
 
-			this.$location.path("/poll");
+			this.$location.path("/poll").replace();
 		}
 	}
 }

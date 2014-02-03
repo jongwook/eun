@@ -3,11 +3,11 @@
 <div id="slide" class="quiz large-text">
 	<h1 ng-if="vm.page <= 1">문제 {{vm.stage + 1}}. <span ng-bind-html="vm.problems[vm.stage].question"></span></h1>
 	<div ng-if="vm.page <= 1">
-		<div ng-if="vm.problems[vm.stage].type === 4 && vm.page === 0" ng-bind="vm.problems[vm.stage].paragraph" class="pink-box small-text">
+		<div ng-if="(vm.problems[vm.stage].type === 4 || vm.problems[vm.stage].type === 5) && vm.page === 0" ng-bind-html="vm.problems[vm.stage].text" class="pink-box small-text">
 		</div>
 
-		<div ng-if="(vm.problems[vm.stage].type !== 2 && vm.problems[vm.stage].type !== 4) ||
-		        vm.page === 1 && (vm.problems[vm.stage].type === 2 || vm.problems[vm.stage].type === 4)" style="padding-top: 20px;">
+		<div ng-if="(vm.problems[vm.stage].type !== 2 && vm.problems[vm.stage].type !== 5) ||
+		        vm.page === 1 && (vm.problems[vm.stage].type === 2 || vm.problems[vm.stage].type === 5)" style="padding-top: 20px;">
 			<table>
 				<tr>
 					<td>

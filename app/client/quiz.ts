@@ -4,6 +4,7 @@ module Eun {
 		MULTIPLE,
 		IMAGE,
 		BLANK,
+		SENTENCE,
 		PARAGRAPH
 	}
 
@@ -11,6 +12,7 @@ module Eun {
 	var MULTIPLE = ProblemType.MULTIPLE;
 	var IMAGE = ProblemType.IMAGE;
 	var BLANK = ProblemType.BLANK;
+	var SENTENCE = ProblemType.SENTENCE;
 	var PARAGRAPH = ProblemType.PARAGRAPH;
 
 	export interface Problem {
@@ -20,7 +22,7 @@ module Eun {
 		letters?: string[][];   // letter table if applicable
 		options: string[];      // the 4 options
 		answer: number[];         // the answer ( of 1, 2, 3, 4 )
-		paragraph?: string;
+		text?: string;
 	}
 
 	var FIRST = 0;
@@ -104,7 +106,7 @@ module Eun {
 			{
 				type: PARAGRAPH,
 				question: "아래의 상황에 알맞은 속담은?",
-				paragraph: "수원이가 기분 좋게 책을 읽고 있는데 갑자기 이상한 냄새가 방 안에 퍼졌습니다. 순간 수원이는 함께 있던 오빠를 쳐다보며 “오빠, 지금 뿡 했지?” 하면서 코를 감쌌습니다. 수원이의 말에 기분이 상한 오빠는 “그래 내가 했다. 그래서 뭐?” 하고 버럭 화를 냈습니다. 갑작스런 오빠의 반응에 놀란 수원이는 황당해 하며 코를 막고 방에서 나왔습니다.",
+				text: "수원이가 기분 좋게 책을 읽고 있는데 갑자기 이상한 냄새가 방 안에 퍼졌습니다. 순간 수원이는 함께 있던 오빠를 쳐다보며 “오빠, 지금 뿡 했지?” 하면서 코를 감쌌습니다. 수원이의 말에 기분이 상한 오빠는 “그래 내가 했다. 그래서 뭐?” 하고 버럭 화를 냈습니다. 갑작스런 오빠의 반응에 놀란 수원이는 황당해 하며 코를 막고 방에서 나왔습니다.",
 				options: [
 					"소 잃고 외양간 고친다",
 					"구슬이 서 말이라도 꿰어야 보배",
@@ -127,9 +129,9 @@ module Eun {
 				answer: [2]
 			},
 			{
-				type: PARAGRAPH,
+				type: SENTENCE,
 				question: "빈칸에 들어갈 알맞은 속담은?",
-				paragraph: "어린 때라 달콤한 팥죽 한 그릇을 (빈칸) 후딱 먹어 치웠던 기억만 있다.",
+				text: "어린 때라 달콤한 팥죽 한 그릇을 <span class='blank'></span> 후딱 먹어 치웠던 기억만 있다.",
 				options: [
 					"마파람에 게눈 감추듯	",
 					"방귀뀌고 성내는",
@@ -141,7 +143,7 @@ module Eun {
 			{
 				type: PARAGRAPH,
 				question: "빈칸에 들어갈 알맞은 속담은?",
-				paragraph: "명섭:  오후에 눈이 온대요. 아빠 회사에 우산을 가져다 드려야겠어요.<br>엄마:  좋은 생각이다! 약도를 그려줄게 잘 보고 찾아가렴.<br>명섭:  필요 없어요. 어딘지 아는걸요!<br>얼마 후, 명섭이 우산을 들고 다시 집으로 돌아왔습니다.<br>엄마: 왜 다시 돌아왔니?<br>	명섭: 건물이 다 비슷해서 못 찾겠어요…☹<br>엄마: 그러게.. (빈칸) 고 했거늘..",
+				text: "명섭:  오후에 눈이 온대요. 아빠 회사에 우산을 가져다 드려야겠어요.<br>엄마:  좋은 생각이다! 약도를 그려줄게 잘 보고 찾아가렴.<br>명섭:  필요 없어요. 어딘지 아는걸요!<br>얼마 후, 명섭이 우산을 들고 다시 집으로 돌아왔습니다.<br>엄마: 왜 다시 돌아왔니?<br>	명섭: 건물이 다 비슷해서 못 찾겠어요…☹<br>엄마: 그러게.. <span class='blank'></span> 고 했거늘..",
 				options: [
 					"한강에 돌 던지기",
 					"방귀뀌고 성낸다",
@@ -338,6 +340,10 @@ module Eun {
 					}
 				}
 
+				if (problem.type === SENTENCE || problem.type === PARAGRAPH) {
+					problem.text = $sce.trustAsHtml(problem.text);
+				}
+
 				problem.question = $sce.trustAsHtml(problem.question);
 			}
 
@@ -457,6 +463,7 @@ module Eun {
 						case SINGLE:
 						case MULTIPLE:
 						case BLANK:
+						case SENTENCE:
 							this.checkAnswer();
 							break;
 						case IMAGE:
@@ -469,6 +476,7 @@ module Eun {
 						case SINGLE:
 						case MULTIPLE:
 						case BLANK:
+						case SENTENCE:
 							console.error("Should not reach here");
 							break;
 						case IMAGE:
@@ -522,7 +530,7 @@ module Eun {
 					score2: this.score2,
 					groupscore: this.groupscore
 				});
-				this.$location.path("/survey");
+				this.$location.path("/survey").replace();
 			}
 		}
 

@@ -98,7 +98,7 @@ module Eun {
 
 				this.submit({poll: this.answers.map(x => parseInt(x))});
 
-				this.$location.path("/prep");
+				this.$location.path("/prep").replace();
 			}
 
 			console.log("page : " + this.page);
