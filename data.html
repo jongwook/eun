@@ -40,6 +40,7 @@
 					row.finished = date("m-d H:i:s", row.finished);
 					if (!row.poll) row.poll = new Array(40);
 					if (!row.answers) row.answers = new Array(20);
+					if (!row.results) row.results = new Array(20);
 					if (!row.survey) row.survey = new Array(23);
 				});
 
@@ -129,33 +130,36 @@ table th, td {
 	</thead>
 	<tbody>
 		<tr ng-if="data !== null && data.length > 0" ng-repeat-start="row in data">
-			<td rowspan="5">{{row.started}}</td>
-			<td rowspan="5">{{row.school}}</td>
-			<td rowspan="5">{{row.classroom}}</td>
-			<td rowspan="5">{{row.id}}</td>
-			<td rowspan="5">{{row.gender}}</td>
-			<td rowspan="5">{{row.language === "other" ? row.other : row.language}}</td>
-			<td ng-repeat="answer in row.poll track by $index" rowspan="5">{{answer}}</td>
-			<td rowspan="5">{{row.studies}}</td>
-			<td rowspan="5">{{row.studied}}</td>
-			<td rowspan="5">{{row.quiz}}</td>
-			<td ng-repeat="answer in row.answers track by $index">{{answer[0] ? 'O' : 'X'}}</td>
-			<td rowspan="5">{{row.quized}}</td>
-			<td rowspan="5">{{row.score}}</td>
-			<td rowspan="5">{{row.score1}}</td>
-			<td rowspan="5">{{row.score2}}</td>
-			<td rowspan="5">{{row.groupscore}}</td>
-			<td ng-repeat="answer in row.survey track by $index" rowspan="5">{{answer}}</td>
-			<td rowspan="5">{{row.finished}}</td>
+			<td rowspan="6">{{row.started}}</td>
+			<td rowspan="6">{{row.school}}</td>
+			<td rowspan="6">{{row.classroom}}</td>
+			<td rowspan="6">{{row.id}}</td>
+			<td rowspan="6">{{row.gender}}</td>
+			<td rowspan="6">{{row.language === "other" ? row.other : row.language}}</td>
+			<td ng-repeat="answer in row.poll track by $index" rowspan="6">{{answer}}</td>
+			<td rowspan="6">{{row.studies}}</td>
+			<td rowspan="6">{{row.studied}}</td>
+			<td rowspan="6">{{row.quiz}}</td>
+			<td ng-repeat="answer in row.answers track by $index">{{answer[0] ? '✓' : ''}}</td>
+			<td rowspan="6">{{row.quized}}</td>
+			<td rowspan="6">{{row.score}}</td>
+			<td rowspan="6">{{row.score1}}</td>
+			<td rowspan="6">{{row.score2}}</td>
+			<td rowspan="6">{{row.groupscore}}</td>
+			<td ng-repeat="answer in row.survey track by $index" rowspan="6">{{answer}}</td>
+			<td rowspan="6">{{row.finished}}</td>
 		</tr>
 		<tr>
-			<td ng-repeat="answer in row.answers track by $index">{{answer[1] ? 'O' : 'X'}}</td>
+			<td ng-repeat="answer in row.answers track by $index">{{answer[1] ? '✓' : ''}}</td>
 		</tr>
 		<tr>
-			<td ng-repeat="answer in row.answers track by $index">{{answer[2] ? 'O' : 'X'}}</td>
+			<td ng-repeat="answer in row.answers track by $index">{{answer[2] ? '✓' : ''}}</td>
 		</tr>
 		<tr>
-			<td ng-repeat="answer in row.answers track by $index">{{answer[3] ? 'O' : 'X'}}</td>
+			<td ng-repeat="answer in row.answers track by $index">{{answer[3] ? '✓' : ''}}</td>
+		</tr>
+		<tr>
+			<td ng-repeat="result in row.results track by $index">{{result}}</td>
 		</tr>
 		<tr ng-repeat-end>
 			<td ng-repeat="answer in row.answers track by $index">{{answer[4]}}</td>
