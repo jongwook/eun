@@ -11,6 +11,8 @@
 		dataType: "json"
 	}).done(function(data) {
 		console.log(data.length + " rows received");
+	}).fail(function() {
+
 	});
 
 	$(function() {
@@ -26,6 +28,9 @@ html, body {
 
 table {
 	border-collapse: collapse;
+}
+
+table th, td {
 	border: 1px solid #555;
 }
 </style>
@@ -58,7 +63,7 @@ table {
 			<th>학교</th>
 			<th>반</th>
 			<th>번호</th>
-			<th></th>
+			<th colspan=""></th>
 		</tr>
 	</thead>
 	<tbody>
