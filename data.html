@@ -110,6 +110,7 @@ table th, td {
 		<tr>
 			<th>시작<br>시각</th>
 			<th>학교</th>
+			<th>학년</th>
 			<th>반</th>
 			<th>번호</th>
 			<th>성별</th>
@@ -132,6 +133,7 @@ table th, td {
 		<tr ng-if="data !== null && data.length > 0" ng-repeat-start="row in data">
 			<td rowspan="6">{{row.started}}</td>
 			<td rowspan="6">{{row.school}}</td>
+			<td rowspan="6">{{row.year}}</td>
 			<td rowspan="6">{{row.classroom}}</td>
 			<td rowspan="6">{{row.id}}</td>
 			<td rowspan="6">{{row.gender}}</td>
