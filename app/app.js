@@ -1082,9 +1082,10 @@ var Eun;
 var Eun;
 (function (Eun) {
     var StandbyController = (function () {
-        function StandbyController($scope, $location, submit) {
+        function StandbyController($scope, $location, study, submit) {
             this.$scope = $scope;
             this.$location = $location;
+            this.study = study;
             this.submit = submit;
             this.page = 0;
             $scope.vm = this;
