@@ -241,10 +241,11 @@ var Eun;
 var Eun;
 (function (Eun) {
     var FormController = (function () {
-        function FormController($scope, $location, submit) {
+        function FormController($scope, $location, submit, elementary) {
             this.$scope = $scope;
             this.$location = $location;
             this.submit = submit;
+            this.elementary = elementary;
             this.school = "";
             this.year = "";
             this.classroom = "";
@@ -260,7 +261,7 @@ var Eun;
 
         FormController.prototype.next = function () {
             if (!this.school || !this.year || !this.classroom || !this.id) {
-                Eun.alert("중학교, 학년, 반, 번호를 입력하세요");
+                Eun.alert((this.elementary ? "초등학교" : "중학교") + ", 학년, 반, 번호를 입력하세요");
                 return;
             }
             if (!this.gender) {

@@ -9,7 +9,7 @@ module Eun {
 		language = "";      // 언어
 		other = "";         // 기타언어
 
-		constructor(private $scope, private $location, private submit) {
+		constructor(private $scope, private $location, private submit, private elementary) {
 			$scope.vm = this;
 		}
 
@@ -19,7 +19,7 @@ module Eun {
 
 		next(): void {
 			if (!this.school || !this.year || !this.classroom || !this.id) {
-                alert("중학교, 학년, 반, 번호를 입력하세요");
+                alert((this.elementary ? "초등학교" : "중학교") + ", 학년, 반, 번호를 입력하세요");
 				return;
 			}
 			if (!this.gender) {
