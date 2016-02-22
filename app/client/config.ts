@@ -79,7 +79,7 @@ module Eun {
 		var base = elementary ? el : mid;
 		$routeProvider
 			.when("/", {
-				title: "서울대학교 인지학습연구회",
+				title: "영남대학교 인지학습연구회",
 				template: base.s00.starter.html,
 				controller: "Eun.StarterController"
 			})

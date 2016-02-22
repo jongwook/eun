@@ -2,7 +2,7 @@ var el;
 (function (el) {
     (function (s00) {
         (function (starter) {
-            starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	속담 학습 프로그램</div>';
+            starter.html = '<div class="starter">	영남대학교 인지학습연구회<br>	속담 학습 프로그램</div>';
         })(s00.starter || (s00.starter = {}));
         var starter = s00.starter;
     })(el.s00 || (el.s00 = {}));
@@ -12,7 +12,7 @@ var el;
 (function (el) {
     (function (s01) {
         (function (welcome) {
-            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 어린이 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 서울대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>을 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 어린이 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 영남대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;초등학생이 꼭 알아야 할 속담&quot;</span>을 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
         })(s01.welcome || (s01.welcome = {}));
         var welcome = s01.welcome;
     })(el.s01 || (el.s01 = {}));
@@ -92,7 +92,7 @@ var el;
 (function (el) {
     (function (s09) {
         (function (finished) {
-            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
+            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 영남대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No. 2015-R-0063-002, 승인일:2016.1.8)	</div></div>';
         })(s09.finished || (s09.finished = {}));
         var finished = s09.finished;
     })(el.s09 || (el.s09 = {}));
@@ -102,7 +102,7 @@ var mid;
 (function (mid) {
     (function (s00) {
         (function (starter) {
-            starter.html = '<div class="starter">	서울대학교 인지학습연구회<br>	고사성어 프로그램</div>';
+            starter.html = '<div class="starter">	영남대학교 인지학습연구회<br>	고사성어 프로그램</div>';
         })(s00.starter || (s00.starter = {}));
         var starter = s00.starter;
     })(mid.s00 || (mid.s00 = {}));
@@ -112,7 +112,7 @@ var mid;
 (function (mid) {
     (function (s01) {
         (function (welcome) {
-            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 서울대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>를 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변을 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
+            welcome.html = '<div id="slide" class="large-text">	<p>		안녕하세요, 여러분! <br>		만나서 반갑습니다.	</p>	<p>		여러분은 지금부터 영남대학교 인지학습연구회에서 선정한<br>		<span class="pink">&quot;중학생이 꼭 알아야 할 고사성어&quot;</span>를 학습하게 될 것입니다.	</p>	<p>		학습을 시작하기에 앞서<br>		40개의 문항에 대해 여러분의 솔직한 답변을 부탁드립니다.	</p></div><div id="nav">	<button class="next" ng-click="vm.next()">다음</button></div>';
         })(s01.welcome || (s01.welcome = {}));
         var welcome = s01.welcome;
     })(mid.s01 || (mid.s01 = {}));
@@ -192,7 +192,7 @@ var mid;
 (function (mid) {
     (function (s09) {
         (function (finished) {
-            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 서울대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No.1312/001-021, 승인일:2013.12.15)	</div></div>';
+            finished.html = '<div id="slide" class="large-text finished pink">	수고하셨습니다 ☺	<div style="position: absolute;bottom: 50px;font-size: 10pt;text-align: right;display: inline-block;line-height: normal;width: 100%;right: 0;   color: #555;">		본 연구는 영남대학교 생명윤리심의위원회의 승인을 받았습니다(IRB No. 2015-R-0063-002, 승인일:2016.1.8)	</div></div>';
         })(s09.finished || (s09.finished = {}));
         var finished = s09.finished;
     })(mid.s09 || (mid.s09 = {}));
@@ -210,8 +210,7 @@ var Eun;
         });
     });
 
-    Eun.eun.factory('safeApply', [
-        function ($rootScope) {
+    Eun.eun.factory('safeApply', [function ($rootScope) {
             return function ($scope, fn) {
                 var phase = $scope.$root.$$phase;
                 if (phase == '$apply' || phase == '$digest') {
@@ -226,8 +225,7 @@ var Eun;
                     }
                 }
             };
-        }
-    ]);
+        }]);
 })(Eun || (Eun = {}));
 var Eun;
 (function (Eun) {
@@ -454,12 +452,12 @@ var Eun;
     })(Eun.ProblemType || (Eun.ProblemType = {}));
     var ProblemType = Eun.ProblemType;
 
-    var SINGLE = ProblemType.SINGLE;
-    var MULTIPLE = ProblemType.MULTIPLE;
-    var IMAGE = ProblemType.IMAGE;
-    var BLANK = ProblemType.BLANK;
-    var SENTENCE = ProblemType.SENTENCE;
-    var PARAGRAPH = ProblemType.PARAGRAPH;
+    var SINGLE = 0 /* SINGLE */;
+    var MULTIPLE = 1 /* MULTIPLE */;
+    var IMAGE = 2 /* IMAGE */;
+    var BLANK = 3 /* BLANK */;
+    var SENTENCE = 4 /* SENTENCE */;
+    var PARAGRAPH = 5 /* PARAGRAPH */;
 
     var FIRST = 0;
     var SECOND = 1;
@@ -1649,7 +1647,7 @@ var Eun;
         console.log("elementary : " + elementary);
         var base = elementary ? el : mid;
         $routeProvider.when("/", {
-            title: "서울대학교 인지학습연구회",
+            title: "영남대학교 인지학습연구회",
             template: base.s00.starter.html,
             controller: "Eun.StarterController"
         }).when("/welcome", {
