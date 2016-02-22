@@ -46,6 +46,6 @@ mongo.connect(MONGO_URL, function (err, db) {
 
     app.use("/", express.static(__dirname + "/.."));
 
-    app.listen(80);
+    app.listen(4501);
 });
 //# sourceMappingURL=server.js.map
