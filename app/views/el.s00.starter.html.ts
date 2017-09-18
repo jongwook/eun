@@ -1,1 +1,1 @@
-module el.s00.starter { export var html =  '<div class="starter">	영남대학교 인지학습연구회<br>	속담 학습 프로그램</div>' } 
+module el.s00.starter { export var html =  '<div class="starter">	영남대학교 인지학습연구회<br>	속담 학습 프로그램<br>	<button style="font-size: 14pt; padding:6px;" class="next" ng-click="vm.next()">다음</button></div>' } 

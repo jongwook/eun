@@ -12,6 +12,7 @@ module Eun {
 					count++;
 
 					if (count === 5) {
+						count = 0;
 						$scope.$apply(() => $scope.vm.next());
 					}
 				}

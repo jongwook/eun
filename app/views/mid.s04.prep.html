@@ -87,5 +87,5 @@
 
 <div id="nav">
 	<button class="prev" ng-click="vm.prev()" ng-if="vm.page > 0 && vm.page < 4">이전</button>
-	<button class="next" ng-click="vm.next()" ng-if="vm.page > 0 && vm.page < 4">다음</button>
+	<button class="next" ng-click="vm.next()" ng-if="vm.page >= 0 && vm.page < 4">다음</button>
 </div>

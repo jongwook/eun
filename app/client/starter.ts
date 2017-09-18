@@ -1,6 +1,6 @@
 module Eun {
 	export class StarterController {
-		constructor($scope, $location, type, feedback, group, study, submit) {
+		constructor($scope, private $location, type, feedback, group, study, submit) {
 			$scope.vm = this;
 
 			var count = 0;
@@ -27,6 +27,10 @@ module Eun {
 
 			submit({started: Date.now()});
 
+		}
+
+		next() {
+			this.$location.path("/welcome").replace();
 		}
 	}
 }
